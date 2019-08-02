@@ -31,7 +31,6 @@
 @interface Brick()
 
 @property (nonatomic, assign) kBrickCategoryType brickCategoryType;
-@property (nonatomic, assign) kBrickType brickType;
 
 @end
 
@@ -44,10 +43,7 @@
 {
     self = [super init];
     if (self) {
-        NSString *subclassName = NSStringFromClass([self class]);
-        BrickManager *brickManager = [BrickManager sharedBrickManager];
-        self.brickType = [brickManager brickTypeForClassName:subclassName];
-        self.brickCategoryType = [brickManager brickCategoryTypeForBrickType:self.brickType];
+        self.brickCategoryType = kControlBrick;
     }
     return self;
 }
@@ -118,7 +114,7 @@
 {
     if(self.brickCategoryType != brick.brickCategoryType)
         return NO;
-    if(self.brickType != brick.brickType)
+    if([self class] != [brick class])
         return NO;
 
     NSArray *firstPropertyList = [[Util propertiesOfInstance:self] allValues];
@@ -161,7 +157,6 @@
     if (! context) NSError(@"%@ must not be nil!", [CBMutableCopyContext class]);
     Brick *brick = [[self class] new];
     brick.brickCategoryType = self.brickCategoryType;
-    brick.brickType = self.brickType;
     [context updateReference:self WithReference:brick];
 
     NSDictionary *properties = [Util propertiesOfInstance:self];

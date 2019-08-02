@@ -55,4 +55,9 @@
     return self.receivedMessage;
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{MESSAGE}", nil];
+}
+
 @end

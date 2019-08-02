@@ -44,4 +44,9 @@
     self.objectComboBoxView = inlineViewSubViews[1];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{OBJECT}", nil];
+}
+
 @end

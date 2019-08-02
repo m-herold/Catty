@@ -72,6 +72,7 @@
 #import "BrickPhiroLightProtocol.h"
 #import "BrickPhiroToneProtocol.h"
 #import "BrickPhiroIfSensorProtocol.h"
+#import "BrickProtocol.h"
 #import "Pocket_Code-Swift.h"
 
 #define kSelectAllItemsTag 0
@@ -1040,9 +1041,17 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     [self changeDeleteBarButtonState];
     self.brickScaleTransition = [[BrickTransition alloc] initWithViewToAnimate:nil];
     [[BrickSelectionManager sharedInstance] reset];
-    // register brick cells for current brick category
-    NSDictionary *allBrickTypes = [[BrickManager sharedBrickManager] classNameBrickTypeMap];
-    for (NSString *className in allBrickTypes) {
+    
+    NSArray<Script*> *allScripts = [[CatrobatSetup class] registeredScripts];
+    for (Script *script in allScripts) {
+        NSString *className = NSStringFromClass([script class]);
+        [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
+                forCellWithReuseIdentifier:className];
+    }
+    
+    NSArray<Brick*> *allBricks = [[CatrobatSetup class] registeredBricks];
+    for (Brick *brick in allBricks) {
+        NSString *className = NSStringFromClass([brick class]);
         [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
                 forCellWithReuseIdentifier:className];
     }

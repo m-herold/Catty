@@ -57,7 +57,7 @@
 - (CGFloat)inlineViewOffsetY;
 + (CGFloat)cellHeight;
 
-- (void)hookUpSubViews:(NSArray *)inlineViewSubViews; // abstract
+- (void)hookUpSubViews:(NSArray*)inlineViewSubViews; // abstract
 - (BOOL)isScriptBrick;
 - (void)selectedState:(BOOL)selected setEditingState:(BOOL)editing;
 - (void)animate:(BOOL)animate;
@@ -68,5 +68,6 @@
 - (id<BrickCellDataProtocol>)dataSubviewForLineNumber:(NSInteger)line andParameterNumber:(NSInteger)parameter;
 - (id<BrickCellDataProtocol>)dataSubviewWithType:(Class)className;
 - (NSArray*)dataSubviews; // of id<BrickCellDataProtocol>
+- (NSArray<NSString*>*)parameters;
 
 @end

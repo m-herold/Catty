@@ -47,4 +47,9 @@
     self.valueTextField = inlineViewSubViews[3];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"LIST",@"{INT;range=(1,inf)}", nil];
+}
+
 @end

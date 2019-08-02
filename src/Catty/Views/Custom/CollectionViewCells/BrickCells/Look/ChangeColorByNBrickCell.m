@@ -39,4 +39,9 @@
     self.colorTextField = inlineViewSubViews[1];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];
+}
+
 @end

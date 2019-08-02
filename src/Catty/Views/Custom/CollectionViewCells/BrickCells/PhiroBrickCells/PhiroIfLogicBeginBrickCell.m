@@ -41,4 +41,9 @@
     self.rightTextLabel = inlineViewSubViews[2];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{PHIROIF}", nil];
+}
+
 @end

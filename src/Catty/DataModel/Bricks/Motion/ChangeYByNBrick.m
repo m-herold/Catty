@@ -66,4 +66,10 @@
 {
     return [self.yMovement getRequiredResources];
 }
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];
+}
+
 @end

@@ -44,114 +44,6 @@
 #import "LoopEndBrickCell.h"
 #import "Pocket_Code-Swift.h"
 
-// uncomment this to get special log outputs, etc...
-//#define LAYOUT_DEBUG 0
-
-// ----------------- REFACTOR BEGIN -------------------
-#define kControlBrickNameParams @[\
-    @[],                            /* project started */\
-    @[],                            /* tapped object   */\
-    @[],                            /* touched screen  */\
-    @"{FLOAT;range=(0.0f,inf)}",    /* wait            */\
-    @"{MESSAGE}",                   /* receive         */\
-    @"{MESSAGE}",                   /* broadcast       */\
-    @"{MESSAGE}",                   /* broadcast wait  */\
-    @"{TEXT}",                      /* note            */\
-    @[],                            /* forever         */\
-    @"{FLOAT;range=(-inf,inf)}",    /* if              */\
-    @"{FLOAT;range=(-inf,inf)}",    /* if then         */\
-    @[],                            /* else            */\
-    @[],                            /* if end          */\
-    @[],                            /* if then end     */\
-    @"{FLOAT;range=(-inf,inf)}",    /* wait until      */\
-    @"{INT;range=[0,inf)}",         /* repeat          */\
-    @"{FLOAT;range=(-inf,inf)}",    /* repeat until    */\
-    @[]                             /* loop end        */\
-]
-// motion bricks
-#define kMotionBrickNameParams @[\
-    @[@"{FLOAT;range=(-inf,inf)}", @"{FLOAT;range=(-inf,inf)}"], /* place at           */\
-    @"{FLOAT;range=(-inf,inf)}",                                 /* set X              */\
-    @"{FLOAT;range=(-inf,inf)}",                                 /* set Y              */\
-    @"{FLOAT;range=(-inf,inf)}",                                 /* change X by N      */\
-    @"{FLOAT;range=(-inf,inf)}",                                 /* change Y by N      */\
-    @[],                                                         /* if on edge bounce  */\
-    @"{INT;range=[0,inf)}",                                      /* move N steps       */\
-    @"{FLOAT;range=(-inf,inf)}",                                 /* turn left          */\
-    @"{FLOAT;range=(-inf,inf)}",                                 /* turn right         */\
-    @"{FLOAT;range=(-inf,inf)}",                                 /* point in direction */\
-    @"{OBJECT}",                                                 /* point to brick     */\
-    @[@"{FLOAT;range=(0,inf)}", @"{FLOAT;range=(-inf,inf)}", @"{FLOAT;range=(-inf,inf)}"], /* glide to brick     */\
-    @"{INT;range=[0,inf)}",                                      /* go N steps back    */\
-    @[],                                                         /* come to front      */\
-    @"{FLOAT;range=(-inf,inf)}"                                  /* vibration          */\
-]
-
-// sound bricks
-#define kSoundBrickNameParams @[\
-    @"{SOUND}",                     /* play sound         */\
-    @[],                            /* stop all sounds    */\
-    @"{FLOAT;range=(-inf,inf)}",    /* set volume to      */\
-    @"{FLOAT;range=(-inf,inf)}",    /* change volume to   */\
-    @"{INT}",                       /* speak              */\
-    @"{INT}"                        /* speak and wait     */\
-]
-
-// look bricks
-#define kLookBrickNameParams @[\
-    @"{LOOK}",                      /* set look                 */\
-    @"{LOOK}",                      /* set background           */\
-    @[],                            /* next background          */\
-    @[],                            /* previous background      */\
-    @"{FLOAT;range=(-inf,inf)}",    /* set size to              */\
-    @"{FLOAT;range=(-inf,inf)}",    /* change size by N         */\
-    @[],                            /* hide                     */\
-    @[],                            /* show                     */\
-    @"{FLOAT;range=(-inf,inf)}",    /* set ghost effect         */\
-    @"{FLOAT;range=(-inf,inf)}",    /* change ghost effect by N */\
-    @"{FLOAT;range=(-inf,inf)}",    /* set brightness           */\
-    @"{FLOAT;range=(-inf,inf)}",    /* change brightness by N   */\
-    @"{FLOAT;range=(-inf,inf)}",    /* set color to             */\
-    @"{FLOAT;range=(-inf,inf)}",    /* change color by N        */\
-    @[],                            /* clear graphic effect     */\
-    @"{STATICCHOICE}",              /* flash brick              */\
-    @"{STATICCHOICE}",              /* camera brick             */\
-    @"{STATICCHOICE}",              /* choose camera brick      */\
-    @"{INT}",                       /* SayBubbleBrick           */\
-    @[@"{INT}", @"{INT}"],          /* SayForBubbleBrick        */\
-    @"{INT}",                       /* ThinkBubbleBrick         */\
-    @[@"{INT}", @"{INT}"]           /* ThinkForBubbleBrick      */\
-]
-
-// variable and list bricks
-#define kVariableBrickNameParams @[\
-    @[@"{VARIABLE}",@"{FLOAT;range=(-inf,inf)}"],    /* set size to              */\
-    @[@"{VARIABLE}",@"{FLOAT;range=(-inf,inf)}"],    /* change size by N         */\
-    @[@"{VARIABLE}",@"{FLOAT;range=(-inf,inf)}",@"{FLOAT;range=(-inf,inf)}"],    /* ShowText              */\
-    @[@"{VARIABLE}"],     /* hide Text        */\
-    @[@"{FLOAT;range=(-inf,inf)}",@"{LIST}"],   /* add item to user list        */\
-    @[@"LIST",@"{INT;range=(1,inf)}"],    /* delete item of user list          */\
-    @[@"{FLOAT;range=(-inf,inf)}",@"{LIST}",@"{INT;range=(1,inf)}"],    /* insert item into user list   */\
-	@[@"{LIST}",@"{INT;range=(1,inf)}",@"{FLOAT;range=(-inf,inf)}"],    /* replace item in user list    */\
-]
-
-// arduino bricks
-#define kArduinoBrickNameParams @[\
-@[@"{FLOAT;range=(-inf,inf)}", @"{FLOAT;range=(-inf,inf)}"], /* SendDigitalValue          */\
-@[@"{FLOAT;range=(-inf,inf)}", @"{FLOAT;range=(-inf,inf)}"], /* SendPWMValue           */\
-]
-
-// phiro bricks
-#define kPhiroBrickNameParams @[\
-@[@"{MOTOR}"],    /* stop Phiro Motor             */\
-@[@"{MOTOR}",@"{FLOAT;range=(-inf,inf)}"],     /* move forward         */\
-@[@"{MOTOR}",@"{FLOAT;range=(-inf,inf)}"],     /* move backward         */\
-@[@"{SOUND}",@"{FLOAT;range=(-inf,inf)}"],     /* play tone         */\
-@[@"{LIGHT}",@"{FLOAT;range=(-inf,inf)}",@"{FLOAT;range=(-inf,inf)}",@"{FLOAT;range=(-inf,inf)}"],     /*light         */\
-@[@"{PHIROIF}"],     /*phiro if         */\
-]
-// ----------------- REFACTOR END -------------------
-
 @interface BrickCell ()
 @property (nonatomic, weak) BrickCellInlineView *inlineView;
 @property (nonatomic, assign, getter = isEditing) BOOL editing;
@@ -230,11 +122,6 @@
 - (kBrickCategoryType)categoryType
 {
     return self.scriptOrBrick.brickCategoryType;
-}
-
-- (kBrickType)brickType
-{
-    return self.scriptOrBrick.brickType;
 }
 
 - (void)setEnabled:(BOOL)enabled
@@ -357,40 +244,8 @@
 {
     CGRect canvasFrame = CGRectMake(kBrickInlineViewCanvasOffsetX, kBrickInlineViewCanvasOffsetY, self.inlineView.frame.size.width, self.inlineView.frame.size.height);
 
-    // get correct NSString array
-    NSArray *brickCategoryParams = nil;
-    switch (self.categoryType) {
-        case kControlBrick:
-            brickCategoryParams = kControlBrickNameParams;
-            break;
-        case kMotionBrick:
-            brickCategoryParams = kMotionBrickNameParams;
-            break;
-        case kSoundBrick:
-            brickCategoryParams = kSoundBrickNameParams;
-            break;
-        case kLookBrick:
-            brickCategoryParams = kLookBrickNameParams;
-            break;
-        case kVariableBrick:
-            brickCategoryParams = kVariableBrickNameParams;
-            break;
-        case kPhiroBrick:
-            brickCategoryParams = kPhiroBrickNameParams;
-            break;
-        case kArduinoBrick:
-            brickCategoryParams = kArduinoBrickNameParams;
-            break;
-        default:
-            NSError(@"unknown brick category type given");
-            abort();
-    }
-
-    BrickManager *brickManager = [BrickManager sharedBrickManager];
-    NSUInteger brickIndex = [brickManager brickIndexForBrickType:self.brickType];
     NSString *brickTitle = self.brickTitle;
-    id brickParamsUnconverted = brickCategoryParams[brickIndex];
-    NSArray *brickParams = (([brickParamsUnconverted isKindOfClass:[NSString class]]) ? @[brickParamsUnconverted] : brickParamsUnconverted);
+    NSArray *brickParams = self.parameters;
     NSArray *subviews = nil;
 
     // check if it is a "two-liner" or a "one-liner" brick
@@ -461,10 +316,6 @@
     if (! totalNumberOfParams) {
         NSMutableArray *subviews = [NSMutableArray array];
         UILabel *textLabel = [UIUtil newDefaultBrickLabelWithFrame:remainingFrame AndText:labelTitle andRemainingSpace:remainingFrame.size.width];
-#ifdef LAYOUT_DEBUG
-        NSLog(@"Label Title: %@, Width: %f, Height: %f", labelTitle, remainingFrame.size.width, remainingFrame.size.height);
-        textLabel.backgroundColor = [UIColor yellowColor];
-#endif
         [subviews addObject:textLabel];
         return subviews;
     }
@@ -478,10 +329,6 @@
     for (NSString *partLabelTitle in partLabels) {
         if (partLabelTitle.length) {
             UILabel *textLabel = [UIUtil newDefaultBrickLabelWithFrame:remainingFrame AndText:partLabelTitle andRemainingSpace:remainingFrame.size.width];
-    #ifdef LAYOUT_DEBUG
-            NSLog(@"Label Title: %@, Width: %f, Height: %f", partLabelTitle, remainingFrame.size.width, remainingFrame.size.height);
-            textLabel.backgroundColor = [UIColor blueColor];
-    #endif
             remainingFrame.origin.x += (textLabel.frame.size.width + kBrickInputFieldLeftMargin);
             remainingFrame.size.width -= (textLabel.frame.size.width + kBrickInputFieldLeftMargin);
             [subviews addObject:textLabel];
@@ -653,6 +500,11 @@
 - (NSArray*)dataSubviews
 {
     return [self.inlineView dataSubviews];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [NSArray new];
 }
 
 @end

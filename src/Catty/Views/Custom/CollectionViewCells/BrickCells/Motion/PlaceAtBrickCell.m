@@ -49,4 +49,9 @@
     self.yCoordTextField = inlineViewSubViews[4];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", @"{FLOAT;range=(-inf,inf)}", nil];
+}
+
 @end

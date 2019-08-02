@@ -44,4 +44,9 @@
     self.sayTextField = inlineViewSubViews[1];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{INT}", nil];
+}
+
 @end

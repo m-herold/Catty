@@ -48,4 +48,9 @@
     self.secondRowRightTextLabel = inlineViewSubViews[3];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];
+}
+
 @end

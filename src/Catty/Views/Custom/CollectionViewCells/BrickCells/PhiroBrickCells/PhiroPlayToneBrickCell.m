@@ -49,4 +49,9 @@
     self.thirdRowTextLabel2 = inlineViewSubViews[4];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{SOUND}",@"{FLOAT;range=(-inf,inf)}", nil];
+}
+
 @end

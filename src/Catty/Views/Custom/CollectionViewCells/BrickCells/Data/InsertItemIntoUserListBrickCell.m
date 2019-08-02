@@ -50,4 +50,9 @@
     self.positionTextField = inlineViewSubViews[5];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}",@"{LIST}",@"{INT;range=(1,inf)}", nil];
+}
+
 @end

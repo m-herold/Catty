@@ -49,4 +49,8 @@ import Foundation
         self.delayTextField = inlineViewSubViews[1] as? UITextField
         self.rightTextLabel = inlineViewSubViews[2] as? UILabel
     }
+
+    override func parameters() -> [String] {
+        return ["{FLOAT;range=(0.0f,inf)}"]
+    }
 }

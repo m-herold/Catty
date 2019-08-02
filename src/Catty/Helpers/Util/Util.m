@@ -35,6 +35,7 @@
 #import "BDKNotifyHUD.h"
 #import <objc/runtime.h>
 #import "OrderedDictionary.h"
+#import "ScriptProtocol.h"
 #import "Pocket_Code-Swift.h"
 #import <sys/utsname.h>
 
@@ -693,10 +694,10 @@
 }
 
 
-+ (void)incrementStatisticCountForBrickType:(kBrickType)brickType
++ (void)incrementStatisticCountForBrick:(id<ScriptProtocol>)brick
 {
     NSDictionary *insertionStatistic = [self getBrickInsertionDictionaryFromUserDefaults];
-    NSString *wrappedBrickType = [NSNumber numberWithUnsignedInteger:(NSUInteger)brickType].stringValue;
+    NSString *wrappedBrickType = NSStringFromClass([brick class]);
     NSNumber *old_count = [insertionStatistic objectForKey:wrappedBrickType];
     NSMutableDictionary* mutableInsertionStatistic = [insertionStatistic mutableCopy];
     [mutableInsertionStatistic setValue:[NSNumber numberWithInt:old_count.intValue+1] forKey:wrappedBrickType];
@@ -751,7 +752,7 @@
 
 + (NSDictionary*)defaultBrickStatisticDictionary
 {
-    NSArray* defautArray = kDefaultFavouriteBricksStatisticArray;
+    NSArray* defautArray = [NSArray new];
     OrderedDictionary * dict = [[OrderedDictionary alloc] initWithCapacity:defautArray.count];
     for (NSString * brick in defautArray.reverseObjectEnumerator) {
         [dict insertObject:kNSNumberZero forKey:brick atIndex:0];

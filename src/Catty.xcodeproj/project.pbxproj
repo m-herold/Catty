@@ -571,6 +571,7 @@
 		4CF072A820D6710F00F93AB5 /* FingerXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF072A420D6710F00F93AB5 /* FingerXSensor.swift */; };
 		4CF072A920D6710F00F93AB5 /* FingerTouchedSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF072A520D6710F00F93AB5 /* FingerTouchedSensor.swift */; };
 		4CF072AE20D6753D00F93AB5 /* DateYearSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF072AD20D6753D00F93AB5 /* DateYearSensor.swift */; };
+		4CF2F99022F487D9005D1CEF /* CatrobatSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2F98F22F487D9005D1CEF /* CatrobatSetup.swift */; };
 		4CF3BD6C21B1B72D006DB806 /* InvalidBricksAndScripts.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4CF3BD6A21B1B72D006DB806 /* InvalidBricksAndScripts.xml */; };
 		4CF3BD6D21B1B72D006DB806 /* ValidFormulaList.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4CF3BD6B21B1B72D006DB806 /* ValidFormulaList.xml */; };
 		4CF429EA213A64B600B78897 /* InternFormulaKeyboardAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF429E9213A64B600B78897 /* InternFormulaKeyboardAdapterTests.swift */; };
@@ -2001,6 +2002,7 @@
 		4CF072A420D6710F00F93AB5 /* FingerXSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerXSensor.swift; sourceTree = "<group>"; };
 		4CF072A520D6710F00F93AB5 /* FingerTouchedSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerTouchedSensor.swift; sourceTree = "<group>"; };
 		4CF072AD20D6753D00F93AB5 /* DateYearSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateYearSensor.swift; sourceTree = "<group>"; };
+		4CF2F98F22F487D9005D1CEF /* CatrobatSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatrobatSetup.swift; sourceTree = "<group>"; };
 		4CF3BD6A21B1B72D006DB806 /* InvalidBricksAndScripts.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InvalidBricksAndScripts.xml; sourceTree = "<group>"; };
 		4CF3BD6B21B1B72D006DB806 /* ValidFormulaList.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ValidFormulaList.xml; sourceTree = "<group>"; };
 		4CF429E9213A64B600B78897 /* InternFormulaKeyboardAdapterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternFormulaKeyboardAdapterTests.swift; path = Formula/InternFormulaKeyboardAdapterTests.swift; sourceTree = "<group>"; };
@@ -7833,6 +7835,7 @@
 				4C724D851B4D3E8C00E27479 /* Parser&Serialializer */,
 				92FF310A1A24DEB300093DA7 /* ViewController */,
 				92FF31621A24E2F400093DA7 /* Views */,
+				4CF2F98F22F487D9005D1CEF /* CatrobatSetup.swift */,
 			);
 			path = Catty;
 			sourceTree = "<group>";
@@ -9364,6 +9367,7 @@
 				AA74F0C51BC05FCE00D1E954 /* PlaySoundBrickCell.m in Sources */,
 				598319991FBB90CB00639BBF /* IntroductionViewController.swift in Sources */,
 				4CE6788F210C506B00D90B5D /* FunctionManagerProtocol.swift in Sources */,
+				4CF2F99022F487D9005D1CEF /* CatrobatSetup.swift in Sources */,
 				92DFB0151A38949E00FA9B0F /* InternFormulaParserEmptyStackException.m in Sources */,
 				926198021BF48384006D1A61 /* BluetoothMocks.swift in Sources */,
 				AA74EFF31BC05B5F00D1E954 /* ClearGraphicEffectBrick.m in Sources */,

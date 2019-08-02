@@ -30,7 +30,6 @@
 @interface Brick : NSObject <BrickProtocol>
 
 @property (nonatomic, readonly) kBrickCategoryType brickCategoryType;
-@property (nonatomic, readonly) kBrickType brickType;
 @property (nonatomic, strong, readonly) NSString *brickTitle;
 @property (nonatomic, weak) Script *script;
 @property (nonatomic, getter=isAnimated) BOOL animate;

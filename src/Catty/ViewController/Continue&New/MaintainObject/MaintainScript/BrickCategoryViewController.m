@@ -22,6 +22,7 @@
 
 #import "BrickCategoryViewController.h"
 #import "BrickManager.h"
+#import "Pocket_Code-Swift.h"
 
 @interface BrickCategoryViewController ()
 @property (nonatomic, assign) PageIndexCategoryType pageIndexCategoryType;
@@ -81,11 +82,20 @@
 #pragma mark - Setup
 - (void)setupSubviews
 {
-    NSDictionary *allBrickTypes = [[BrickManager sharedBrickManager] classNameBrickTypeMap];
-    for (NSString *className in allBrickTypes) {
+    NSArray<Script*> *allScripts = [[CatrobatSetup class] registeredScripts];
+    for (Script *script in allScripts) {
+        NSString *className = NSStringFromClass([script class]);
         [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
                 forCellWithReuseIdentifier:className];
     }
+    
+    NSArray<Brick*> *allBricks = [[CatrobatSetup class] registeredBricks];
+    for (Brick *brick in allBricks) {
+        NSString *className = NSStringFromClass([brick class]);
+        [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
+                forCellWithReuseIdentifier:className];
+    }
+    
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.view.backgroundColor = [UIColor clearColor];
 }
@@ -143,9 +153,9 @@ didSelectItemAtIndexPath:(NSIndexPath*)indexPath
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
     BrickCell *cell = (BrickCell*)[collectionView cellForItemAtIndexPath:indexPath];
     NSAssert(cell.scriptOrBrick, @"Error, no brick.");
-    if ([cell.scriptOrBrick brickType] < 500) {
-        [Util incrementStatisticCountForBrickType:[cell.scriptOrBrick brickType]];
-    }
+    
+    [Util incrementStatisticCountForBrick:cell.scriptOrBrick];
+    
     if ([self.delegate respondsToSelector:@selector(brickCategoryViewController:didSelectScriptOrBrick:)]) {
         [self.delegate brickCategoryViewController:self didSelectScriptOrBrick:cell.scriptOrBrick];
     }

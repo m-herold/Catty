@@ -53,4 +53,9 @@
     self.valueTextField3 = inlineViewSubViews[7];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{LIGHT}",@"{FLOAT;range=(-inf,inf)}",@"{FLOAT;range=(-inf,inf)}",@"{FLOAT;range=(-inf,inf)}", nil];
+}
+
 @end

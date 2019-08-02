@@ -30,7 +30,6 @@
 
 @interface Script()
 @property (nonatomic, readwrite) kBrickCategoryType brickCategoryType;
-@property (nonatomic, readwrite) kBrickType brickType;
 @end
 
 @implementation Script
@@ -38,9 +37,7 @@
 - (id)init
 {
     if (self = [super init]) {
-        NSString *subclassName = NSStringFromClass([self class]);
         BrickManager *brickManager = [BrickManager sharedBrickManager];
-        self.brickType = [brickManager brickTypeForClassName:subclassName];
         self.brickCategoryType = [brickManager brickCategoryTypeForBrickType:self.brickType];
     }
     return self;
@@ -98,7 +95,7 @@
     
     Script *copiedScript = [[self class] new];
     copiedScript.brickCategoryType = self.brickCategoryType;
-    copiedScript.brickType = self.brickType;
+    
     if ([self isKindOfClass:[WhenScript class]]) {
         CBAssert([copiedScript isKindOfClass:[WhenScript class]]);
         WhenScript *whenScript = (WhenScript*)self;

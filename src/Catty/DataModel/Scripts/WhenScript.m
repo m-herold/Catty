@@ -24,6 +24,14 @@
 
 @implementation WhenScript
 
+- (instancetype)init {
+    self = [super init];
+    if(self) {
+        self.action = kWhenScriptDefaultAction;
+    }
+    return self;
+}
+
 - (NSString*)brickTitle
 {
     return kLocalizedWhenTapped;

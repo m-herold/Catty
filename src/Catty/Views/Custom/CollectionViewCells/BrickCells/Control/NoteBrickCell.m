@@ -44,4 +44,9 @@
     self.noteTextField = inlineViewSubViews[1];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{TEXT}", nil];
+}
+
 @end

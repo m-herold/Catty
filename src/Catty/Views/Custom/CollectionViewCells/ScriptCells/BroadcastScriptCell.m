@@ -58,4 +58,9 @@
     return self;
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{MESSAGE}", nil];
+}
+
 @end

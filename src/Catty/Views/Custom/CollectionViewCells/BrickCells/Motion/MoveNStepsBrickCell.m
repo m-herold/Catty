@@ -41,4 +41,9 @@
     self.rightTextLabel = inlineViewSubViews[2];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{INT;range=[0,inf)}", nil];
+}
+
 @end

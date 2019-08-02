@@ -39,4 +39,9 @@
     self.stepsTextField = inlineViewSubViews[1];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{INT;range=[0,inf)}", nil];
+}
+
 @end
