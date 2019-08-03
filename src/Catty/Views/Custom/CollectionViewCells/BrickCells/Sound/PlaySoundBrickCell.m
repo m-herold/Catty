@@ -44,6 +44,11 @@
     self.soundComboBoxView = inlineViewSubViews[1];
 }
 
+- (kBrickCategoryType)category
+{
+    return kSoundBrick;
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{SOUND}", nil];

@@ -39,6 +39,11 @@
     self.stepsTextField = inlineViewSubViews[1];
 }
 
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{INT;range=[0,inf)}", nil];

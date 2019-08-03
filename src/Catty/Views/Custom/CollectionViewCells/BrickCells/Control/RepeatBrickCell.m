@@ -41,6 +41,11 @@
     self.rightTextLabel = inlineViewSubViews[2];
 }
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{INT;range=[0,inf)}", nil];

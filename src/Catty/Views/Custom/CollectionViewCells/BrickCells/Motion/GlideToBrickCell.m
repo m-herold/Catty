@@ -36,6 +36,11 @@
     [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.motionBrickBlueColor strokeColor:UIColor.motionBrickStrokeColor height:largeBrick width:[Util screenWidth]];
 }
 
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 + (CGFloat)cellHeight
 {
     return kBrickHeight3h;

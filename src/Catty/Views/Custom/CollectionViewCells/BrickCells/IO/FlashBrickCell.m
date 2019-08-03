@@ -30,7 +30,7 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.lookBrickGreenColor strokeColor:UIColor.controlBrickStrokeColor height:mediumBrick width:[Util screenWidth ]];
+    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.lookBrickGreenColor strokeColor:UIColor.lookBrickStrokeColor height:mediumBrick width:[Util screenWidth ]];
 }
 
 + (CGFloat)cellHeight
@@ -42,6 +42,11 @@
 {
     self.textLabel = inlineViewSubViews[0];
     self.messageComboBoxView = inlineViewSubViews[1];
+}
+
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
 }
 
 - (NSArray<NSString*>*)parameters

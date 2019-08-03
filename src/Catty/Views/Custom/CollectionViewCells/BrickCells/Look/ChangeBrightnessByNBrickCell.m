@@ -46,6 +46,11 @@
     self.brightnessTextField = inlineViewSubViews[2];
 }
 
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];

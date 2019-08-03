@@ -88,11 +88,10 @@
                                              UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) BrickTransition *brickScaleTransition;
-//@property (nonatomic, strong) NSMutableArray *selectedIndexPositions;  // refactor
 @property (nonatomic, strong) NSIndexPath *variableIndexPath;
 @property (nonatomic, assign) BOOL isEditingBrickMode;
 @property (nonatomic, assign) BOOL batchUpdateMutex;
-@property (nonatomic) PageIndexCategoryType lastSelectedBrickCategoryType;
+@property (nonatomic, strong) BrickCategory *lastSelectedCategory;
 @property (nonatomic, strong) FormulaManager *formulaManager;
 @end
 
@@ -166,7 +165,9 @@
                                               options:@{
                                                         UIPageViewControllerOptionInterPageSpacingKey : @20.f
                                                         }];
-        BrickCategoryViewController *bcvc = [[BrickCategoryViewController alloc] initWithBrickCategory:self.lastSelectedBrickCategoryType andObject:self.object andPageIndexArray:bsvc.pageIndexArray];
+        
+        BrickCategory *selectedCategory = self.lastSelectedCategory == nil ? [bsvc.categories firstObject] : self.lastSelectedCategory;
+        BrickCategoryViewController *bcvc = [[BrickCategoryViewController alloc] initWithBrickCategory:selectedCategory andObject:self.object];
         bcvc.delegate = self;
         
         [bsvc setViewControllers:@[bcvc]
@@ -602,7 +603,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     [self dismissViewControllerAnimated:YES completion:NULL];
     scriptOrBrick = [scriptOrBrick mutableCopyWithContext:[CBMutableCopyContext new]];
     [scriptOrBrick setDefaultValuesForObject:self.object];
-    self.lastSelectedBrickCategoryType = brickCategoryViewController.pageIndexCategoryType;
+    self.lastSelectedCategory = brickCategoryViewController.category;
     brickCategoryViewController.delegate = nil;
     self.placeHolderView.hidden = YES;
     BrickInsertManager* manager = [BrickInsertManager sharedInstance];
@@ -1042,15 +1043,8 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     self.brickScaleTransition = [[BrickTransition alloc] initWithViewToAnimate:nil];
     [[BrickSelectionManager sharedInstance] reset];
     
-    NSArray<Script*> *allScripts = [[CatrobatSetup class] registeredScripts];
-    for (Script *script in allScripts) {
-        NSString *className = NSStringFromClass([script class]);
-        [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
-                forCellWithReuseIdentifier:className];
-    }
-    
-    NSArray<Brick*> *allBricks = [[CatrobatSetup class] registeredBricks];
-    for (Brick *brick in allBricks) {
+    NSArray<id<ScriptProtocol>> *allBricks = [[CatrobatSetup class] registeredBricks];
+    for (id<ScriptProtocol> brick in allBricks) {
         NSString *className = NSStringFromClass([brick class]);
         [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
                 forCellWithReuseIdentifier:className];

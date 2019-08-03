@@ -22,17 +22,40 @@
 
 @objc class CatrobatSetup: NSObject {
 
-    @objc public static func registeredScripts() -> [ScriptProtocol] {
+    @objc public static func registeredBricks() -> [ScriptProtocol] {
         return [
             WhenScript(),
-            WhenTouchDownScript()
+            WhenTouchDownScript(),
+            WaitBrick()
         ]
     }
 
-    @objc public static func registeredBricks() -> [BrickProtocol] {
-        return [
-            WaitBrick()
+    @objc public static func registeredBrickCategories() -> [BrickCategory] {
+        var categories = [
+            BrickCategory(type: kBrickCategoryType.controlBrick, name: kLocalizedControl, color: UIColor.controlBrickOrange(), strokeColor: UIColor.controlBrickStroke()),
+            BrickCategory(type: kBrickCategoryType.motionBrick, name: kLocalizedMotion, color: UIColor.motionBrickBlue(), strokeColor: UIColor.motionBrickStroke()),
+            BrickCategory(type: kBrickCategoryType.lookBrick, name: kLocalizedLooks, color: UIColor.lookBrickGreen(), strokeColor: UIColor.lookBrickStroke()),
+            BrickCategory(type: kBrickCategoryType.soundBrick, name: kLocalizedSound, color: UIColor.soundBrickViolet(), strokeColor: UIColor.soundBrickStroke()),
+            BrickCategory(type: kBrickCategoryType.variableBrick, name: kLocalizedVariables, color: UIColor.varibaleBrickRed(), strokeColor: UIColor.variableBrickStroke())
         ]
+
+        let favouritesEnabled = Util.getBrickInsertionDictionaryFromUserDefaults()?.count ?? 0 >= kMinFavouriteBrickSize
+        let arduinoEnabled = UserDefaults.standard.bool(forKey: kUseArduinoBricks)
+        let phiroEnabled = UserDefaults.standard.bool(forKey: kUsePhiroBricks)
+
+        if favouritesEnabled {
+            categories.prepend(BrickCategory(type: kBrickCategoryType.favouriteBricks, name: kLocalizedFrequentlyUsed, color: UIColor.controlBrickOrange(), strokeColor: UIColor.controlBrickStroke()))
+        }
+
+        if arduinoEnabled {
+            categories.append(BrickCategory(type: kBrickCategoryType.arduinoBrick, name: kLocalizedArduino, color: UIColor.arduinoBrick(), strokeColor: UIColor.arduinoBrickStroke()))
+        }
+
+        if phiroEnabled {
+            categories.append(BrickCategory(type: kBrickCategoryType.phiroBrick, name: kLocalizedPhiro, color: UIColor.phiroBrick(), strokeColor: UIColor.phiroBrickStroke()))
+        }
+
+        return categories
     }
 
     public static func registeredSensors(sceneSize: CGSize,

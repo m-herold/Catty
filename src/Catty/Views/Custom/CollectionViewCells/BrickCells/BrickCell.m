@@ -119,11 +119,6 @@
 }
 
 #pragma mark - getters and setters
-- (kBrickCategoryType)categoryType
-{
-    return self.scriptOrBrick.brickCategoryType;
-}
-
 - (void)setEnabled:(BOOL)enabled
 {
     for (UIView *view in self.inlineView.subviews) {
@@ -165,14 +160,6 @@
             [self.delegate brickCell:self didSelectBrickCellButton:self.selectButton];
         }
     }
-}
-
-- (NSArray*)brickCategoryColors
-{
-    if (! _brickCategoryColors) {
-        _brickCategoryColors = kBrickCategoryColors;
-    }
-    return _brickCategoryColors;
 }
 
 #pragma mark - setup for subviews

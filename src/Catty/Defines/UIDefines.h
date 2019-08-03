@@ -110,17 +110,6 @@ typedef NS_ENUM(NSUInteger, kBrickCategoryType) {
     kFavouriteBricks           = 0
 };
 
-typedef NS_ENUM(NSUInteger, PageIndexCategoryType) {
-    kPageIndexFrequentlyUsed,
-    kPageIndexControlBrick,
-    kPageIndexMotionBrick,
-    kPageIndexLookBrick,
-    kPageIndexSoundBrick,
-    kPageIndexVariableBrick,
-    kPageIndexArduinoBrick,
-    kPageIndexPhiroBrick
-};
-
 // brick type identifiers
 typedef NS_ENUM(NSUInteger, kBrickType) {
     // invalid brick type
@@ -132,35 +121,6 @@ typedef NS_ENUM(NSUInteger, kBrickType) {
 
 #define WRAP_UINT_IN_NSNUMBER(number) ([NSNumber numberWithUnsignedInteger:number])
 #define kNSNumberZero WRAP_UINT_IN_NSNUMBER(0)
-
-#define kBrickCategoryNames @[\
-    kLocalizedControl,\
-    kLocalizedMotion,\
-    kLocalizedLooks,\
-    kLocalizedSound,\
-    kLocalizedVariables,\
-    kLocalizedPhiro\
-]
-
-#define kBrickCategoryColors @[\
-    [UIColor controlBrickOrangeColor],\
-    [UIColor motionBrickBlueColor],\
-    [UIColor lookBrickGreenColor],\
-    [UIColor soundBrickVioletColor],\
-    [UIColor varibaleBrickRedColor],\
-    [UIColor ArduinoBrickColor],\
-    [UIColor PhiroBrickColor]\
-]
-
-#define kBrickCategoryStrokeColors @[\
-    [UIColor controlBrickStrokeColor],\
-    [UIColor motionBrickStrokeColor],\
-    [UIColor lookBrickStrokeColor],\
-    [UIColor soundBrickStrokeColor],\
-    [UIColor variableBrickStrokeColor],\
-    [UIColor ArduinoBrickStrokeColor],\
-    [UIColor PhiroBrickStrokeColor]\
-]
 
 #define kWhenScriptDefaultAction @"Tapped" // at the moment Catrobat only supports this type of action for WhenScripts
 

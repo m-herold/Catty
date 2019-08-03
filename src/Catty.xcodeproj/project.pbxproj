@@ -245,6 +245,7 @@
 		4C6D15FC1D7AC63A00CE53CD /* ValidProject098.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D15FB1D7AC63A00CE53CD /* ValidProject098.xml */; };
 		4C6D15FE1D7AC64000CE53CD /* ValidProjectAllBricks098.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D15FD1D7AC64000CE53CD /* ValidProjectAllBricks098.xml */; };
 		4C6D16001D7AC65400CE53CD /* ValidProjectAllBricks093.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D15FF1D7AC65400CE53CD /* ValidProjectAllBricks093.xml */; };
+		4C6F413F22F4DAAC00900B3F /* BrickCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F413C22F4DAAC00900B3F /* BrickCategory.swift */; };
 		4C6FE15B212D2D2E0067B7D5 /* CeilFunctionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6FE13B212D2D2E0067B7D5 /* CeilFunctionTest.swift */; };
 		4C6FE15C212D2D2E0067B7D5 /* FloorFunctionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6FE13C212D2D2E0067B7D5 /* FloorFunctionTest.swift */; };
 		4C6FE15D212D2D2E0067B7D5 /* LogFunctionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6FE13D212D2D2E0067B7D5 /* LogFunctionTest.swift */; };
@@ -1644,6 +1645,7 @@
 		4C6D15FB1D7AC63A00CE53CD /* ValidProject098.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ValidProject098.xml; sourceTree = "<group>"; };
 		4C6D15FD1D7AC64000CE53CD /* ValidProjectAllBricks098.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ValidProjectAllBricks098.xml; sourceTree = "<group>"; };
 		4C6D15FF1D7AC65400CE53CD /* ValidProjectAllBricks093.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ValidProjectAllBricks093.xml; sourceTree = "<group>"; };
+		4C6F413C22F4DAAC00900B3F /* BrickCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrickCategory.swift; sourceTree = "<group>"; };
 		4C6FE13B212D2D2E0067B7D5 /* CeilFunctionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeilFunctionTest.swift; sourceTree = "<group>"; };
 		4C6FE13C212D2D2E0067B7D5 /* FloorFunctionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorFunctionTest.swift; sourceTree = "<group>"; };
 		4C6FE13D212D2D2E0067B7D5 /* LogFunctionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFunctionTest.swift; sourceTree = "<group>"; };
@@ -3848,6 +3850,14 @@
 				CAE3E4EA1B4C509800CC88BD /* test2.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		4C6F413B22F4DAAC00900B3F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4C6F413C22F4DAAC00900B3F /* BrickCategory.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		4C6FE139212D2D2E0067B7D5 /* Functions */ = {
@@ -6131,6 +6141,7 @@
 		92FF302B1A24DCAA00093DA7 /* Bricks */ = {
 			isa = PBXGroup;
 			children = (
+				4C6F413B22F4DAAC00900B3F /* Category */,
 				92B46F8A1BC7B3E5004980C1 /* ArduinoBricks */,
 				929CC0BE1BC39B0A0027DEC0 /* PhiroBricks */,
 				929CC0BB1BC39AD60027DEC0 /* BluetoothBrick.h */,
@@ -9320,6 +9331,7 @@
 				AA74F0951BC05FCE00D1E954 /* BrickCellMessageData.m in Sources */,
 				597AB578202089E0007CD10D /* NetworkDefinesSwift.swift in Sources */,
 				F4E6E59C210E051200D86FE6 /* MinFunction.swift in Sources */,
+				4C6F413F22F4DAAC00900B3F /* BrickCategory.swift in Sources */,
 				AA74EF591BC0586F00D1E954 /* TurnLeftBrick+CBXMLHandler.m in Sources */,
 				4C0F9F6F204BD1A300E71B2D /* ThinkForBubbleBrick+CBXMLHandler.m in Sources */,
 				5EFBD5FC2145AADC003B3CDC /* UIView+Extensions.swift in Sources */,

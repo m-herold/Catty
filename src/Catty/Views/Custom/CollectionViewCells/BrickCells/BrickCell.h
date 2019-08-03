@@ -42,7 +42,7 @@
 - (void)brickCell:(BrickCell*)brickCell didSelectBrickCellButton:(SelectButton*)selectButton;
 @end
 
-@interface BrickCell : UICollectionViewCell<BrickCellProtocol>
+@interface BrickCell : UICollectionViewCell
 @property (nonatomic, weak) id<BrickCellDelegate> delegate;
 @property (nonatomic, weak) id<BrickCellDataDelegate> dataDelegate;
 @property (nonatomic, strong) id<ScriptProtocol> scriptOrBrick;

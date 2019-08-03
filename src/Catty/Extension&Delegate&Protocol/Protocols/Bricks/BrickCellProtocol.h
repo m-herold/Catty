@@ -30,6 +30,7 @@
 @property (nonatomic) BOOL enabled;
 
 - (kBrickShapeType)brickShapeType;
+- (kBrickCategoryType)category;
 + (CGFloat)cellHeight;
 
 @end

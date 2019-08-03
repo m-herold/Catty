@@ -48,13 +48,9 @@
     self.textLabel = inlineViewSubViews[0];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (kBrickCategoryType)category
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    return kControlBrick;
 }
 
 @end

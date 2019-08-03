@@ -25,44 +25,22 @@
 #import "Pocket_Code-Swift.h"
 
 @interface BrickCategoryViewController ()
-@property (nonatomic, assign) PageIndexCategoryType pageIndexCategoryType;
 @property (nonatomic, strong) NSArray *bricks;
-@property (nonatomic, strong) NSArray *pageIndexArray;
 
 @end
 
 @implementation BrickCategoryViewController
 
 #pragma mark - Init
-- (instancetype)initWithBrickCategory:(PageIndexCategoryType)type andObject:(SpriteObject*)spriteObject andPageIndexArray:(NSArray<NSNumber*>*)pageIndexArray
+- (instancetype)initWithBrickCategory:(BrickCategory*)category andObject:(SpriteObject*)spriteObject
 {
     if (self = [super initWithCollectionViewLayout:[UICollectionViewFlowLayout new]]) {
-        // check if pageIndex exists in pageIndexArray
-        NSPredicate *valuePredicate = [NSPredicate predicateWithFormat:@"self.intValue == %d", type];
-
-        if ([[pageIndexArray filteredArrayUsingPredicate:valuePredicate] count] == 0) {
-            type = [pageIndexArray firstObject].intValue;
-        }
+        self.category = category;
         
-        self.pageIndexCategoryType = type;
-        self.pageIndexArray = pageIndexArray;
-        
-        NSUInteger category = [self brickCategoryTypForPageIndex:type];
         self.spriteObject = spriteObject;
-        self.bricks = [[BrickManager sharedBrickManager] selectableBricksForCategoryType:category inBackground: spriteObject.isBackground];
+        self.bricks = [[BrickManager sharedBrickManager] selectableBricksForCategoryType:category.type inBackground: spriteObject.isBackground];
     }
     return self;
-}
-
-+ (BrickCategoryViewController*)brickCategoryViewControllerForPageIndex:(PageIndexCategoryType)pageIndex object:(SpriteObject*)spriteObject andPageIndexArray:(NSArray*)pageIndexArray
-{
-    return [[self alloc] initWithBrickCategory:pageIndex andObject:spriteObject andPageIndexArray:pageIndexArray];
-}
-
-#pragma mark - Getters
-- (NSUInteger)pageIndex
-{
-    return self.pageIndexCategoryType;
 }
 
 #pragma mark - UIViewController Delegates
@@ -82,15 +60,8 @@
 #pragma mark - Setup
 - (void)setupSubviews
 {
-    NSArray<Script*> *allScripts = [[CatrobatSetup class] registeredScripts];
-    for (Script *script in allScripts) {
-        NSString *className = NSStringFromClass([script class]);
-        [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
-                forCellWithReuseIdentifier:className];
-    }
-    
-    NSArray<Brick*> *allBricks = [[CatrobatSetup class] registeredBricks];
-    for (Brick *brick in allBricks) {
+    NSArray<id<ScriptProtocol>> *allBricks = [[CatrobatSetup class] registeredBricks];
+    for (id<ScriptProtocol> brick in allBricks) {
         NSString *className = NSStringFromClass([brick class]);
         [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
                 forCellWithReuseIdentifier:className];
@@ -186,37 +157,5 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     return 8.f;
 }
 
-#pragma mark - Helpers
-- (kBrickCategoryType)brickCategoryTypForPageIndex:(NSUInteger)pageIndex {
-
-    return pageIndex;
-}
-
 @end
 
-NSString* CBTitleFromPageIndexCategoryType(PageIndexCategoryType pageIndexType)
-{
-    switch (pageIndexType) {
-        case kPageIndexFrequentlyUsed:
-            return kLocalizedFrequentlyUsed;
-        case kPageIndexControlBrick:
-            return kUIControlTitle;
-        case kPageIndexMotionBrick:
-            return kUIMotionTitle;
-        case kPageIndexSoundBrick:
-            return kUISoundTitle;
-        case kPageIndexLookBrick:
-            return kUILookTitle;
-        case kPageIndexVariableBrick:
-            return kUIVariableTitle;
-        case kPageIndexArduinoBrick:
-            return kUIArduinoTitle;
-        case kPageIndexPhiroBrick:
-            return kUIPhiroTitle;
-        default:
-        {
-            NSDebug(@"Invalid pageIndexCategoryType found in BrickCategoryViewController.")
-            return nil;
-        }
-    }
-}

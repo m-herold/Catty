@@ -39,6 +39,11 @@
     return kBrickHeight2h;
 }
 
+- (kBrickCategoryType)category
+{
+    return kArduinoBrick;
+}
+
 - (void)hookUpSubViews:(NSArray *)inlineViewSubViews
 {
     self.firstRowTextLabel = inlineViewSubViews[0];

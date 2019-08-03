@@ -44,4 +44,9 @@
     self.messageComboBoxView = inlineViewSubViews[1];
 }
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 @end

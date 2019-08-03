@@ -22,7 +22,7 @@
 
 import Foundation
 
-@objc(WaitBrickCell) class WaitBrickCell: BrickCell {
+@objc(WaitBrickCell) class WaitBrickCell: BrickCell, BrickCellProtocol {
 
     public var leftTextLabel: UILabel?
     public var delayTextField: UITextField?
@@ -52,5 +52,9 @@ import Foundation
 
     override func parameters() -> [String] {
         return ["{FLOAT;range=(0.0f,inf)}"]
+    }
+
+    func category() -> kBrickCategoryType {
+        return kBrickCategoryType.controlBrick
     }
 }

@@ -23,7 +23,7 @@
 #import "BrickCell.h"
 #import "iOSCombobox.h"
 
-@interface PhiroIfLogicBeginBrickCell : BrickCell
+@interface PhiroIfLogicBeginBrickCell : BrickCell<BrickCellProtocol>
 
 @property (nonatomic, weak) iOSCombobox *variableComboBoxView;
 

@@ -20,11 +20,17 @@
  *  along with this program.  If not, see http://www.gnu.org/licenses/.
  */
 
-#import "BrickCell.h"
-#import "iOSCombobox.h"
+@objc public class BrickCategory: NSObject {
 
-@interface ChooseCameraBrickCell : BrickCell<BrickCellProtocol>
+    @objc public let type: kBrickCategoryType
+    @objc public let name: String
+    @objc public let color: UIColor
+    @objc public let strokeColor: UIColor
 
-@property (nonatomic, weak) iOSCombobox *messageComboBoxView;
-
-@end
+    init(type: kBrickCategoryType, name: String, color: UIColor, strokeColor: UIColor) {
+        self.type = type
+        self.name = name
+        self.color = color
+        self.strokeColor = strokeColor
+    }
+}

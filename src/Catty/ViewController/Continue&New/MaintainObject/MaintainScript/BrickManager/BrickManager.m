@@ -58,21 +58,16 @@
 }
 
 #pragma mark - helpers
-- (kBrickCategoryType)brickCategoryTypeForBrickType:(kBrickType)brickType
-{
-    return (kBrickCategoryType)(((NSUInteger)brickType) / 100)+1;
-}
-
 - (NSArray*)selectableBricks
 {
     // save array statically for performance reasons
     static NSArray *selectableBricks = nil;
     if (selectableBricks == nil) {
-        NSArray<Brick*> *allBricks = [[CatrobatSetup class] registeredBricks];
+        NSArray<id<ScriptProtocol>> *allBricks = [[CatrobatSetup class] registeredBricks];
         NSMutableArray *selectableBricksMutableArray = [NSMutableArray arrayWithCapacity:[allBricks count]];
         
-        for (Brick *brick in allBricks) {
-            if (brick.isSelectableForObject) {
+        for (id<ScriptProtocol> brick in allBricks) {
+            if ([brick conformsToProtocol:@protocol(BrickProtocol)] && brick.isSelectableForObject) {
                 [selectableBricksMutableArray addObject:brick];
             }
         }
@@ -83,21 +78,19 @@
 
 - (NSArray*)selectableScriptBricks
 {
-    static NSArray *scripts = nil;
+    static NSArray *bricks = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSArray<Script*> *allScripts = [[CatrobatSetup class] registeredScripts];
-        NSArray<Brick*> *selectableBricks = [self selectableBricks];
-        NSMutableArray *mutableScriptBricks = [[NSMutableArray alloc] initWithCapacity:allScripts.count + selectableBricks.count];
+        NSArray<id<ScriptProtocol>> *allBricks = [[CatrobatSetup class] registeredBricks];
+        NSMutableArray *mutableScriptBricks = [[NSMutableArray alloc] initWithCapacity:allBricks.count];
         
-        [allScripts enumerateObjectsUsingBlock:^(Script *script, NSUInteger idx, BOOL *stop) {
-            [mutableScriptBricks addObject:script];
+        [allBricks enumerateObjectsUsingBlock:^(id<ScriptProtocol> brick, NSUInteger idx, BOOL *stop) {
+            [mutableScriptBricks addObject:brick];
         }];
         
-        [mutableScriptBricks addObjectsFromArray:selectableBricks];
-        scripts = mutableScriptBricks;
+        bricks = mutableScriptBricks;
     });
-    return scripts;
+    return bricks;
 }
 
 - (NSArray*)selectableBricksForCategoryType:(kBrickCategoryType)categoryType {
@@ -136,14 +129,15 @@
     return (NSArray*)selectableBricksForCategoryMutable;
 }
 
-- (kBrickType)brickTypeForCategoryType:(kBrickCategoryType)categoryType andBrickIndex:(NSUInteger)index
-{
-    return (kBrickType)((categoryType-1) * 100 + index);
-}
-
-- (NSUInteger)brickIndexForBrickType:(kBrickType)brickType
-{
-    return (brickType % 100);
+- (BrickCategory*)categoryForType:(kBrickCategoryType)categoryType {
+    NSArray<BrickCategory*> *categories = [[CatrobatSetup class] registeredBrickCategories];
+    
+    for (BrickCategory *category in categories) {
+        if (category.type == categoryType) {
+            return category;
+        }
+    }
+    return nil;
 }
 
 - (CGSize)sizeForBrick:(NSString*)brickName

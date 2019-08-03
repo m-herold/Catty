@@ -49,6 +49,11 @@
     self.secondRowRightTextLabel = inlineViewSubViews[4];
 }
 
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{INT}", @"{INT}", nil];

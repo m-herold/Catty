@@ -25,6 +25,7 @@
 #import "BrickCell.h"
 
 @protocol ScriptProtocol;
+@class BrickCategory;
 
 @interface BrickManager : NSObject
 
@@ -35,8 +36,7 @@
 - (NSArray *)selectableScriptBricks;
 - (NSArray*)selectableBricksForCategoryType:(kBrickCategoryType)categoryType;
 - (NSArray*)selectableBricksForCategoryType:(kBrickCategoryType)categoryType inBackground:(BOOL)inBackground;
-- (kBrickCategoryType)brickCategoryTypeForBrickType:(kBrickType)brickType;
-- (kBrickType)brickTypeForCategoryType:(kBrickCategoryType)categoryType andBrickIndex:(NSUInteger)index;
+- (BrickCategory*)categoryForType:(kBrickCategoryType)categoryType;
 - (CGSize)sizeForBrick:(NSString *)brickName;
 - (BOOL)isScript:(kBrickType)type;
 - (NSInteger)checkEndLoopBrickTypeForDrawing:(BrickCell*)cell;

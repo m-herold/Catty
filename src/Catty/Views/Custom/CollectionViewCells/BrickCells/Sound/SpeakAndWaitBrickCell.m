@@ -44,6 +44,11 @@
     self.speakTextField = inlineViewSubViews[1];
 }
 
+- (kBrickCategoryType)category
+{
+    return kSoundBrick;
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{INT}", nil];

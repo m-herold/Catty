@@ -25,6 +25,7 @@
 
 
 @class SpriteObject;
+@class BrickCategory;
 
 @class BrickCategoryViewController;
 @protocol BrickCategoryViewControllerDelegate<NSObject>
@@ -34,18 +35,14 @@
 @end
 
 @interface BrickCategoryViewController : UICollectionViewController
-@property(nonatomic, readonly) PageIndexCategoryType pageIndexCategoryType;
+@property(nonatomic, weak) BrickCategory *category;
 @property(nonatomic, weak) id<BrickCategoryViewControllerDelegate> delegate;
 @property(nonatomic, readonly) NSArray *bricks;
 @property(nonatomic, weak) SpriteObject *spriteObject;
 
-- (instancetype)initWithBrickCategory:(PageIndexCategoryType)type andObject:(SpriteObject*)spriteObject andPageIndexArray:(NSArray<NSNumber*>*)pageIndexArray;
-
-+ (BrickCategoryViewController*)brickCategoryViewControllerForPageIndex:(PageIndexCategoryType)pageIndex object:(SpriteObject*)spriteObject andPageIndexArray:(NSArray*)pageIndexArray;
+- (instancetype)initWithBrickCategory:(BrickCategory*)category andObject:(SpriteObject*)spriteObject;
 
 // disallow init
 - (instancetype)init __attribute__((unavailable("init is not a supported initializer for this class.")));
 
 @end
-
-extern NSString *CBTitleFromPageIndexCategoryType(PageIndexCategoryType pageIndexType);

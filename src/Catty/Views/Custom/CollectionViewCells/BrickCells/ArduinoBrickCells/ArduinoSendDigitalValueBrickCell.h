@@ -22,7 +22,7 @@
 
 #import "BrickCell.h"
 
-@interface ArduinoSendDigitalValueBrickCell : BrickCell
+@interface ArduinoSendDigitalValueBrickCell : BrickCell<BrickCellProtocol>
 
 @property (nonatomic, weak) UITextField *pinTextField;
 @property (nonatomic, weak) UITextField *valueTextField;
