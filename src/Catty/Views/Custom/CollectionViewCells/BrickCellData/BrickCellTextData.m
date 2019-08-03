@@ -186,7 +186,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isInserting == NO;
 }
 
 @end

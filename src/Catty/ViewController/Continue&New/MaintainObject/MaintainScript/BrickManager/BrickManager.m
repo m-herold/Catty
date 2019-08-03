@@ -63,11 +63,11 @@
     // save array statically for performance reasons
     static NSArray *selectableBricks = nil;
     if (selectableBricks == nil) {
-        NSArray<id<ScriptProtocol>> *allBricks = [[CatrobatSetup class] registeredBricks];
+        NSArray *allBricks = [[CatrobatSetup class] registeredBricks];
         NSMutableArray *selectableBricksMutableArray = [NSMutableArray arrayWithCapacity:[allBricks count]];
         
-        for (id<ScriptProtocol> brick in allBricks) {
-            if ([brick conformsToProtocol:@protocol(BrickProtocol)] && brick.isSelectableForObject) {
+        for (id brick in allBricks) {
+            if ([brick isKindOfClass:[Brick class]] && ((Brick*)brick).isSelectableForObject) {
                 [selectableBricksMutableArray addObject:brick];
             }
         }
@@ -81,10 +81,10 @@
     static NSArray *bricks = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSArray<id<ScriptProtocol>> *allBricks = [[CatrobatSetup class] registeredBricks];
+        NSArray *allBricks = [[CatrobatSetup class] registeredBricks];
         NSMutableArray *mutableScriptBricks = [[NSMutableArray alloc] initWithCapacity:allBricks.count];
         
-        [allBricks enumerateObjectsUsingBlock:^(id<ScriptProtocol> brick, NSUInteger idx, BOOL *stop) {
+        [allBricks enumerateObjectsUsingBlock:^(id brick, NSUInteger idx, BOOL *stop) {
             [mutableScriptBricks addObject:brick];
         }];
         
@@ -121,7 +121,7 @@
     for (id<BrickProtocol> brick in selectableBricks) {
         if (inBackground && brick.isDisabledForBackground) {
             continue;
-        } else if (brick.brickCategoryType == categoryType) {
+        } else if (brick.category == categoryType) {
             [selectableBricksForCategoryMutable addObject:brick];
         }
     }
@@ -235,8 +235,6 @@
             }
             ++count;
         }
-        begin.animate = YES;
-        begin.loopEndBrick.animate = YES;
         return @[[NSNumber numberWithInteger:count+1]];
     } else if ([brick isKindOfClass:[LoopEndBrick class]]) {
         LoopEndBrick *endBrick = (LoopEndBrick *)brick;
@@ -247,8 +245,6 @@
             }
             ++count;
         }
-        endBrick.animate = YES;
-        endBrick.loopBeginBrick.animate = YES;
         return @[[NSNumber numberWithInteger:count+1]];
     }
     return nil;
@@ -267,8 +263,6 @@
             }
             
         }
-        begin.animate = YES;
-        begin.ifEndBrick.animate = YES;
         return @[[NSNumber numberWithInteger:endcount+1]];
     }
     if ([brick isKindOfClass:[IfLogicBeginBrick class]]) {
@@ -291,9 +285,6 @@
             }
             
         }
-        begin.animate = YES;
-        begin.ifElseBrick.animate = YES;
-        begin.ifEndBrick.animate = YES;
         return @[[NSNumber numberWithInteger:elsecount+1],[NSNumber numberWithInteger:endcount+1]];
     } else if ([brick isKindOfClass:[IfLogicElseBrick class]]) {
         IfLogicElseBrick *elseBrick = (IfLogicElseBrick*)brick;
@@ -314,9 +305,6 @@
                 ++endcount;
             }
         }
-        elseBrick.animate = YES;
-        elseBrick.ifBeginBrick.animate = YES;
-        elseBrick.ifEndBrick.animate = YES;
         return @[[NSNumber numberWithInteger:begincount+1],[NSNumber numberWithInteger:endcount+1]];
     } else if ([brick isKindOfClass:[IfLogicEndBrick class]]) {
         IfLogicEndBrick *endBrick = (IfLogicEndBrick*)brick;
@@ -338,9 +326,6 @@
             }
             
         }
-        endBrick.animate = YES;
-        endBrick.ifElseBrick.animate = YES;
-        endBrick.ifBeginBrick.animate = YES;
         return @[[NSNumber numberWithInteger:elsecount+1],[NSNumber numberWithInteger:begincount+1]];
     } else if ([brick isKindOfClass:[IfThenLogicEndBrick class]]) {
         IfThenLogicEndBrick *endBrick = (IfThenLogicEndBrick*)brick;
@@ -355,8 +340,6 @@
                 }
             }
         }
-        endBrick.animate = YES;
-        endBrick.ifBeginBrick.animate = YES;
         return @[[NSNumber numberWithInteger:begincount+1]];
     }
     return nil;
@@ -364,7 +347,7 @@
 
 #pragma mark ScriptCollectionViewController Copy
 
-- (NSArray*)scriptCollectionCopyBrickWithIndexPath:(NSIndexPath*)indexPath andBrick:(Brick*)brick
+- (NSArray*)scriptCollectionCopyBrickWithIndexPath:(NSIndexPath*)indexPath andBrick:(Brick<BrickProtocol>*)brick
 {
     if ([brick isLoopBrick]) {
         // loop brick

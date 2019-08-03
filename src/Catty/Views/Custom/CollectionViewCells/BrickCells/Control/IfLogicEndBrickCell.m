@@ -38,9 +38,4 @@
     self.textLabel = inlineViewSubViews[0];
 }
 
-- (kBrickCategoryType)category
-{
-    return kControlBrick;
-}
-
 @end

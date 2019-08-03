@@ -25,12 +25,9 @@
 
 @implementation SayBubbleBrick
 
-- (id)init
+- (kBrickCategoryType)category
 {
-    self = [super init];
-    if(self) {
-    }
-    return self;
+    return kLookBrick;
 }
 
 - (NSString*)brickTitle

@@ -56,6 +56,11 @@
     return [kLocalizedMove stringByAppendingString:[@" %@ " stringByAppendingString:localizedStep]];
 }
 
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 - (void)performFromScript:(Script *)script
 {
 }

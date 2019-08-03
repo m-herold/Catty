@@ -27,7 +27,7 @@
 @class UserVariable;
 @class Formula;
 
-@interface DeleteItemOfUserListBrick : Brick<BrickFormulaProtocol, BrickListProtocol>
+@interface DeleteItemOfUserListBrick : Brick<BrickProtocol, BrickFormulaProtocol, BrickListProtocol>
 
 @property (nonatomic, strong) UserVariable *userList;
 @property (nonatomic, strong) Formula *listFormula;

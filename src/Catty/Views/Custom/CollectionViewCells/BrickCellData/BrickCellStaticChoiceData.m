@@ -41,7 +41,7 @@ static NSMutableArray *messages = nil;
         NSMutableArray *options = [[NSMutableArray alloc] init];
         int currentOptionIndex = 0;
         int optionIndex = 0;
-        if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickStaticChoiceProtocol)]) {
+        if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickStaticChoiceProtocol)]) {
             Brick<BrickStaticChoiceProtocol> *choiceBrick = (Brick<BrickStaticChoiceProtocol>*)brickCell.scriptOrBrick;
             NSString  *currentChoice = [choiceBrick choiceForLineNumber:line andParameterNumber:parameter];
             for(NSString *choice in [choiceBrick possibleChoicesForLineNumber:line andParameterNumber:parameter]) {
@@ -78,7 +78,7 @@ static NSMutableArray *messages = nil;
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isAnimatedInsertBrick == NO;
 }
 
 @end

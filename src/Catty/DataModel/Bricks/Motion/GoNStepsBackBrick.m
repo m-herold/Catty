@@ -62,6 +62,11 @@
     return [kLocalizedGoBack stringByAppendingString:[@" %@ " stringByAppendingString:localizedLayer]];
 }
 
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 #pragma mark - Description
 - (NSString*)description
 {

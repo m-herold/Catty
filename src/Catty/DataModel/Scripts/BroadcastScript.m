@@ -26,6 +26,11 @@
 
 @implementation BroadcastScript
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (NSString*)brickTitle
 {
     return [kLocalizedWhenYouReceive stringByAppendingString:@"\n%@"];

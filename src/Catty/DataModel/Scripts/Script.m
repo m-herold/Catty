@@ -28,17 +28,12 @@
 #import "BroadcastScript.h"
 #import "WhenScript.h"
 
-@interface Script()
-@property (nonatomic, readwrite) kBrickCategoryType brickCategoryType;
-@end
-
 @implementation Script
 
 - (id)init
 {
-    if (self = [super init]) {
-        BrickManager *brickManager = [BrickManager sharedBrickManager];
-        self.brickCategoryType = [brickManager brickCategoryTypeForBrickType:self.brickType];
+    self = [super init];
+    if (self) {
     }
     return self;
 }
@@ -54,7 +49,7 @@
     return NO;
 }
 
-- (void)addBrick:(Brick*)brick atIndex:(NSUInteger)index
+- (void)addBrick:(Brick<BrickProtocol>*)brick atIndex:(NSUInteger)index
 {
     CBAssert([self.brickList indexOfObject:brick] == NSNotFound);
     brick.script = self;
@@ -68,11 +63,6 @@
                                    reason:[NSString stringWithFormat:@"You must override %@ in the subclass %@",
                                            NSStringFromSelector(_cmd), NSStringFromClass([self class])]
                                  userInfo:nil];
-}
-
-- (NSString*)brickTitleForBrickinSelection:(BOOL)inSelection inBackground:(BOOL)inBackground
-{
-    return self.brickTitle;
 }
 
 - (NSMutableArray*)brickList
@@ -94,7 +84,6 @@
     if (! context) NSError(@"%@ must not be nil!", [CBMutableCopyContext class]);
     
     Script *copiedScript = [[self class] new];
-    copiedScript.brickCategoryType = self.brickCategoryType;
     
     if ([self isKindOfClass:[WhenScript class]]) {
         CBAssert([copiedScript isKindOfClass:[WhenScript class]]);
@@ -135,10 +124,7 @@
 #pragma mark - isEqualToScript
 - (BOOL)isEqualToScript:(Script *)script
 {
-    if (self.brickCategoryType != script.brickCategoryType) {
-        return NO;
-    }
-    if (self.brickType != script.brickType) {
+    if ([self class] != [script class]) {
         return NO;
     }
     if (! [Util isEqual:self.brickTitle toObject:script.brickTitle]) {

@@ -28,6 +28,11 @@
 
 @implementation WaitUntilBrick
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (BOOL)isAnimateable
 {
     return YES;

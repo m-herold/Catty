@@ -26,18 +26,15 @@
 
 @implementation ThinkForBubbleBrick
 
-- (id)init
-{
-    self = [super init];
-    if(self) {
-    }
-    return self;
-}
-
 - (NSString*)brickTitle
 {
     NSString* localizedSecond = [self.intFormula isSingularNumber] ? kLocalizedSecond : kLocalizedSeconds;
     return [[[[kLocalizedThink stringByAppendingString:@" %@\n"] stringByAppendingString:kLocalizedFor] stringByAppendingString:@" %@ "] stringByAppendingString:localizedSecond];
+}
+
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
 }
 
 - (BOOL)allowsStringFormula

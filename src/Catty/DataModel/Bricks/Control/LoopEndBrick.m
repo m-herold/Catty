@@ -27,6 +27,11 @@
 
 @implementation LoopEndBrick
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (BOOL)isSelectableForObject
 {
     return NO;

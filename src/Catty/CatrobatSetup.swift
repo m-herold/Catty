@@ -22,12 +22,92 @@
 
 @objc class CatrobatSetup: NSObject {
 
-    @objc public static func registeredBricks() -> [ScriptProtocol] {
-        return [
+    @objc public static func registeredBricks() -> [BrickProtocol] {
+        var bricks: [BrickProtocol] = [
+            StartScript(),
             WhenScript(),
             WhenTouchDownScript(),
-            WaitBrick()
+            WaitBrick(),
+            BroadcastScript(),
+            BroadcastBrick(),
+            BroadcastWaitBrick(),
+            NoteBrick(),
+            ForeverBrick(),
+            IfLogicBeginBrick(),
+            IfLogicEndBrick(),
+            IfThenLogicBeginBrick(),
+            IfThenLogicEndBrick(),
+            WaitUntilBrick(),
+            RepeatBrick(),
+            RepeatUntilBrick(),
+            LoopEndBrick(),
+            PlaceAtBrick(),
+            SetXBrick(),
+            SetYBrick(),
+            ChangeXByNBrick(),
+            ChangeYByNBrick(),
+            IfOnEdgeBounceBrick(),
+            MoveNStepsBrick(),
+            TurnLeftBrick(),
+            TurnRightBrick(),
+            PointToBrick(),
+            GlideToBrick(),
+            GoNStepsBackBrick(),
+            ComeToFrontBrick(),
+            VibrationBrick(),
+            SetLookBrick(),
+            SetBackgroundBrick(),
+            NextLookBrick(),
+            PreviousLookBrick(),
+            SetSizeToBrick(),
+            ChangeSizeByNBrick(),
+            HideBrick(),
+            ShowBrick(),
+            SetTransparencyBrick(),
+            ChangeTransparencyByNBrick(),
+            SetBrightnessBrick(),
+            ChangeBrightnessByNBrick(),
+            SetColorBrick(),
+            ChangeColorByNBrick(),
+            ClearGraphicEffectBrick(),
+            FlashBrick(),
+            CameraBrick(),
+            ChooseCameraBrick(),
+            SayBubbleBrick(),
+            SayForBubbleBrick(),
+            ThinkBubbleBrick(),
+            ThinkForBubbleBrick(),
+            PlaySoundBrick(),
+            StopAllSoundsBrick(),
+            SetVolumeToBrick(),
+            ChangeVolumeByNBrick(),
+            SpeakBrick(),
+            SpeakAndWaitBrick(),
+            SetVariableBrick(),
+            ChangeVariableBrick(),
+            ShowTextBrick(),
+            HideTextBrick(),
+            AddItemToUserListBrick(),
+            DeleteItemOfUserListBrick(),
+            InsertItemIntoUserListBrick(),
+            ReplaceItemInUserListBrick()
         ]
+
+        if isArduinoEnabled() {
+            bricks.append(ArduinoSendDigitalValueBrick())
+            bricks.append(ArduinoSendPWMValueBrick())
+        }
+
+        if isPhiroEnabled() {
+            bricks.append(PhiroMotorStopBrick())
+            bricks.append(PhiroMotorMoveForwardBrick())
+            bricks.append(PhiroMotorMoveBackwardBrick())
+            bricks.append(PhiroPlayToneBrick())
+            bricks.append(PhiroRGBLightBrick())
+            bricks.append(PhiroIfLogicBeginBrick())
+        }
+
+        return bricks
     }
 
     @objc public static func registeredBrickCategories() -> [BrickCategory] {
@@ -39,19 +119,17 @@
             BrickCategory(type: kBrickCategoryType.variableBrick, name: kLocalizedVariables, color: UIColor.varibaleBrickRed(), strokeColor: UIColor.variableBrickStroke())
         ]
 
-        let favouritesEnabled = Util.getBrickInsertionDictionaryFromUserDefaults()?.count ?? 0 >= kMinFavouriteBrickSize
-        let arduinoEnabled = UserDefaults.standard.bool(forKey: kUseArduinoBricks)
-        let phiroEnabled = UserDefaults.standard.bool(forKey: kUsePhiroBricks)
+        let favouritesAvailable = Util.getBrickInsertionDictionaryFromUserDefaults()?.count ?? 0 >= kMinFavouriteBrickSize
 
-        if favouritesEnabled {
+        if favouritesAvailable {
             categories.prepend(BrickCategory(type: kBrickCategoryType.favouriteBricks, name: kLocalizedFrequentlyUsed, color: UIColor.controlBrickOrange(), strokeColor: UIColor.controlBrickStroke()))
         }
 
-        if arduinoEnabled {
+        if isArduinoEnabled() {
             categories.append(BrickCategory(type: kBrickCategoryType.arduinoBrick, name: kLocalizedArduino, color: UIColor.arduinoBrick(), strokeColor: UIColor.arduinoBrickStroke()))
         }
 
-        if phiroEnabled {
+        if isPhiroEnabled() {
             categories.append(BrickCategory(type: kBrickCategoryType.phiroBrick, name: kLocalizedPhiro, color: UIColor.phiroBrick(), strokeColor: UIColor.phiroBrickStroke()))
         }
 
@@ -171,5 +249,13 @@
             SmallerThanOperator(),
             NotOperator()
         ]
+    }
+
+    private static func isArduinoEnabled() -> Bool {
+        return UserDefaults.standard.bool(forKey: kUseArduinoBricks)
+    }
+
+    private static func isPhiroEnabled() -> Bool {
+        return UserDefaults.standard.bool(forKey: kUsePhiroBricks)
     }
 }

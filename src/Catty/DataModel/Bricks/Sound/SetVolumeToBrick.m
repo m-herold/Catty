@@ -25,6 +25,11 @@
 
 @implementation SetVolumeToBrick
 
+- (kBrickCategoryType)category
+{
+    return kSoundBrick;
+}
+
 - (Formula*)formulaForLineNumber:(NSInteger)lineNumber andParameterNumber:(NSInteger)paramNumber
 {
     return self.volume;

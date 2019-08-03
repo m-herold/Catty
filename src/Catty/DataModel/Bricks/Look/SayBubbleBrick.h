@@ -24,7 +24,7 @@
 #import "BrickFormulaProtocol.h"
 #import "Formula.h"
 
-@interface SayBubbleBrick : Brick<BrickFormulaProtocol>
+@interface SayBubbleBrick : Brick<BrickProtocol, BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *formula;
 

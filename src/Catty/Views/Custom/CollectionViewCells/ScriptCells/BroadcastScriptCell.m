@@ -38,11 +38,6 @@
     return kBrickShapeRoundedBig;
 }
 
-- (kBrickCategoryType)category
-{
-    return kControlBrick;
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeightControl2h;

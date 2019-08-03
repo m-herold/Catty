@@ -27,23 +27,22 @@
 
 @class Script;
 
-@interface Brick : NSObject <BrickProtocol>
+@interface Brick : NSObject
 
-@property (nonatomic, readonly) kBrickCategoryType brickCategoryType;
-@property (nonatomic, strong, readonly) NSString *brickTitle;
 @property (nonatomic, weak) Script *script;
-@property (nonatomic, getter=isAnimated) BOOL animate;
-@property (nonatomic, getter=isAnimatedInsertBrick) BOOL animateInsertBrick;
-@property (nonatomic, getter=isAnimatedMoveBrick) BOOL animateMoveBrick;
 @property (nonatomic) BOOL isSelected;
 
 - (BOOL)isSelectableForObject;
+
+- (BOOL)isDisabledForBackground;
 
 - (BOOL)isAnimateable;
 
 - (BOOL)isFormulaBrick;
 
-- (BOOL)isDisabledForBackground;
+- (BOOL)isIfLogicBrick;
+
+- (BOOL)isLoopBrick;
 
 - (BOOL)isBluetoothBrick;
 
@@ -51,11 +50,11 @@
 
 - (BOOL)isArduinoBrick;
 
-- (NSString*)brickTitleForBrickinSelection:(BOOL)inSelection inBackground:(BOOL)inBackground;
-
 - (NSString*)description;
 
 - (BOOL)isEqualToBrick:(Brick*)brick;
+
+- (id)mutableCopyWithContext:(CBMutableCopyContext*)context;
 
 - (id)mutableCopyWithContext:(CBMutableCopyContext*)context AndErrorReporting:(BOOL)reportError;
 
@@ -64,5 +63,7 @@
 - (void)removeReferences;
 
 - (NSInteger)getRequiredResources;
+
+- (void)setDefaultValuesForObject:(SpriteObject *)spriteObject;
 
 @end

@@ -39,7 +39,7 @@
         int currentOptionIndex = 0;
         if (!brickCell.isInserting) {
             int optionIndex = 1;
-            if([self.brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickObjectProtocol)]) {
+            if([(id)self.brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickObjectProtocol)]) {
                 Brick<BrickObjectProtocol> *objectBrick = (Brick<BrickObjectProtocol>*)self.brickCell.scriptOrBrick;
                 SpriteObject *currentObject = [objectBrick objectForLineNumber:self.lineNumber andParameterNumber:self.parameterNumber];
                 for(SpriteObject *object in objectBrick.script.object.project.objectList) {
@@ -74,7 +74,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isAnimatedInsertBrick == NO;
 }
 
 @end

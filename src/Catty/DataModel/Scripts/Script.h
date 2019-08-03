@@ -30,27 +30,25 @@
 @class Brick;
 @class SpriteObject;
 @class GDataXMLElement;
+@protocol BrickProtocol;
 
 @interface Script : NSObject <ScriptProtocol, CBMutableCopying>
 
-@property (nonatomic, readonly) kBrickCategoryType brickCategoryType;
-@property (nonatomic, readonly) kBrickType brickType;
-@property (nonatomic, strong, readonly) NSString *brickTitle;
 @property (nonatomic, weak) SpriteObject *object;
 @property (strong, nonatomic) NSMutableArray<Brick*> *brickList;
-@property (nonatomic, getter=isAnimated) BOOL animate;
-@property (nonatomic, getter=isAnimatedInsertBrick) BOOL animateInsertBrick;
-@property (nonatomic, getter=isAnimatedMoveBrick) BOOL animateMoveBrick;
 @property (nonatomic) BOOL isSelected;
 
 - (BOOL)isSelectableForObject;
 - (BOOL)isAnimateable;
+- (BOOL)isDisabledForBackground;
 - (void)setDefaultValuesForObject:(SpriteObject*)spriteObject;
 - (void)addBrick:(Brick*)brick atIndex:(NSUInteger)index;
 - (NSString*)description;
 - (BOOL)isEqualToScript:(Script*)script;
 - (void)removeFromObject;
 - (void)removeReferences;
+
+- (id)mutableCopyWithContext:(CBMutableCopyContext *)context;
 - (NSInteger)getRequiredResources;
 
 @end

@@ -44,11 +44,6 @@
     self.lookComboBoxView = inlineViewSubViews[1];
 }
 
-- (kBrickCategoryType)category
-{
-    return kPhiroBrick;
-}
-
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{MOTOR}", nil];

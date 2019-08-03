@@ -41,7 +41,7 @@
         int currentOptionIndex = 0;
         if (!brickCell.isInserting) {
             int optionIndex = 1;
-            if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickVariableProtocol)]) {
+            if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickVariableProtocol)]) {
                 Brick<BrickVariableProtocol> *variableBrick = (Brick<BrickVariableProtocol>*)brickCell.scriptOrBrick;
                 UserVariable *currentVariable = [variableBrick variableForLineNumber:line andParameterNumber:parameter];
                 for(UserVariable *variable in [variableBrick.script.object.project.variables allVariablesForObject:variableBrick.script.object]) {
@@ -80,7 +80,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isInserting == NO;
 }
 
 @end

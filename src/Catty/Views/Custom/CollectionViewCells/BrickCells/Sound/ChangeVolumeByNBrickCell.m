@@ -38,11 +38,6 @@
     self.textLabel = inlineViewSubViews[0];
 }
 
-- (kBrickCategoryType)category
-{
-    return kSoundBrick;
-}
-
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];

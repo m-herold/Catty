@@ -40,6 +40,11 @@
     return [[[[kLocalizedSay stringByAppendingString:@" %@\n"] stringByAppendingString:kLocalizedFor] stringByAppendingString:@" %@ "] stringByAppendingString:localizedSecond];
 }
 
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
+}
+
 - (BOOL)allowsStringFormula
 {
     return YES;

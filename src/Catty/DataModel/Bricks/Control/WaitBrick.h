@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface WaitBrick : Brick<BrickFormulaProtocol>
+@interface WaitBrick : Brick<BrickProtocol, BrickFormulaProtocol>
 
 @property (nonatomic, strong, nonnull) Formula *timeToWaitInSeconds;
 

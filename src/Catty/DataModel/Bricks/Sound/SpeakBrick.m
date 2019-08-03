@@ -38,6 +38,11 @@
     return [kLocalizedSpeak stringByAppendingString:@" %@"];
 }
 
+- (kBrickCategoryType)category
+{
+    return kSoundBrick;
+}
+
 - (BOOL)allowsStringFormula
 {
     return YES;

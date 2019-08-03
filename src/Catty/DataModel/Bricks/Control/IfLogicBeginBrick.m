@@ -28,6 +28,11 @@
 
 @implementation IfLogicBeginBrick
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (BOOL)isAnimateable
 {
     return YES;
@@ -66,15 +71,6 @@
 - (NSString*)brickTitle
 {
     return [kLocalizedIfBegin stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedIfBeginSecondPart]];
-}
-
-- (NSString*)brickTitleForBrickinSelection:(BOOL)inSelection inBackground:(BOOL)inBackground
-{
-    if (inSelection) {
-        return [kLocalizedIfBegin stringByAppendingString:[[@" %@ " stringByAppendingString:kLocalizedIfBeginSecondPart] stringByAppendingString:[[@" ... " stringByAppendingString:kLocalizedElse] stringByAppendingString:@" ..."]]];
-    } else {
-        return self.brickTitle;
-    }
 }
 
 #pragma mark - Description

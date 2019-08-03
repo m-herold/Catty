@@ -46,6 +46,7 @@
 
 @interface BrickCell ()
 @property (nonatomic, weak) BrickCellInlineView *inlineView;
+@property (nonatomic, strong) NSString* brickTitle;
 @property (nonatomic, assign, getter = isEditing) BOOL editing;
 
 @end
@@ -88,7 +89,8 @@
 
 - (void)setupBrickCellinSelectionView:(BOOL)inSelectionView inBackground:(BOOL)inBackground
 {
-    self.brickTitle = [self.scriptOrBrick brickTitleForBrickinSelection:inSelectionView inBackground:inBackground];
+    self.brickTitle = [self brickTitleForBrick:inSelectionView inBackground:inBackground];
+    
     if ([self isKindOfClass:[LoopEndBrickCell class]]) {
         LoopEndBrickCell* cell = (LoopEndBrickCell*)self;
         cell.type = [[BrickManager sharedBrickManager] checkEndLoopBrickTypeForDrawing:cell];
@@ -411,7 +413,7 @@
 
 - (BOOL)isScriptBrick
 {
-    return [self.scriptOrBrick isKindOfClass:[Script class]];
+    return [(id)self.scriptOrBrick isKindOfClass:[Script class]];
 }
 
 #pragma mark - cell editing
@@ -424,7 +426,7 @@
 #pragma mark - animations
 - (void)animate:(BOOL)animate
 {
-    self.scriptOrBrick.animate = animate;
+    self.animate = animate;
     if (! animate) {
         return;
     }
@@ -443,13 +445,13 @@
                      completion:^(BOOL finished) {
                          self.alpha = 1.0f;
                          NSTimeInterval duration = [[NSDate date] timeIntervalSinceDate:startTime];
-                         self.scriptOrBrick.animate = (duration < 2.0f);
+                         self.animate = (duration < 2.0f);
     }];
 }
 
 - (void)insertAnimate:(BOOL)animate
 {
-    self.scriptOrBrick.animateInsertBrick = animate;
+    self.animateInsertBrick = animate;
     if (! animate) {
         return;
     }
@@ -465,13 +467,13 @@
                              }
                              completion:^(BOOL finished) {
                                  self.alpha = 1.0f;
-                                 Brick *brick = (Brick*)self.scriptOrBrick;
-                                 if (brick.animateInsertBrick) {
-                                     [self insertAnimate:brick.animateInsertBrick];
+                                 if (self.animateInsertBrick) {
+                                     [self insertAnimate:self.animateInsertBrick];
                                  }
                              }];
 
 }
+
 
 #pragma mark - BrickCellData
 - (id<BrickCellDataProtocol>)dataSubviewForLineNumber:(NSInteger)line andParameterNumber:(NSInteger)parameter
@@ -487,6 +489,11 @@
 - (NSArray*)dataSubviews
 {
     return [self.inlineView dataSubviews];
+}
+
+- (NSString*)brickTitleForBrick:(BOOL)inSelection inBackground:(BOOL)inBackground
+{
+    return self.scriptOrBrick.brickTitle;
 }
 
 - (NSArray<NSString*>*)parameters

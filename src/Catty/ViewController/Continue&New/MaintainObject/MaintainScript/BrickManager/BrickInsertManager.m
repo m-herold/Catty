@@ -76,15 +76,16 @@
     }else if (fromIndexPath.item == 0 && toIndexPath.item !=0 && self.isInsertingScript){
         return NO;
     }
-    Brick *fromBrick;
-    if (fromIndexPath.item <= 0) {
-        fromBrick = [fromScript.brickList objectAtIndex:fromIndexPath.item];
-    } else {
-        fromBrick = [fromScript.brickList objectAtIndex:fromIndexPath.item - 1];
+    
+    NSIndexPath *fromBrickIndexPath = fromIndexPath;
+    if (fromBrickIndexPath.item > 0) {
+        fromBrickIndexPath = [NSIndexPath indexPathForRow:fromBrickIndexPath.item - 1 inSection:fromBrickIndexPath.section];
     }
     
+    Brick *fromBrick = fromBrick = [fromScript.brickList objectAtIndex:fromIndexPath.item];
+    BrickCell *fromBrickCell = (BrickCell*)[collectionView cellForItemAtIndexPath:fromIndexPath];
     
-    if (fromBrick.isAnimatedInsertBrick) {
+    if (fromBrickCell.isAnimatedInsertBrick) {
         if (toIndexPath.item != 0) {
             Script *script;
             if (self.moveToOtherScript) {
@@ -143,7 +144,7 @@
         } else {
             BrickCell *brickCell = (BrickCell*)[collectionView cellForItemAtIndexPath:toIndexPath];
             self.moveToOtherScript = YES;
-            if ([brickCell.scriptOrBrick isKindOfClass:[Script class]]) {
+            if ([(id)brickCell.scriptOrBrick isKindOfClass:[Script class]]) {
                 Script *script = (Script*)brickCell.scriptOrBrick;
                 if (script.brickList.count == 0) {
                     return YES;
@@ -277,13 +278,11 @@
                             }
                         }
                     }
-
                 }
             }
         }
         [targetScript.brickList insertObject:loopEndBrick atIndex:insertionIndex==0?1:insertionIndex];
     }
-    brick.animateInsertBrick = NO;
     [object.project saveToDiskWithNotification:YES];
 }
 

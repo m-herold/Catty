@@ -74,6 +74,11 @@
             stringByAppendingString:@"\n%@"];
 }
 
+- (kBrickCategoryType)category
+{
+    return kVariableBrick;
+}
+
 - (BOOL)allowsStringFormula
 {
     return YES;

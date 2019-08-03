@@ -23,6 +23,7 @@
 #import <UIKit/UIKit.h>
 #import "ProgramDefines.h"
 #import "UIDefines.h"
+#import "BrickProtocol.h"
 #import "BrickCellProtocol.h"
 #import "BrickShapeFactory.h"
 #import "UIColor+CatrobatUIColorExtensions.h"
@@ -35,7 +36,7 @@
 #define roundedSmallBrick 75.0f
 
 @class Brick, BrickCellInlineView, BrickCell, SelectButton;
-@protocol ScriptProtocol, BrickCellDataDelegate, BrickCellDataProtocol;
+@protocol BrickCellDataDelegate, BrickCellDataProtocol;
 
 @protocol BrickCellDelegate<NSObject>
 @optional
@@ -45,12 +46,15 @@
 @interface BrickCell : UICollectionViewCell
 @property (nonatomic, weak) id<BrickCellDelegate> delegate;
 @property (nonatomic, weak) id<BrickCellDataDelegate> dataDelegate;
-@property (nonatomic, strong) id<ScriptProtocol> scriptOrBrick;
+@property (nonatomic, strong) id<BrickProtocol> scriptOrBrick;
 @property (nonatomic, strong) NSArray *brickCategoryColors;
 @property (nonatomic) BOOL enabled;
 @property (nonatomic) BOOL isInserting;
+@property (nonatomic, getter=isAnimated) BOOL animate;
+@property (nonatomic, getter=isAnimatedInsertBrick) BOOL animateInsertBrick;
+@property (nonatomic, getter=isAnimatedMoveBrick) BOOL animateMoveBrick;
+
 @property (nonatomic, strong) SelectButton *selectButton;
-@property (nonatomic) NSString* brickTitle;
 
 - (kBrickShapeType)brickShapeType;
 - (CGFloat)inlineViewHeight;
@@ -64,6 +68,7 @@
 - (void)insertAnimate:(BOOL)animate;
 - (void)setupBrickCell;
 - (void)setupBrickCellinSelectionView:(BOOL)inSelectionView inBackground:(BOOL)inBackground;
+- (NSString*)brickTitleForBrick:(BOOL)inSelection inBackground:(BOOL)inBackground;
 
 - (id<BrickCellDataProtocol>)dataSubviewForLineNumber:(NSInteger)line andParameterNumber:(NSInteger)parameter;
 - (id<BrickCellDataProtocol>)dataSubviewWithType:(Class)className;

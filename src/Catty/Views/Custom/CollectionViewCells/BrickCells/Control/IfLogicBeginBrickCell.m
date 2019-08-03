@@ -41,9 +41,13 @@
     self.rightTextLabel = inlineViewSubViews[2];
 }
 
-- (kBrickCategoryType)category
+- (NSString*)brickTitleForBrick:(BOOL)inSelection inBackground:(BOOL)inBackground
 {
-    return kControlBrick;
+    if (inSelection) {
+        return [kLocalizedIfBegin stringByAppendingString:[[@" %@ " stringByAppendingString:kLocalizedIfBeginSecondPart] stringByAppendingString:[[@" ... " stringByAppendingString:kLocalizedElse] stringByAppendingString:@" ..."]]];
+    } else {
+        return self.scriptOrBrick.brickTitle;
+    }
 }
 
 - (NSArray<NSString*>*)parameters

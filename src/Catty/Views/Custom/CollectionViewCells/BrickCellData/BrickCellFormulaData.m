@@ -135,7 +135,7 @@
         self.border.shadowOpacity = 1.0;
         self.border.shadowOffset = CGSizeMake(0, 0);
     } else {
-        UIColor *borderColor = [[[[BrickManager class] sharedBrickManager] categoryForType:((id<BrickCellProtocol>)self.brickCell).category] strokeColor];
+        UIColor *borderColor = [[[[BrickManager class] sharedBrickManager] categoryForType:self.brickCell.scriptOrBrick.category] strokeColor];
         self.border.strokeColor = borderColor.CGColor;
     }
     
@@ -159,7 +159,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isAnimatedInsertBrick == NO;
 }
 
 @end

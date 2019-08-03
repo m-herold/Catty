@@ -39,7 +39,7 @@
         
         [self setValues:[[PhiroHelper class] sensorTags]];
         
-        if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroIfSensorProtocol)]) {
+        if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroIfSensorProtocol)]) {
             Brick<BrickPhiroIfSensorProtocol> *ifSensorBrick = (Brick<BrickPhiroIfSensorProtocol>*)brickCell.scriptOrBrick;
             NSString* currentSensorTag = [ifSensorBrick sensorForLineNumber:line andParameterNumber:parameter];
             [self setCurrentValue:currentSensorTag];
@@ -63,7 +63,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isAnimatedInsertBrick == NO;
 }
 
 @end

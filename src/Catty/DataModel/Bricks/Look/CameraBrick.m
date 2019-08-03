@@ -29,6 +29,11 @@
     return [kLocalizedCamera stringByAppendingString:@"\n%@"];
 }
 
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
+}
+
 - (id)initWithChoice:(int)choice
 {
     self = [super init];

@@ -38,6 +38,11 @@
     return [kLocalizedThink stringByAppendingString:@" %@"];
 }
 
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
+}
+
 - (BOOL)allowsStringFormula
 {
     return YES;

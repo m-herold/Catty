@@ -24,6 +24,11 @@
 
 @implementation WhenTouchDownScript
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (NSString*)brickTitle
 {
     return kLocalizedTouchDown;

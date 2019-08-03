@@ -26,12 +26,13 @@
 
 @class SpriteObject;
 @class BrickCategory;
+@class BrickCell;
 
 @class BrickCategoryViewController;
 @protocol BrickCategoryViewControllerDelegate<NSObject>
 @optional
 - (void)brickCategoryViewController:(BrickCategoryViewController*)brickCategoryViewController
-             didSelectScriptOrBrick:(id<ScriptProtocol>)scriptOrBrick;
+                 didSelectBrickCell:(BrickCell*)brickCell;
 @end
 
 @interface BrickCategoryViewController : UICollectionViewController

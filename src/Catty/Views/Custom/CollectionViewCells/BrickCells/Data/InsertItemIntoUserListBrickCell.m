@@ -50,11 +50,6 @@
     self.positionTextField = inlineViewSubViews[5];
 }
 
-- (kBrickCategoryType)category
-{
-    return kVariableBrick;
-}
-
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}",@"{LIST}",@"{INT;range=(1,inf)}", nil];

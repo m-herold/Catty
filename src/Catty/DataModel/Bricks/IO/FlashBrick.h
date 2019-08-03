@@ -23,7 +23,7 @@
 #import "Brick.h"
 #import "BrickStaticChoiceProtocol.h"
 
-@interface FlashBrick : Brick<BrickStaticChoiceProtocol>
+@interface FlashBrick : Brick<BrickProtocol, BrickStaticChoiceProtocol>
 
 @property (nonatomic) int flashChoice;
 - (id)initWithChoice:(int)choice;

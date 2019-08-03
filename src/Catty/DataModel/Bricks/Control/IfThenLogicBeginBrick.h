@@ -25,7 +25,7 @@
 @class Formula;
 @class IfThenLogicEndBrick;
 
-@interface IfThenLogicBeginBrick : Brick<BrickFormulaProtocol>
+@interface IfThenLogicBeginBrick : Brick<BrickProtocol, BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *ifCondition;
 @property (nonatomic, weak) IfThenLogicEndBrick *ifEndBrick;

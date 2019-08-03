@@ -44,7 +44,7 @@
         int currentOptionIndex = 0;
         if (!brickCell.isInserting) {
             int optionIndex = 1;
-            if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickListProtocol)]) {
+            if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickListProtocol)]) {
                 Brick<BrickListProtocol> *listBrick = (Brick<BrickListProtocol>*)brickCell.scriptOrBrick;
                 UserVariable *currentList = [listBrick listForLineNumber:line andParameterNumber:parameter];
                 for(UserVariable *list in [listBrick.script.object.project.variables allListsForObject:listBrick.script.object]) {
@@ -83,7 +83,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isAnimatedInsertBrick == NO;
 }
 
 @end

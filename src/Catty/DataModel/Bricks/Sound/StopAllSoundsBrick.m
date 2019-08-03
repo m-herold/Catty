@@ -24,6 +24,11 @@
 
 @implementation StopAllSoundsBrick
 
+- (kBrickCategoryType)category
+{
+    return kSoundBrick;
+}
+
 - (NSString*)brickTitle
 {
     return kLocalizedStopAllSounds;

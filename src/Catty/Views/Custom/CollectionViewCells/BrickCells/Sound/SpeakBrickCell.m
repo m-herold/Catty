@@ -33,11 +33,6 @@
     [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.soundBrickVioletColor strokeColor:UIColor.soundBrickStrokeColor height:mediumBrick width:[Util screenWidth]];
 }
 
-- (kBrickCategoryType)category
-{
-    return kSoundBrick;
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeight2h;

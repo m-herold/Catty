@@ -34,6 +34,11 @@
 @synthesize xDestination = _xDestination;
 @synthesize yDestination = _yDestination;
 
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 - (Formula*)formulaForLineNumber:(NSInteger)lineNumber andParameterNumber:(NSInteger)paramNumber
 {
     if(lineNumber == 0 && paramNumber == 0)

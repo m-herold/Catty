@@ -24,7 +24,7 @@
 
 @class Formula;
 
-@interface VibrationBrick : Brick<BrickFormulaProtocol>
+@interface VibrationBrick : Brick<BrickProtocol, BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *durationInSeconds;
 

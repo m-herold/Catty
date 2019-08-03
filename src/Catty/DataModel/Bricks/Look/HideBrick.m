@@ -24,6 +24,11 @@
 
 @implementation HideBrick
 
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
+}
+
 - (NSString*)brickTitle
 {
     return kLocalizedHide;

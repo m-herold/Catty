@@ -44,11 +44,6 @@
     self.variableComboBoxView = inlineViewSubViews[1];
 }
 
-- (kBrickCategoryType)category
-{
-    return kVariableBrick;
-}
-
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{VARIABLE}", nil];

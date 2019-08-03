@@ -67,6 +67,11 @@
     return [kLocalizedSetVariable stringByAppendingString:[@"\n%@\n" stringByAppendingString:[kLocalizedTo stringByAppendingString:@" %@"]]];
 }
 
+- (kBrickCategoryType)category
+{
+    return kVariableBrick;
+}
+
 - (BOOL)allowsStringFormula
 {
     return YES;

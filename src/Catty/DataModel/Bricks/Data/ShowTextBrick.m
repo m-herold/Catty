@@ -86,6 +86,11 @@
         stringByAppendingString:@" %@"]]]]]];
 }
 
+- (kBrickCategoryType)category
+{
+    return kVariableBrick;
+}
+
 #pragma mark - Description
 - (NSString*)description
 {

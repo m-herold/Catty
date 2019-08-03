@@ -24,7 +24,7 @@
 #import "BrickFormulaProtocol.h"
 #import "Formula.h"
 
-@interface ThinkForBubbleBrick : Brick<BrickFormulaProtocol>
+@interface ThinkForBubbleBrick : Brick<BrickProtocol, BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *stringFormula;
 @property (nonatomic, strong) Formula *intFormula;

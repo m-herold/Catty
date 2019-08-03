@@ -694,10 +694,10 @@
 }
 
 
-+ (void)incrementStatisticCountForBrick:(id<ScriptProtocol>)brick
++ (void)incrementStatisticCountForBrick:(id<BrickProtocol>)brick
 {
     NSDictionary *insertionStatistic = [self getBrickInsertionDictionaryFromUserDefaults];
-    NSString *wrappedBrickType = NSStringFromClass([brick class]);
+    NSString *wrappedBrickType = NSStringFromClass([(id)brick class]);
     NSNumber *old_count = [insertionStatistic objectForKey:wrappedBrickType];
     NSMutableDictionary* mutableInsertionStatistic = [insertionStatistic mutableCopy];
     [mutableInsertionStatistic setValue:[NSNumber numberWithInt:old_count.intValue+1] forKey:wrappedBrickType];

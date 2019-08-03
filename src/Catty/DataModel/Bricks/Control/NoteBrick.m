@@ -29,6 +29,11 @@
     return [kLocalizedNote stringByAppendingString:@" %@"];
 }
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (void)setDefaultValuesForObject:(SpriteObject*)spriteObject
 {
     self.note = [NSString stringWithString:kLocalizedNoteAddCommentHere];

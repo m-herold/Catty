@@ -25,6 +25,11 @@
 
 @implementation LoopBeginBrick
 
+- (kBrickCategoryType)category
+{
+    return kInvisible;
+}
+
 - (BOOL)isLoopBrick
 {
     return YES;
@@ -43,5 +48,10 @@
 {
     return kNoResources;
 }
+
+- (NSString *)brickTitle {
+    return @"";
+}
+
 
 @end

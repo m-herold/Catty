@@ -56,6 +56,11 @@
     return [kLocalizedSetX stringByAppendingString:@"%@"];
 }
 
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 #pragma mark - Description
 - (NSString*)description
 {

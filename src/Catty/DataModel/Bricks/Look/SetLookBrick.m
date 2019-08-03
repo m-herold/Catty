@@ -36,6 +36,11 @@
     return [kLocalizedSetLook stringByAppendingString:@"\n%@"];
 }
 
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
+}
+
 - (NSString*)pathForLook
 {
     return [NSString stringWithFormat:@"%@%@/%@", [self.script.object projectPath], kProjectImagesDirName, self.look.fileName];

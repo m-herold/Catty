@@ -26,7 +26,7 @@
 
 @class SpriteObject;
 
-@interface PointToBrick : Brick<BrickObjectProtocol>
+@interface PointToBrick : Brick<BrickProtocol, BrickObjectProtocol>
 
 @property (nonatomic, weak) SpriteObject *pointedObject;
 

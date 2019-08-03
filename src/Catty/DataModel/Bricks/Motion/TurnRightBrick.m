@@ -25,6 +25,16 @@
 
 @implementation TurnRightBrick
 
+- (NSString*)brickTitle
+{
+    return [kLocalizedTurnRight stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedDegrees]];
+}
+
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 - (Formula*)formulaForLineNumber:(NSInteger)lineNumber andParameterNumber:(NSInteger)paramNumber
 {
     return self.degrees;
@@ -48,11 +58,6 @@
 - (void)setDefaultValuesForObject:(SpriteObject*)spriteObject
 {
     self.degrees = [[Formula alloc] initWithInteger:15];
-}
-
-- (NSString*)brickTitle
-{
-    return [kLocalizedTurnRight stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedDegrees]];
 }
 
 #pragma mark - Description

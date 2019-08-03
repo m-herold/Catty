@@ -55,6 +55,11 @@
     return [kLocalizedPointInDirection stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedDegrees]];
 }
 
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 #pragma mark - Description
 - (NSString*)description
 {

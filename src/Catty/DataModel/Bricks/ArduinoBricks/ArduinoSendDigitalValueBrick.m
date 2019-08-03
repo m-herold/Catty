@@ -24,9 +24,15 @@
 #import "Script.h"
 
 @implementation ArduinoSendDigitalValueBrick
+
 - (NSString*)brickTitle
 {
     return [[[kLocalizedArduinoSetDigitalValue stringByAppendingString:@" %@\n"] stringByAppendingString:kLocalizedArduinoSetPinValueTo] stringByAppendingString:@" %@"];
+}
+
+- (kBrickCategoryType)category
+{
+    return kArduinoBrick;
 }
 
 - (Formula*)formulaForLineNumber:(NSInteger)lineNumber andParameterNumber:(NSInteger)paramNumber
@@ -80,7 +86,6 @@
     self.pin = [[Formula alloc] initWithZero];
     self.value = [[Formula alloc] initWithZero];
 }
-
 
 #pragma mark - Resources
 - (NSInteger)getRequiredResources

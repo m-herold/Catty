@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface PointInDirectionBrick : Brick<BrickFormulaProtocol>
+@interface PointInDirectionBrick : Brick<BrickProtocol, BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula* degrees;
 

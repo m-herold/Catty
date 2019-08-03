@@ -26,6 +26,11 @@
 
 @implementation SetBackgroundBrick
 
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
+}
+
 - (NSString*)brickTitle
 {
     return [kLocalizedSetBackground stringByAppendingString:@"\n%@"];

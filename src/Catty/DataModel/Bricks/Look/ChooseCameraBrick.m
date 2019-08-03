@@ -24,6 +24,11 @@
 
 @implementation ChooseCameraBrick
 
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
+}
+
 - (NSString*)brickTitle
 {
     return [kLocalizedChooseCamera stringByAppendingString:@"\n%@"];

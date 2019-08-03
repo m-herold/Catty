@@ -32,6 +32,11 @@
     return self;
 }
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (NSString*)brickTitle
 {
     return kLocalizedWhenTapped;

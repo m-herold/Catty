@@ -41,11 +41,6 @@
     self.rightTextLabel = inlineViewSubViews[2];
 }
 
-- (kBrickCategoryType)category
-{
-    return kMotionBrick;
-}
-
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];

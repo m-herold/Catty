@@ -44,11 +44,6 @@
     self.noteTextField = inlineViewSubViews[1];
 }
 
-- (kBrickCategoryType)category
-{
-    return kControlBrick;
-}
-
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{TEXT}", nil];

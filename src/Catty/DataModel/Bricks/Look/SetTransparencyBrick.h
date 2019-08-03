@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface SetTransparencyBrick : Brick<BrickFormulaProtocol>
+@interface SetTransparencyBrick : Brick<BrickProtocol, BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *transparency;
 

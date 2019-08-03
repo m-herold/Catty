@@ -39,11 +39,6 @@
     return kBrickHeight3h;
 }
 
-- (kBrickCategoryType)category
-{
-    return kVariableBrick;
-}
-
 - (void)hookUpSubViews:(NSArray *)inlineViewSubViews
 {
     self.firstRowTextLabel = inlineViewSubViews[0];

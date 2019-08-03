@@ -26,6 +26,11 @@
 
 @implementation WaitBrick
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (Formula*)formulaForLineNumber:(NSInteger)lineNumber andParameterNumber:(NSInteger)paramNumber
 {
     return self.timeToWaitInSeconds;

@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface GoNStepsBackBrick : Brick<BrickFormulaProtocol>
+@interface GoNStepsBackBrick : Brick<BrickProtocol, BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *steps;
 

@@ -41,7 +41,7 @@
         int currentOptionIndex = 0;
         if (!brickCell.isInserting) {
             int optionIndex = 1;
-            if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickSoundProtocol)]) {
+            if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickSoundProtocol)]) {
                 Brick<BrickSoundProtocol> *soundBrick = (Brick<BrickSoundProtocol>*)brickCell.scriptOrBrick;
                 Sound *currentSound = [soundBrick soundForLineNumber:line andParameterNumber:parameter];
                 for(Sound *sound in soundBrick.script.object.soundList) {
@@ -77,7 +77,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isAnimatedInsertBrick == NO;
 }
 
 @end

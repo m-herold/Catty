@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface SetBrightnessBrick : Brick<BrickFormulaProtocol>
+@interface SetBrightnessBrick : Brick<BrickProtocol, BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *brightness;
 

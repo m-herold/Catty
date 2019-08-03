@@ -27,6 +27,11 @@
 
 @implementation IfThenLogicEndBrick
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (BOOL)isSelectableForObject
 {
     return NO;

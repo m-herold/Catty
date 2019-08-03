@@ -28,6 +28,11 @@
 
 @synthesize changeTransparency = _changeTransparency;
 
+- (kBrickCategoryType)category
+{
+    return kLookBrick;
+}
+
 - (Formula*)formulaForLineNumber:(NSInteger)lineNumber andParameterNumber:(NSInteger)paramNumber
 {
     return self.changeTransparency;

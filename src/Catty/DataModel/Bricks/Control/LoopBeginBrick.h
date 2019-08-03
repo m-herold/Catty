@@ -23,6 +23,6 @@
 #import "Brick.h"
 #import "LoopEndBrick.h"
 
-@interface LoopBeginBrick : Brick
+@interface LoopBeginBrick : Brick<BrickProtocol>
 @property (nonatomic, weak) LoopEndBrick *loopEndBrick;
 @end

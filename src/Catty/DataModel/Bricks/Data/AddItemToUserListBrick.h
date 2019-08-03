@@ -27,7 +27,7 @@
 @class UserVariable;
 @class Formula;
 
-@interface AddItemToUserListBrick : Brick<BrickFormulaProtocol, BrickListProtocol>
+@interface AddItemToUserListBrick : Brick<BrickProtocol, BrickFormulaProtocol, BrickListProtocol>
 
 @property (nonatomic, strong) UserVariable *userList;
 @property (nonatomic, strong) Formula *listFormula;

@@ -24,12 +24,13 @@
 
 @class Script;
 
-@protocol BrickProtocol <ScriptProtocol>
+@protocol BrickProtocol<CBMutableCopying>
 
-@property (nonatomic, weak) Script *script;
-- (BOOL)isFormulaBrick;
-- (BOOL)isIfLogicBrick;
-- (BOOL)isLoopBrick;
+- (NSString*)brickTitle;
+- (kBrickCategoryType)category;
 - (NSInteger)getRequiredResources;
+
+- (BOOL)isDisabledForBackground;
+- (void)setDefaultValuesForObject:(SpriteObject*)spriteObject;
 
 @end

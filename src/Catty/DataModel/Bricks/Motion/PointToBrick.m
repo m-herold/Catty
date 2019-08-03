@@ -95,4 +95,9 @@
     return kNoResources;
 }
 
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 @end

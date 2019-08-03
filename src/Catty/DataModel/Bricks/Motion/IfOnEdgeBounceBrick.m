@@ -36,6 +36,11 @@
     return kLocalizedIfIsTrueThenOnEdgeBounce;
 }
 
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 - (void)performFromScript:(Script*)script;
 {
     NSDebug(@"Performing: %@", self.description);

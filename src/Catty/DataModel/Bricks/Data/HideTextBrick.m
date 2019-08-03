@@ -25,6 +25,10 @@
 
 @implementation HideTextBrick
 
+- (kBrickCategoryType)category
+{
+    return kVariableBrick;
+}
 
 - (UserVariable*)variableForLineNumber:(NSInteger)lineNumber andParameterNumber:(NSInteger)paramNumber
 {

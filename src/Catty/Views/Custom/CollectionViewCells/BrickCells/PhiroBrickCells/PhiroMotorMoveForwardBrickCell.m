@@ -49,11 +49,6 @@
     self.thirdRowTextLabel2 = inlineViewSubViews[4];
 }
 
-- (kBrickCategoryType)category
-{
-    return kPhiroBrick;
-}
-
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{MOTOR}",@"{FLOAT;range=(-inf,inf)}", nil];

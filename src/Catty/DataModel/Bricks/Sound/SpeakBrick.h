@@ -24,7 +24,7 @@
 #import "BrickFormulaProtocol.h"
 #import "Formula.h"
 
-@interface SpeakBrick : Brick<BrickFormulaProtocol>
+@interface SpeakBrick : Brick<BrickProtocol, BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *formula;
 @property (nonatomic, strong) NSString *text;

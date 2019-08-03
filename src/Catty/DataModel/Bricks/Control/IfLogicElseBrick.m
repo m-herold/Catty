@@ -27,6 +27,16 @@
 
 @implementation IfLogicElseBrick
 
+- (NSString*)brickTitle
+{
+    return kLocalizedElse;
+}
+
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (BOOL)isSelectableForObject
 {
     return NO;
@@ -40,11 +50,6 @@
 - (BOOL)isIfLogicBrick
 {
     return YES;
-}
-
-- (NSString*)brickTitle
-{
-    return kLocalizedElse;
 }
 
 - (void)performFromScript:(Script*)script

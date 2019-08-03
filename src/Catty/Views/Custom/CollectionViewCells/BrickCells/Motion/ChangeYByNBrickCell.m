@@ -39,9 +39,4 @@
     self.yCoordTextField = inlineViewSubViews[1];
 }
 
-- (kBrickCategoryType)category
-{
-    return kMotionBrick;
-}
-
 @end

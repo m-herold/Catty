@@ -43,7 +43,7 @@
         if (!brickCell.isInserting) {
             SpriteObject* object;
             int optionIndex = 1;
-            if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickLookProtocol)]) {
+            if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickLookProtocol)]) {
                 Brick<BrickLookProtocol> *lookBrick = (Brick<BrickLookProtocol>*)brickCell.scriptOrBrick;
                 object = lookBrick.script.object;
                 Look *currentLook = [lookBrick lookForLineNumber:line andParameterNumber:parameter];
@@ -94,7 +94,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isInserting == NO;
 }
 
 @end

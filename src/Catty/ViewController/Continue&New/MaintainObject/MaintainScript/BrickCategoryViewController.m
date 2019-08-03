@@ -60,8 +60,8 @@
 #pragma mark - Setup
 - (void)setupSubviews
 {
-    NSArray<id<ScriptProtocol>> *allBricks = [[CatrobatSetup class] registeredBricks];
-    for (id<ScriptProtocol> brick in allBricks) {
+    NSArray *allBricks = [[CatrobatSetup class] registeredBricks];
+    for (id brick in allBricks) {
         NSString *className = NSStringFromClass([brick class]);
         [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
                 forCellWithReuseIdentifier:className];
@@ -127,8 +127,8 @@ didSelectItemAtIndexPath:(NSIndexPath*)indexPath
     
     [Util incrementStatisticCountForBrick:cell.scriptOrBrick];
     
-    if ([self.delegate respondsToSelector:@selector(brickCategoryViewController:didSelectScriptOrBrick:)]) {
-        [self.delegate brickCategoryViewController:self didSelectScriptOrBrick:cell.scriptOrBrick];
+    if ([self.delegate respondsToSelector:@selector(brickCategoryViewController:didSelectBrickCell:)]) {
+        [self.delegate brickCategoryViewController:self didSelectBrickCell:cell];
     }
 }
 

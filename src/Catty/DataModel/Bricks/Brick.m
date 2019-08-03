@@ -28,24 +28,21 @@
 #import "BroadcastScript.h"
 #import "CBMutableCopyContext.h"
 
-@interface Brick()
-
-@property (nonatomic, assign) kBrickCategoryType brickCategoryType;
-
-@end
-
 @implementation Brick
 
-
-#pragma mark - NSObject
-
-- (id)init
+- (id)initWithCategory:(kBrickCategoryType)category
 {
     self = [super init];
     if (self) {
-        self.brickCategoryType = kControlBrick;
     }
     return self;
+}
+
+- (NSString*)brickTitle
+{
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"You must implement %@ in a subclass", NSStringFromSelector(_cmd)]
+                                 userInfo:nil];
 }
 
 - (BOOL)isSelectableForObject
@@ -98,11 +95,6 @@
     return @"Brick (NO SPECIFIC DESCRIPTION GIVEN! OVERRIDE THE DESCRIPTION METHOD!";
 }
 
-- (NSString*)brickTitleForBrickinSelection:(BOOL)inSelection inBackground:(BOOL)inBackground
-{
-    return self.brickTitle;
-}
-
 - (void)performFromScript:(Script*)script
 {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
@@ -112,8 +104,6 @@
 
 - (BOOL)isEqualToBrick:(Brick*)brick
 {
-    if(self.brickCategoryType != brick.brickCategoryType)
-        return NO;
     if([self class] != [brick class])
         return NO;
 
@@ -151,12 +141,10 @@
     return [self mutableCopyWithContext:context AndErrorReporting:YES];
 }
 
-
 - (id)mutableCopyWithContext:(CBMutableCopyContext*)context AndErrorReporting:(BOOL)reportError
 {
     if (! context) NSError(@"%@ must not be nil!", [CBMutableCopyContext class]);
     Brick *brick = [[self class] new];
-    brick.brickCategoryType = self.brickCategoryType;
     [context updateReference:self WithReference:brick];
 
     NSDictionary *properties = [Util propertiesOfInstance:self];

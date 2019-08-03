@@ -38,9 +38,9 @@
     self.textLabel = inlineViewSubViews[0];
 }
 
-- (kBrickCategoryType)category
+- (NSString*)brickTitleForBrick:(BOOL)inSelection inBackground:(BOOL)inBackground
 {
-    return kLookBrick;
+    return inBackground ? kLocalizedNextBackground : kLocalizedNextLook;
 }
 
 @end

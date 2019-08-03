@@ -39,7 +39,7 @@
         _parameterNumber = parameter;
         NSMutableArray *options = [[NSMutableArray alloc] init];
         int currentOptionIndex = 0;
-        if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroToneProtocol)]) {
+        if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroToneProtocol)]) {
             Brick<BrickPhiroToneProtocol> *toneBrick = (Brick<BrickPhiroToneProtocol>*)brickCell.scriptOrBrick;
             NSString* currentLight = [toneBrick toneForLineNumber:line andParameterNumber:parameter];
             Tone current = [PhiroHelper stringToTone:currentLight];
@@ -74,7 +74,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isInserting == NO;
 }
 
 @end

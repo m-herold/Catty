@@ -26,6 +26,11 @@
 
 @implementation ComeToFrontBrick
 
+- (kBrickCategoryType)category
+{
+    return kMotionBrick;
+}
+
 - (BOOL)isDisabledForBackground
 {
     return YES;

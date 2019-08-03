@@ -39,7 +39,7 @@
         _parameterNumber = parameter;
         NSMutableArray *options = [[NSMutableArray alloc] init];
         int currentOptionIndex = 0;
-        if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroLightProtocol)]) {
+        if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroLightProtocol)]) {
             Brick<BrickPhiroLightProtocol> *rgbBrick = (Brick<BrickPhiroLightProtocol>*)brickCell.scriptOrBrick;
             NSString* currentLight = [rgbBrick lightForLineNumber:line andParameterNumber:parameter];
             switch([PhiroHelper stringToLight:currentLight]) {
@@ -82,7 +82,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isAnimatedInsertBrick == NO;
 }
 
 @end

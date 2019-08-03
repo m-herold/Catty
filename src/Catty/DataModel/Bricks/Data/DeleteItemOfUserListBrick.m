@@ -29,6 +29,11 @@
 
 @implementation DeleteItemOfUserListBrick
 
+- (kBrickCategoryType)category
+{
+    return kVariableBrick;
+}
+
 - (Formula*)formulaForLineNumber:(NSInteger)lineNumber andParameterNumber:(NSInteger)paramNumber
 {
     return self.listFormula;

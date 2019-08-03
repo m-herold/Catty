@@ -26,6 +26,11 @@
 
 @implementation BroadcastWaitBrick
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (NSString*)brickTitle
 {
     return [kLocalizedBroadcastAndWait stringByAppendingString:@"\n%@"];

@@ -43,11 +43,6 @@
     return kBrickHeightControl1h;
 }
 
-- (kBrickCategoryType)category
-{
-    return kControlBrick;
-}
-
 - (void)hookUpSubViews:(NSArray *)inlineViewSubViews
 {
     self.textLabel = inlineViewSubViews[0];

@@ -42,11 +42,11 @@ static NSMutableArray *messages = nil;
         int currentOptionIndex = 0;
         if (!brickCell.isInserting) {
             int optionIndex = 1;
-            if ([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickMessageProtocol)]) {
+            if ([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickMessageProtocol)]) {
                 Brick<BrickMessageProtocol> *messageBrick = (Brick<BrickMessageProtocol>*)brickCell.scriptOrBrick;
                 NSString *currentMessage = [messageBrick messageForLineNumber:line andParameterNumber:parameter];
                 NSArray *messages;
-                if ([brickCell.scriptOrBrick isKindOfClass:[Script class]]) {
+                if ([(id)brickCell.scriptOrBrick isKindOfClass:[Script class]]) {
                     messages = [Util allMessagesForProject:((Script*)brickCell.scriptOrBrick).object.project];
                 } else {
                     messages = [Util allMessagesForProject:messageBrick.script.object.project];
@@ -87,7 +87,7 @@ static NSMutableArray *messages = nil;
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
+    return self.brickCell.isInserting == NO;
 }
 
 @end

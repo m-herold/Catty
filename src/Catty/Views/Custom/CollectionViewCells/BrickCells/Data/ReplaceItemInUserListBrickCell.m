@@ -50,11 +50,6 @@
     self.valueTextField = inlineViewSubViews[5];
 }
 
-- (kBrickCategoryType)category
-{
-    return kVariableBrick;
-}
-
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{LIST}",@"{INT;range=(1,inf)}",@"{FLOAT;range=(-inf,inf)}", nil];

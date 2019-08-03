@@ -24,6 +24,11 @@
 
 @implementation StartScript
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (NSString*)brickTitle
 {
     return kLocalizedWhenProjectStarted;

@@ -47,11 +47,6 @@
     self.valueTextField = inlineViewSubViews[3];
 }
 
-- (kBrickCategoryType)category
-{
-    return kArduinoBrick;
-}
-
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", @"{FLOAT;range=(-inf,inf)}", nil];
