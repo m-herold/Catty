@@ -158,7 +158,7 @@ UIGestureRecognizerDelegate>
 - (void)showBrickPickerAction:(id)sender
 {
     if ([sender isKindOfClass:[UIBarButtonItem class]]) {
-        
+
         BrickSelectionViewController *bsvc = [[BrickSelectionViewController alloc]
                                               initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                               navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
@@ -272,7 +272,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         [self reloadData];
         return;
     }
-    
+
     id<AlertControllerBuilding> actionSheet;
     if ([scriptOrBrick isKindOfClass:[Brick class]]) {
         Brick *brick = (Brick*)scriptOrBrick;
@@ -326,15 +326,15 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     }
     
     [[[[actionSheet build]
-       viewDidAppear:^(UIView *view) {
-           const float kActionSheetBrickCellMarginBottom = 15.0f;
-           [self disableUserInteractionAndHighlight:brickCell withMarginBottom:view.frame.size.height + kActionSheetBrickCellMarginBottom];
-       }]
+      viewDidAppear:^(UIView *view) {
+          const float kActionSheetBrickCellMarginBottom = 15.0f;
+          [self disableUserInteractionAndHighlight:brickCell withMarginBottom:view.frame.size.height + kActionSheetBrickCellMarginBottom];
+      }]
       viewWillDisappear:^{
           if (self.isEditingBrickMode) {
               [self enableUserInteractionAndResetHighlight];
           }
-      }]
+     }]
      showWithController:self];
 }
 
@@ -379,7 +379,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             break;
         }
     }
-    
+
     if ([[[BrickSelectionManager sharedInstance] selectedIndexPaths] count])
     {
         NSString *alertTitle = title;
@@ -414,7 +414,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             } else {
                 [script.brickList insertObject:fromBrick atIndex:toIndexPath.item+1];
             }
-            
+
         }
         
     } else {
@@ -538,7 +538,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     brickCell.delegate = self;
     brickCell.dataDelegate = self;
     [brickCell setNeedsDisplay];
-    
+
     if (brickCell.scriptOrBrick.isAnimated) {
         [brickCell animate:YES];
     }
@@ -579,7 +579,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
         brickCell.userInteractionEnabled = YES;
         brickCell.alpha = self.isEditingBrickMode ? kBrickCellInactiveWhileEditingOpacity : kBrickCellActiveOpacity;
     }
-    
+
     return brickCell;
 }
 
@@ -614,7 +614,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:(self.object.scriptList.count - 1)]
                                     atScrollPosition:UICollectionViewScrollPositionBottom
                                             animated:YES];
-        
+
         manager.isInsertingScript = YES;
         if (self.object.scriptList.count == 1) {
             [self.object.project saveToDiskWithNotification:YES];
@@ -630,7 +630,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
         script.object = self.object;
         [self.object.scriptList addObject:script];
     }
-    
+
     NSInteger targetScriptIndex = 0;
     BOOL smallScript = NO;
     CGRect visibleRect = (CGRect){.origin = self.collectionView.contentOffset, .size = self.collectionView.bounds.size};
@@ -642,7 +642,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
         targetScriptIndex = 0;
         smallScript = YES;
     }
-    
+
     Brick *brick = (Brick*)scriptOrBrick;
     Script *targetScript = self.object.scriptList[targetScriptIndex];
     brick.script = targetScript;
@@ -703,7 +703,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     if (! indexPath) {
         return;
     }
-    
+
     [[BrickSelectionManager sharedInstance] brickCell:brickCell didSelectBrickCellButton:selectButton IndexPath:indexPath andObject:self.object];
     [self reloadData];
 }
@@ -730,12 +730,12 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
         [formulaEditorViewController changeBrickCellFormulaData:formulaData andForce:forceChange];
         return;
     }
-    
+
     // Check if already presenting a view controller.
     if (self.presentedViewController.isViewLoaded && self.presentedViewController.view.window) {
         [self.presentedViewController dismissViewControllerAnimated:NO completion:NULL];
     }
-    
+
     FormulaEditorViewController *formulaEditorViewController = [[FormulaEditorViewController alloc] initWithBrickCellFormulaData:formulaData andFormulaManager:self.formulaManager];
     formulaEditorViewController.object = self.object;
     formulaEditorViewController.transitioningDelegate = self;
