@@ -44,4 +44,9 @@
     self.messageComboBoxView = inlineViewSubViews[1];
 }
 
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{MESSAGE}", nil];
+}
+
 @end

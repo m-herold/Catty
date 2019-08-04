@@ -25,7 +25,7 @@
 #import "Pocket_Code-Swift.h"
 
 @interface BrickCategoryViewController ()
-@property (nonatomic, strong) NSArray *bricks;
+@property (nonatomic, strong) NSArray<id<BrickProtocol>> *bricks;
 
 @end
 

@@ -249,10 +249,15 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         return;
     }
     if ([[BrickInsertManager sharedInstance] isBrickInsertionMode]) {
-        if (indexPath.item != 0 && [brickCell.scriptOrBrick isKindOfClass:[Brick class]]) {
+        Script *script = [self.object.scriptList objectAtIndex:indexPath.section];
+        if (indexPath.item != 0) {
+            Brick *brick;
+            if (script.brickList.count >= 1) {
+                brick = [script.brickList objectAtIndex:indexPath.item - 1];
+            }else{
+                brick = [script.brickList objectAtIndex:indexPath.item];
+            }
             if (brickCell.isAnimatedInsertBrick && !brickCell.isAnimatedMoveBrick) {
-                Brick *brick = (Brick*)brickCell.scriptOrBrick;
-                
                 [[BrickInsertManager sharedInstance] insertBrick:brick IndexPath:indexPath andObject:self.object];
                 brickCell.animateInsertBrick = NO;
             }else if(!brickCell.isAnimatedInsertBrick && !brickCell.isAnimatedMoveBrick){
@@ -269,7 +274,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         [self reloadData];
         return;
     }
-
+    
     id<AlertControllerBuilding> actionSheet;
     if ([scriptOrBrick isKindOfClass:[Brick class]]) {
         Brick *brick = (Brick*)scriptOrBrick;
@@ -278,13 +283,13 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
                                       : kLocalizedDeleteBrick);
         
         actionSheet = [[[[[AlertControllerBuilder actionSheetWithTitle:kLocalizedEditBrick]
-                       addCancelActionWithTitle:kLocalizedCancel handler:nil]
-                       addDestructiveActionWithTitle:destructiveTitle handler:^{
-                           [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
-                       }]
-                       addDefaultActionWithTitle:kLocalizedCopyBrick handler:^{
-                           [self copyBrick:brick atIndexPath:indexPath];
-                       }]
+                          addCancelActionWithTitle:kLocalizedCancel handler:nil]
+                         addDestructiveActionWithTitle:destructiveTitle handler:^{
+                             [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
+                         }]
+                        addDefaultActionWithTitle:kLocalizedCopyBrick handler:^{
+                            [self copyBrick:brick atIndexPath:indexPath];
+                        }]
                        addDefaultActionWithTitle:kLocalizedMoveBrick handler:^{
                            brickCell.animateInsertBrick = YES;
                            brickCell.animateMoveBrick = YES;
@@ -305,33 +310,33 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         }
     } else {
         actionSheet = [[[AlertControllerBuilder actionSheetWithTitle:kLocalizedEditScript]
-         addCancelActionWithTitle:kLocalizedCancel handler:nil]
-         addDestructiveActionWithTitle:kLocalizedDeleteScript handler:^{
-             NSInteger numberOfBricksInSection = [self.collectionView numberOfItemsInSection:indexPath.section];
-             if (numberOfBricksInSection > 1) {
-                 [[[[[AlertControllerBuilder alertWithTitle:kLocalizedDeleteThisScript
-                                                    message:kLocalizedThisActionCannotBeUndone]
-                  addCancelActionWithTitle:kLocalizedCancel handler:nil]
-                  addDefaultActionWithTitle:kLocalizedYes handler:^{
-                      [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
-                  }] build]
-                  showWithController:self];
-             } else {
-                 [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
-             }
-         }];
+                        addCancelActionWithTitle:kLocalizedCancel handler:nil]
+                       addDestructiveActionWithTitle:kLocalizedDeleteScript handler:^{
+                           NSInteger numberOfBricksInSection = [self.collectionView numberOfItemsInSection:indexPath.section];
+                           if (numberOfBricksInSection > 1) {
+                               [[[[[AlertControllerBuilder alertWithTitle:kLocalizedDeleteThisScript
+                                                                  message:kLocalizedThisActionCannotBeUndone]
+                                   addCancelActionWithTitle:kLocalizedCancel handler:nil]
+                                  addDefaultActionWithTitle:kLocalizedYes handler:^{
+                                      [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
+                                  }] build]
+                                showWithController:self];
+                           } else {
+                               [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
+                           }
+                       }];
     }
     
     [[[[actionSheet build]
-     viewDidAppear:^(UIView *view) {
-         const float kActionSheetBrickCellMarginBottom = 15.0f;
-         [self disableUserInteractionAndHighlight:brickCell withMarginBottom:view.frame.size.height + kActionSheetBrickCellMarginBottom];
-     }]
-     viewWillDisappear:^{
-         if (self.isEditingBrickMode) {
-             [self enableUserInteractionAndResetHighlight];
-         }
-     }]
+       viewDidAppear:^(UIView *view) {
+           const float kActionSheetBrickCellMarginBottom = 15.0f;
+           [self disableUserInteractionAndHighlight:brickCell withMarginBottom:view.frame.size.height + kActionSheetBrickCellMarginBottom];
+       }]
+      viewWillDisappear:^{
+          if (self.isEditingBrickMode) {
+              [self enableUserInteractionAndResetHighlight];
+          }
+      }]
      showWithController:self];
 }
 
@@ -448,22 +453,17 @@ didEndDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     }
     
     if ([[BrickInsertManager sharedInstance] isBrickInsertionMode]) {
-        BrickCell *scriptBrickCell = (BrickCell*)[collectionView cellForItemAtIndexPath:indexPath];
+        BrickCell *brickCell = (BrickCell*)[collectionView cellForItemAtIndexPath:indexPath];
         Script *script = [self.object.scriptList objectAtIndex:indexPath.section];
-        
         if (indexPath.item != 0) {
-            NSIndexPath *brickIndexPath = indexPath;
-            
+            Brick *brick;
             if (script.brickList.count >= 1) {
-                brickIndexPath = [NSIndexPath indexPathForRow:indexPath.item - 1 inSection:indexPath.section];
+                brick = [script.brickList objectAtIndex:indexPath.item - 1];
+            }else{
+                brick = [script.brickList objectAtIndex:indexPath.item];
             }
-        
-            BrickCell *brickCell = (BrickCell*)[collectionView cellForItemAtIndexPath:indexPath];
-            Brick *brick = [script.brickList objectAtIndex:indexPath.item];
-            
             if (brickCell.isAnimatedInsertBrick && !brickCell.isAnimatedMoveBrick) {
                 [[BrickInsertManager sharedInstance] insertBrick:brick IndexPath:indexPath andObject:self.object];
-                brickCell.animateInsertBrick = NO;
             }else if(!brickCell.isAnimatedInsertBrick && !brickCell.isAnimatedMoveBrick){
                 return;
             }else {
@@ -471,7 +471,7 @@ didEndDraggingItemAtIndexPath:(NSIndexPath*)indexPath
                 brickCell.animateMoveBrick = NO;
             }
         }else{
-            scriptBrickCell.animateInsertBrick = NO;
+            brickCell.animateInsertBrick = NO;
         }
         [self turnOffInsertingBrickMode];
     } else {

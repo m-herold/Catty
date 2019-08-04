@@ -77,9 +77,8 @@
         return NO;
     }
     
-    NSIndexPath *fromBrickIndexPath = fromIndexPath;
-    if (fromBrickIndexPath.item > 0) {
-        fromBrickIndexPath = [NSIndexPath indexPathForRow:fromBrickIndexPath.item - 1 inSection:fromBrickIndexPath.section];
+    if (fromIndexPath.item > 0) {
+        fromIndexPath = [NSIndexPath indexPathForRow:fromIndexPath.item - 1 inSection:fromIndexPath.section];
     }
     
     Brick *fromBrick = fromBrick = [fromScript.brickList objectAtIndex:fromIndexPath.item];

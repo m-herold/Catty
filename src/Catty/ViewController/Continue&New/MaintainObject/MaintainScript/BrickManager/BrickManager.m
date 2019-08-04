@@ -70,27 +70,13 @@
             if ([brick isKindOfClass:[Brick class]] && ((Brick*)brick).isSelectableForObject) {
                 [selectableBricksMutableArray addObject:brick];
             }
+            if ([brick isKindOfClass:[Script class]]) {
+                [selectableBricksMutableArray addObject:brick];
+            }
         }
         selectableBricks = selectableBricksMutableArray;
     }
     return selectableBricks;
-}
-
-- (NSArray*)selectableScriptBricks
-{
-    static NSArray *bricks = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSArray *allBricks = [[CatrobatSetup class] registeredBricks];
-        NSMutableArray *mutableScriptBricks = [[NSMutableArray alloc] initWithCapacity:allBricks.count];
-        
-        [allBricks enumerateObjectsUsingBlock:^(id brick, NSUInteger idx, BOOL *stop) {
-            [mutableScriptBricks addObject:brick];
-        }];
-        
-        bricks = mutableScriptBricks;
-    });
-    return bricks;
 }
 
 - (NSArray*)selectableBricksForCategoryType:(kBrickCategoryType)categoryType {
@@ -101,15 +87,12 @@
 {
     NSArray *selectableBricks = [self selectableBricks];
     NSMutableArray *selectableBricksForCategoryMutable = [NSMutableArray arrayWithCapacity:[selectableBricks count]];
-    if (categoryType == kControlBrick) {
-        [selectableBricksForCategoryMutable addObjectsFromArray:[self selectableScriptBricks]];
-    }
+    
     if (categoryType == kFavouriteBricks) {
-        NSArray *selectableBricksOrScripts = [selectableBricks arrayByAddingObjectsFromArray:[self selectableScriptBricks]];
         NSArray *favouriteBricks = [Util getSubsetOfTheMostFavoriteChosenBricks:kMaxFavouriteBrickSize];
         
         for(NSString* favouriteBrick in favouriteBricks) {
-            for(id<BrickProtocol> scriptOrBrick in selectableBricksOrScripts) {
+            for(id<BrickProtocol> scriptOrBrick in selectableBricks) {
                 NSString *wrappedBrickType = NSStringFromClass([scriptOrBrick class]);
                 if([wrappedBrickType isEqualToString:favouriteBrick] && !([scriptOrBrick isDisabledForBackground] && inBackground)) {
                     [selectableBricksForCategoryMutable addObject:scriptOrBrick];

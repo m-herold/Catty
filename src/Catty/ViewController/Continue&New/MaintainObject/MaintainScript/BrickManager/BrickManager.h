@@ -33,7 +33,6 @@
 
 // helpers
 - (NSArray*)selectableBricks;
-- (NSArray *)selectableScriptBricks;
 - (NSArray*)selectableBricksForCategoryType:(kBrickCategoryType)categoryType;
 - (NSArray*)selectableBricksForCategoryType:(kBrickCategoryType)categoryType inBackground:(BOOL)inBackground;
 - (BrickCategory*)categoryForType:(kBrickCategoryType)categoryType;
