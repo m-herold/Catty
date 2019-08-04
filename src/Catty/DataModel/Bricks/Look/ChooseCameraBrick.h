@@ -23,7 +23,7 @@
 #import "Brick.h"
 #import "BrickStaticChoiceProtocol.h"
 
-@interface ChooseCameraBrick : Brick<BrickProtocol, BrickStaticChoiceProtocol>
+@interface ChooseCameraBrick : Brick<BrickStaticChoiceProtocol>
 
 @property (nonatomic) int cameraPosition;
 - (id)initWithChoice:(int)choice;

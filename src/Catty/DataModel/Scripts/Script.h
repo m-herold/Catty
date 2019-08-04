@@ -30,7 +30,6 @@
 @class Brick;
 @class SpriteObject;
 @class GDataXMLElement;
-@protocol BrickProtocol;
 
 @interface Script : NSObject <ScriptProtocol, CBMutableCopying>
 
@@ -48,7 +47,6 @@
 - (void)removeFromObject;
 - (void)removeReferences;
 
-- (id)mutableCopyWithContext:(CBMutableCopyContext *)context;
 - (NSInteger)getRequiredResources;
 
 @end

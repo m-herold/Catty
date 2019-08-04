@@ -30,7 +30,6 @@
 @class Look;
 @class Sound;
 @class CBSpriteNode;
-@protocol BrickProtocol;
 
 @interface SpriteObject : NSObject <CBMutableCopying>
 

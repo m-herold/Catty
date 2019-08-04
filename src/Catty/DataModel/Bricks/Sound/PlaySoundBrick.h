@@ -26,6 +26,6 @@
 
 @class Sound;
 
-@interface PlaySoundBrick : Brick<BrickProtocol, BrickSoundProtocol>
+@interface PlaySoundBrick : Brick<BrickSoundProtocol>
 @property (nonatomic, strong) Sound *sound;
 @end

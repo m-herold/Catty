@@ -30,14 +30,6 @@
 
 @implementation Brick
 
-- (id)initWithCategory:(kBrickCategoryType)category
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
-
 - (NSString*)brickTitle
 {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException

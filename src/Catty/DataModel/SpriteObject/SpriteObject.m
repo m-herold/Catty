@@ -444,7 +444,7 @@
     newObject.scriptList = [NSMutableArray arrayWithCapacity:[self.scriptList count]];
     for (id scriptObject in self.scriptList) {
         if ([scriptObject isKindOfClass:[Script class]]) {
-            Script<BrickProtocol> *copiedScript = [scriptObject mutableCopyWithContext:context];
+            Script *copiedScript = [scriptObject mutableCopyWithContext:context];
             copiedScript.object = newObject;
             [newObject.scriptList addObject:copiedScript];
         }

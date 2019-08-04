@@ -30,13 +30,13 @@ final class GlideToBrickTests: XCTestCase {
         let glideToBrick = GlideToBrick()
         glideToBrick.durationInSeconds = Formula(double: 1)
         let translation = kLocalizedGlide + " %@ " + kLocalizedSecond + "\n" + kLocalizedToX + " %@ " + kLocalizedYLabel + " %@"
-        XCTAssertEqual(translation, glideToBrick.brickTitle, "Wrong brick title")
+        XCTAssertEqual(translation, glideToBrick.brickTitle(), "Wrong brick title")
     }
 
     func testTitlePlural() {
         let glideToBrick = GlideToBrick()
         glideToBrick.durationInSeconds = Formula(double: 2)
         let translation = kLocalizedGlide + " %@ " + kLocalizedSeconds + "\n" + kLocalizedToX + " %@ " + kLocalizedYLabel + " %@"
-        XCTAssertEqual(translation, glideToBrick.brickTitle, "Wrong brick title")
+        XCTAssertEqual(translation, glideToBrick.brickTitle(), "Wrong brick title")
     }
 }

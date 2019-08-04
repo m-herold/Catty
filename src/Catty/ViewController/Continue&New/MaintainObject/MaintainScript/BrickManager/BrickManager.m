@@ -131,11 +131,6 @@
     return size;
 }
 
-- (BOOL)isScript:(kBrickType)type
-{
-    return NO;
-}
-
 - (NSInteger)checkEndLoopBrickTypeForDrawing:(BrickCell*)cell
 {
     LoopEndBrick *brick = (LoopEndBrick*)cell.scriptOrBrick;

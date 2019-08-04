@@ -25,7 +25,7 @@
 #import "SpriteObject.h"
 #import "BrickLookProtocol.h"
 
-@interface SetLookBrick : Brick<BrickProtocol, BrickLookProtocol>
+@interface SetLookBrick : Brick<BrickLookProtocol>
 
 @property (nonatomic, strong) Look *look;
 - (NSString*)pathForLook;

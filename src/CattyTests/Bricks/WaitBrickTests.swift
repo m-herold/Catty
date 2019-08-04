@@ -95,13 +95,13 @@ final class WaitBrickTests: XCTestCase {
     func testTitleSingular() {
         let waitBrick = WaitBrick()
         waitBrick.timeToWaitInSeconds = Formula(double: 1)
-        XCTAssertEqual(kLocalizedWait + " %@ " + kLocalizedSecond, waitBrick.brickTitle, "Wrong brick title")
+        XCTAssertEqual(kLocalizedWait + " %@ " + kLocalizedSecond, waitBrick.brickTitle(), "Wrong brick title")
     }
 
     func testTitlePlural() {
         let waitBrick = WaitBrick()
         waitBrick.timeToWaitInSeconds = Formula(double: 2)
-        XCTAssertEqual(kLocalizedWait + " %@ " + kLocalizedSeconds, waitBrick.brickTitle, "Wrong brick title")
+        XCTAssertEqual(kLocalizedWait + " %@ " + kLocalizedSeconds, waitBrick.brickTitle(), "Wrong brick title")
     }
 
     func measureExecutionTime(instruction: CBInstruction, expectation: XCTestExpectation?) -> Double {
