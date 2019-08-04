@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface TurnLeftBrick : Brick<BrickProtocol, BrickFormulaProtocol>
+@interface TurnLeftBrick : Brick<BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *degrees;
 

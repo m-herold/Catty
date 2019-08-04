@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface ChangeXByNBrick : Brick<BrickProtocol, BrickFormulaProtocol>
+@interface ChangeXByNBrick : Brick<BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *xMovement;
 

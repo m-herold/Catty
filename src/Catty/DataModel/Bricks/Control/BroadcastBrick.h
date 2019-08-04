@@ -25,7 +25,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BroadcastBrick : Brick<BrickProtocol, BrickMessageProtocol>
+@interface BroadcastBrick : Brick<BrickMessageProtocol>
 
 @property (nonatomic, strong) NSString *broadcastMessage;
 

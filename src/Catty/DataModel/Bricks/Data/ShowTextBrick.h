@@ -27,7 +27,7 @@
 @class UserVariable;
 @class Formula;
 
-@interface ShowTextBrick : Brick<BrickProtocol, BrickFormulaProtocol, BrickVariableProtocol>
+@interface ShowTextBrick : Brick<BrickFormulaProtocol, BrickVariableProtocol>
 
 @property (nonatomic, strong) UserVariable *userVariable;
 @property (nonatomic, strong) Formula *xFormula;

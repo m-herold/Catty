@@ -26,7 +26,7 @@
 @class UserVariable;
 @class Formula;
 
-@interface HideTextBrick : Brick<BrickProtocol, BrickVariableProtocol>
+@interface HideTextBrick : Brick<BrickVariableProtocol>
 
 @property (nonatomic, strong) UserVariable *userVariable;
 

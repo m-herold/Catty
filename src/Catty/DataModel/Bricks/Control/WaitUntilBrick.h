@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface WaitUntilBrick : Brick<BrickProtocol, BrickFormulaProtocol>
+@interface WaitUntilBrick : Brick<BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *waitCondition;
 

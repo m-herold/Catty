@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface ChangeColorByNBrick : Brick<BrickProtocol, BrickFormulaProtocol>
+@interface ChangeColorByNBrick : Brick<BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *changeColor;
 

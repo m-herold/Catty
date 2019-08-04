@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface GlideToBrick : Brick<BrickProtocol, BrickFormulaProtocol>
+@interface GlideToBrick : Brick<BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *durationInSeconds;
 @property (nonatomic, strong) Formula *xDestination;

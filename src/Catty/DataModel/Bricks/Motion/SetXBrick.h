@@ -25,7 +25,7 @@
 
 @class Formula;
 
-@interface SetXBrick : Brick<BrickProtocol, BrickFormulaProtocol>
+@interface SetXBrick : Brick<BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *xPosition;
 

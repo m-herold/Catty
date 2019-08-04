@@ -26,7 +26,7 @@
 
 @class Formula;
 
-@interface SetVolumeToBrick : Brick<BrickProtocol, BrickFormulaProtocol>
+@interface SetVolumeToBrick : Brick<BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *volume;
 

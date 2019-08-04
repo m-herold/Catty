@@ -27,7 +27,7 @@
 @class UserVariable;
 @class Formula;
 
-@interface ReplaceItemInUserListBrick : Brick<BrickProtocol, BrickFormulaProtocol, BrickListProtocol>
+@interface ReplaceItemInUserListBrick : Brick<BrickFormulaProtocol, BrickListProtocol>
 
 @property (nonatomic, strong) UserVariable *userList;
 @property (nonatomic, strong) Formula *elementFormula;

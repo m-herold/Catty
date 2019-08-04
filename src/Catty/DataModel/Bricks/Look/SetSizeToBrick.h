@@ -27,7 +27,7 @@
 
 @class Formula;
 
-@interface SetSizeToBrick : Brick<BrickProtocol, BrickFormulaProtocol>
+@interface SetSizeToBrick : Brick<BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *size;
 

@@ -26,7 +26,7 @@
 @class IfLogicElseBrick;
 @class IfLogicEndBrick;
 
-@interface IfLogicBeginBrick : Brick<BrickProtocol, BrickFormulaProtocol>
+@interface IfLogicBeginBrick : Brick<BrickFormulaProtocol>
 
 @property (nonatomic, strong) Formula *ifCondition;
 @property (nonatomic, weak) IfLogicElseBrick *ifElseBrick;
