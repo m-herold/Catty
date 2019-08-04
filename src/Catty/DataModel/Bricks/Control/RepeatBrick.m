@@ -26,6 +26,11 @@
 
 @implementation RepeatBrick
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (BOOL)isLoopBrick
 {
     return YES;

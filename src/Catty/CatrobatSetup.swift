@@ -27,8 +27,8 @@
             StartScript(),
             WhenScript(),
             WhenTouchDownScript(),
-            WaitBrick(),
             BroadcastScript(),
+            WaitBrick(),
             BroadcastBrick(),
             BroadcastWaitBrick(),
             NoteBrick(),
@@ -51,6 +51,7 @@
             MoveNStepsBrick(),
             TurnLeftBrick(),
             TurnRightBrick(),
+            PointInDirectionBrick(),
             PointToBrick(),
             GlideToBrick(),
             GoNStepsBackBrick(),
@@ -91,13 +92,10 @@
             AddItemToUserListBrick(),
             DeleteItemOfUserListBrick(),
             InsertItemIntoUserListBrick(),
-            ReplaceItemInUserListBrick()
+            ReplaceItemInUserListBrick(),
+            ArduinoSendDigitalValueBrick(),
+            ArduinoSendPWMValueBrick()
         ]
-
-        if isArduinoEnabled() {
-            bricks.append(ArduinoSendDigitalValueBrick())
-            bricks.append(ArduinoSendPWMValueBrick())
-        }
 
         if isPhiroEnabled() {
             bricks.append(PhiroMotorStopBrick())

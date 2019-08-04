@@ -212,6 +212,7 @@
 		4C5AEEF522F6F33A00280F8B /* IfLogicBeginBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEF422F6F33A00280F8B /* IfLogicBeginBrickCellTests.swift */; };
 		4C5AEEF722F6F3EA00280F8B /* NextLookBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEF622F6F3EA00280F8B /* NextLookBrickCellTests.swift */; };
 		4C5AEEF922F6F46600280F8B /* PreviousLookBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEF822F6F46600280F8B /* PreviousLookBrickCellTests.swift */; };
+		4C5AEEFB22F6F92B00280F8B /* ArduinoBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEFA22F6F92B00280F8B /* ArduinoBrickTests.swift */; };
 		4C5EF63521A0677E0063D2F0 /* CameraBricks_0991.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4C5EF63421A0677E0063D2F0 /* CameraBricks_0991.xml */; };
 		4C60663A1A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6066391A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.m */; };
 		4C647C7E1D48E19C0060E70D /* Air_fight_0.5_098.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4C647C7D1D48E19C0060E70D /* Air_fight_0.5_098.xml */; };
@@ -1622,6 +1623,7 @@
 		4C5AEEF422F6F33A00280F8B /* IfLogicBeginBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IfLogicBeginBrickCellTests.swift; sourceTree = "<group>"; };
 		4C5AEEF622F6F3EA00280F8B /* NextLookBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextLookBrickCellTests.swift; sourceTree = "<group>"; };
 		4C5AEEF822F6F46600280F8B /* PreviousLookBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousLookBrickCellTests.swift; sourceTree = "<group>"; };
+		4C5AEEFA22F6F92B00280F8B /* ArduinoBrickTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoBrickTests.swift; sourceTree = "<group>"; };
 		4C5EF63421A0677E0063D2F0 /* CameraBricks_0991.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CameraBricks_0991.xml; sourceTree = "<group>"; };
 		4C6066381A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDataXMLNode+CustomExtensions.h"; sourceTree = "<group>"; };
 		4C6066391A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDataXMLNode+CustomExtensions.m"; sourceTree = "<group>"; };
@@ -4917,6 +4919,7 @@
 				4C16042D1F0025F6004525A5 /* Abstract */,
 				4CEB222D1B95E47500B3BE2F /* BrickMoveManager */,
 				4CEB226B1B95E4BC00B3BE2F /* BrickInsertManager */,
+				4C5AEEFA22F6F92B00280F8B /* ArduinoBrickTests.swift */,
 				4CEB22351B95E47500B3BE2F /* BrickMutableCopyTests.m */,
 				4C968C3F1F00288500355C0D /* BrickTests.swift */,
 				4C5AEEEE22F6F08800280F8B /* BubbleBrickTests.swift */,
@@ -8692,6 +8695,7 @@
 				4CBDF1A921CF830E00325338 /* UnaryOperatorMock.swift in Sources */,
 				4CE1D431213E5C130014DAF9 /* CBSpriteNodeMock.swift in Sources */,
 				4CB412202198635900FC4594 /* VariablesContainerTest.swift in Sources */,
+				4C5AEEFB22F6F92B00280F8B /* ArduinoBrickTests.swift in Sources */,
 				4C3A5CA121D3B4DF008FD83F /* OrOperatorTest.swift in Sources */,
 				4C6FE178212D2D2E0067B7D5 /* JoinFunctionTest.swift in Sources */,
 				4C6FE174212D2D2E0067B7D5 /* ElementFunctionTest.swift in Sources */,

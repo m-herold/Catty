@@ -20,24 +20,33 @@
  *  along with this program.  If not, see http://www.gnu.org/licenses/.
  */
 
-#import "ArduinoBrick.h"
-#import "KeychainUserDefaultsDefines.h"
+import XCTest
 
-@implementation ArduinoBrick
+@testable import Pocket_Code
 
-- (BOOL)isArduinoBrick
-{
-    return YES;
+final class ArduinoBrickTests: XCTestCase {
+
+    override func tearDown() {
+        UserDefaults.standard.set(false, forKey: kUseArduinoBricks)
+    }
+
+    func testArduinoSendDigitalValueBrickIsSelectableForObject() {
+        let brick = ArduinoSendDigitalValueBrick()
+
+        UserDefaults.standard.set(false, forKey: kUseArduinoBricks)
+        XCTAssertFalse(brick.isSelectableForObject())
+
+        UserDefaults.standard.set(true, forKey: kUseArduinoBricks)
+        XCTAssertTrue(brick.isSelectableForObject())
+    }
+
+    func testArduinoSendPWMValueBrickIsSelectableForObject() {
+        let brick = ArduinoSendPWMValueBrick()
+
+        UserDefaults.standard.set(false, forKey: kUseArduinoBricks)
+        XCTAssertFalse(brick.isSelectableForObject())
+
+        UserDefaults.standard.set(true, forKey: kUseArduinoBricks)
+        XCTAssertTrue(brick.isSelectableForObject())
+    }
 }
-
-- (NSInteger)getRequiredResources
-{
-    return kBluetoothArduino;
-}
-
-- (BOOL)isSelectableForObject
-{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kUseArduinoBricks];
-}
-
-@end

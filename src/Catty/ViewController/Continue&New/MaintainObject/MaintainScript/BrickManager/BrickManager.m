@@ -51,22 +51,18 @@
 - (NSArray*)selectableBricks
 {
     // save array statically for performance reasons
-    static NSArray *selectableBricks = nil;
-    if (selectableBricks == nil) {
-        NSArray *allBricks = [[CatrobatSetup class] registeredBricks];
-        NSMutableArray *selectableBricksMutableArray = [NSMutableArray arrayWithCapacity:[allBricks count]];
+    NSArray *allBricks = [[CatrobatSetup class] registeredBricks];
+    NSMutableArray *selectableBricksMutableArray = [NSMutableArray arrayWithCapacity:[allBricks count]];
         
-        for (id brick in allBricks) {
-            if ([brick isKindOfClass:[Brick class]] && ((Brick*)brick).isSelectableForObject) {
-                [selectableBricksMutableArray addObject:brick];
-            }
-            if ([brick isKindOfClass:[Script class]]) {
-                [selectableBricksMutableArray addObject:brick];
-            }
+    for (id brick in allBricks) {
+        if ([brick isKindOfClass:[Brick class]] && ((Brick*)brick).isSelectableForObject) {
+            [selectableBricksMutableArray addObject:brick];
         }
-        selectableBricks = selectableBricksMutableArray;
+        if ([brick isKindOfClass:[Script class]]) {
+            [selectableBricksMutableArray addObject:brick];
+        }
     }
-    return selectableBricks;
+    return selectableBricksMutableArray;
 }
 
 - (NSArray*)selectableBricksForCategoryType:(kBrickCategoryType)categoryType {

@@ -28,6 +28,11 @@
 
 @implementation RepeatUntilBrick
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (BOOL)isAnimateable
 {
     return YES;

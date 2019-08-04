@@ -24,6 +24,11 @@
 
 @implementation ForeverBrick
 
+- (kBrickCategoryType)category
+{
+    return kControlBrick;
+}
+
 - (BOOL)isAnimateable
 {
     return YES;
