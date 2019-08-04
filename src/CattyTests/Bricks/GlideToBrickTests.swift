@@ -30,7 +30,11 @@ final class GlideToBrickTests: XCTestCase {
         let brick = GlideToBrick()
 
         brick.durationInSeconds = Formula(double: 1)
+        brick.xDestination = Formula(double: 1)
+        brick.yDestination = Formula(double: 1)
 
-        XCTAssertEqual(brick.durationInSeconds, brick.formula(forLineNumber: 1, andParameterNumber: 1))
+        XCTAssertEqual(brick.durationInSeconds, brick.formula(forLineNumber: 0, andParameterNumber: 0))
+        XCTAssertEqual(brick.xDestination, brick.formula(forLineNumber: 1, andParameterNumber: 0))
+        XCTAssertEqual(brick.yDestination, brick.formula(forLineNumber: 1, andParameterNumber: 1))
     }
 }

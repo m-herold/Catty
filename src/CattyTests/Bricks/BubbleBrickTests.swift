@@ -41,7 +41,7 @@ final class BubbleBrickTests: XCTestCase {
         brick.stringFormula = Formula(string: "")
 
         XCTAssertEqual(brick.intFormula, brick.formula(forLineNumber: 1, andParameterNumber: 1))
-        XCTAssertEqual(brick.stringFormula, brick.formula(forLineNumber: 1, andParameterNumber: 2))
+        XCTAssertEqual(brick.stringFormula, brick.formula(forLineNumber: 2, andParameterNumber: 1))
     }
 
     func testFormulaForLineNumberThink() {
@@ -59,6 +59,6 @@ final class BubbleBrickTests: XCTestCase {
         brick.stringFormula = Formula(string: "")
 
         XCTAssertEqual(brick.intFormula, brick.formula(forLineNumber: 1, andParameterNumber: 1))
-        XCTAssertEqual(brick.stringFormula, brick.formula(forLineNumber: 1, andParameterNumber: 2))
+        XCTAssertEqual(brick.stringFormula, brick.formula(forLineNumber: 2, andParameterNumber: 1))
     }
 }

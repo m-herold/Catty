@@ -55,7 +55,7 @@ import Foundation
 
         if let brick = self.scriptOrBrick as? WaitBrick {
             if brick.timeToWaitInSeconds.isSingularNumber() {
-                formulaStr = kLocalizedSecond + " %@ " + formulaStr
+                formulaStr = kLocalizedSecond
             }
         }
 
