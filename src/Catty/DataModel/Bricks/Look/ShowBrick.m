@@ -30,11 +30,6 @@
     return kLookBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return kLocalizedShow;
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

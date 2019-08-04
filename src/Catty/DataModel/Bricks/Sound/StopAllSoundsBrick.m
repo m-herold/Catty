@@ -29,11 +29,6 @@
     return kSoundBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return kLocalizedStopAllSounds;
-}
-
 #pragma mark - Description
 - (NSString*)description
 {
@@ -45,6 +40,5 @@
 {
     return kNoResources;
 }
-
 
 @end

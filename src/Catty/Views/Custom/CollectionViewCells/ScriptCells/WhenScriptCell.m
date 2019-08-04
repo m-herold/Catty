@@ -43,6 +43,11 @@
     return kBrickHeightControl1h;
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return kLocalizedWhenTapped;
+}
+
 - (void)hookUpSubViews:(NSArray *)inlineViewSubViews
 {
     self.textLabel = inlineViewSubViews[0];

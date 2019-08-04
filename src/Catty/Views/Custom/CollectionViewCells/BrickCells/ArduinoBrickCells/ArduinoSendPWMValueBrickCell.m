@@ -47,6 +47,11 @@
     self.valueTextField = inlineViewSubViews[3];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [[[kLocalizedArduinoSendPWMValue stringByAppendingString:@" %@\n"] stringByAppendingString:kLocalizedArduinoSetPinValueTo] stringByAppendingString:@" %@"];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", @"{FLOAT;range=(-inf,inf)}", nil];

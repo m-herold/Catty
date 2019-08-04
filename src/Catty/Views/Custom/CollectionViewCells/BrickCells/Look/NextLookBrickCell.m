@@ -38,9 +38,9 @@
     self.textLabel = inlineViewSubViews[0];
 }
 
-- (NSString*)brickTitleForBrick:(BOOL)inSelection inBackground:(BOOL)inBackground
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
 {
-    return inBackground ? kLocalizedNextBackground : kLocalizedNextLook;
+    return isBackground ? kLocalizedNextBackground : kLocalizedNextLook;
 }
 
 @end

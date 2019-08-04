@@ -48,6 +48,11 @@
     self.secondRowRightTextLabel = inlineViewSubViews[3];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedSetTransparency stringByAppendingString:[@"\n" stringByAppendingString:[kLocalizedTo stringByAppendingString:@" %@\%"]]];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];

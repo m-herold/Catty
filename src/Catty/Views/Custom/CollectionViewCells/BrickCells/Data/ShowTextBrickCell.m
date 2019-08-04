@@ -50,6 +50,17 @@
     self.xValueTextField = inlineViewSubViews[5];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedShowVariable
+            stringByAppendingString:[@"\n%@\n"
+            stringByAppendingString:[kLocalizedAt
+            stringByAppendingString:[kLocalizedXLabel
+            stringByAppendingString:[@" %@ "
+            stringByAppendingString:[kLocalizedYLabel
+            stringByAppendingString:@" %@"]]]]]];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{VARIABLE}",@"{FLOAT;range=(-inf,inf)}",@"{FLOAT;range=(-inf,inf)}", nil];

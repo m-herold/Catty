@@ -47,6 +47,14 @@
     self.valueTextField = inlineViewSubViews[3];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [[[kLocalizedUserListDeleteItemFrom
+              stringByAppendingString:@"\n%@\n"]
+             stringByAppendingString:kLocalizedUserListAtPosition]
+            stringByAppendingString:@" %@"];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"LIST",@"{INT;range=(1,inf)}", nil];

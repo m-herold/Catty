@@ -25,11 +25,6 @@
 
 @implementation ThinkBubbleBrick
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedThink stringByAppendingString:@" %@"];
-}
-
 - (kBrickCategoryType)category
 {
     return kLookBrick;

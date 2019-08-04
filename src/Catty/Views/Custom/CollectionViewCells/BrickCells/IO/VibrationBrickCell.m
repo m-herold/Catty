@@ -21,6 +21,7 @@
  */
 
 #import "VibrationBrickCell.h"
+#import "VibrationBrick.h"
 
 @interface VibrationBrickCell ()
 @property (nonatomic, strong) UILabel *textLabel;
@@ -37,6 +38,18 @@
 {
     self.textLabel = inlineViewSubViews[0];
     self.secTextField = inlineViewSubViews[1];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    NSString* durationStr = kLocalizedSeconds;
+    VibrationBrick *brick = (VibrationBrick*)self.scriptOrBrick;
+    
+    if (brick && [brick.durationInSeconds isSingularNumber]) {
+        durationStr = kLocalizedSecond;
+    }
+    
+    return [kLocalizedVibrateFor stringByAppendingString:[@" %@ " stringByAppendingString:durationStr]];
 }
 
 - (NSArray<NSString*>*)parameters

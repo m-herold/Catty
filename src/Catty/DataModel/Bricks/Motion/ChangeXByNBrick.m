@@ -51,11 +51,6 @@
     self.xMovement = [[Formula alloc] initWithInteger:10];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedChangeXBy stringByAppendingString:@"%@"];
-}
-
 - (kBrickCategoryType)category
 {
     return kMotionBrick;
@@ -72,4 +67,5 @@
 {
     return [self.xMovement getRequiredResources];
 }
+
 @end

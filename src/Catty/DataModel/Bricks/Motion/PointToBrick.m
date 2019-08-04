@@ -25,11 +25,6 @@
 
 @implementation PointToBrick
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedPointTowards stringByAppendingString:@"\n%@"];
-}
-
 - (SpriteObject*) pointedObject
 {
     if(!_pointedObject)

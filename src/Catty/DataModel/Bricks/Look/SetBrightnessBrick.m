@@ -58,11 +58,6 @@
     self.brightness = [[Formula alloc] initWithInteger:50];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedSetBrightness stringByAppendingString:[@"\n" stringByAppendingString:[kLocalizedTo stringByAppendingString:@" %@\%"]]];
-}
-
 - (NSString*)pathForLook:(Look*)look
 {
   return [NSString stringWithFormat:@"%@images/%@", [self.script.object projectPath], look.fileName];

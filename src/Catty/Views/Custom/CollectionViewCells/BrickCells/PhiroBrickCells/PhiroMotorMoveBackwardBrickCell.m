@@ -49,6 +49,11 @@
     self.thirdRowTextLabel2 = inlineViewSubViews[4];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [[[kLocalizedPhiroMoveBackward stringByAppendingString:@"\n%@\n"] stringByAppendingString:kLocalizedPhiroSpeed] stringByAppendingString:@" %@\%"];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{MOTOR}",@"{FLOAT;range=(-inf,inf)}", nil];

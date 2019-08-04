@@ -31,11 +31,6 @@
     return YES;
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedSetLook stringByAppendingString:@"\n%@"];
-}
-
 - (kBrickCategoryType)category
 {
     return kLookBrick;

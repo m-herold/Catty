@@ -46,6 +46,11 @@
     return kPhiroBrick;
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [[kLocalizedPhiroIfLogic stringByAppendingString:@" %@ "] stringByAppendingString:kLocalizedPhiroThenLogic];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{PHIROIF}", nil];

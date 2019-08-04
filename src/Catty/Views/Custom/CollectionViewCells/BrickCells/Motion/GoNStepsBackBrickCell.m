@@ -21,6 +21,7 @@
  */
 
 #import "GoNStepsBackBrickCell.h"
+#import "GoNStepsBackBrick.h"
 
 @interface GoNStepsBackBrickCell ()
 @property (nonatomic, strong) UILabel *textLabel;
@@ -37,6 +38,18 @@
 {
     self.textLabel = inlineViewSubViews[0];
     self.stepsTextField = inlineViewSubViews[1];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    NSString* localizedLayer = kLocalizedLayers;
+    GoNStepsBackBrick *brick = (GoNStepsBackBrick*)self.scriptOrBrick;
+    
+    if (brick && [brick.steps isSingularNumber]) {
+        localizedLayer = kLocalizedLayer;
+    }
+    
+    return [kLocalizedGoBack stringByAppendingString:[@" %@ " stringByAppendingString:localizedLayer]];
 }
 
 - (NSArray<NSString*>*)parameters

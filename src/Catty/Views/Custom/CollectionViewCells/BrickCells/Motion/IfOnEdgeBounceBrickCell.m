@@ -38,4 +38,9 @@
     self.textLabel = inlineViewSubViews[0];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return kLocalizedIfIsTrueThenOnEdgeBounce;
+}
+
 @end

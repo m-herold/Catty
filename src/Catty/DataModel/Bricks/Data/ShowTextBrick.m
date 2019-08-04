@@ -75,17 +75,6 @@
     return NO;
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedShowVariable
-        stringByAppendingString:[@"\n%@\n"
-        stringByAppendingString:[kLocalizedAt
-        stringByAppendingString:[kLocalizedXLabel
-        stringByAppendingString:[@" %@ "
-        stringByAppendingString:[kLocalizedYLabel
-        stringByAppendingString:@" %@"]]]]]];
-}
-
 - (kBrickCategoryType)category
 {
     return kVariableBrick;

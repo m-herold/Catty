@@ -29,9 +29,4 @@
     return kControlBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return kLocalizedWhenProjectStarted;
-}
-
 @end

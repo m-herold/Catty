@@ -57,11 +57,6 @@
     self.changeColor = [[Formula alloc] initWithInteger:25];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedChangeColor stringByAppendingString:[kLocalizedBy stringByAppendingString:@" %@"]];
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

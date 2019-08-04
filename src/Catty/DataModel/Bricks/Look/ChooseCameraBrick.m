@@ -29,11 +29,6 @@
     return kLookBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedChooseCamera stringByAppendingString:@"\n%@"];
-}
-
 - (id)initWithChoice:(int)choice
 {
     self = [super init];

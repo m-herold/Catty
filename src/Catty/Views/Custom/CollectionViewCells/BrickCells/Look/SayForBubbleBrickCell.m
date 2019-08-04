@@ -21,6 +21,7 @@
  */
 
 #import "SayForBubbleBrickCell.h"
+#import "SayForBubbleBrick.h"
 
 @interface SayForBubbleBrickCell ()
 @property (nonatomic, strong) UILabel *firstRowTextLabel;
@@ -47,6 +48,18 @@
     self.secondRowLeftTextLabel = inlineViewSubViews[2];
     self.forTextField = inlineViewSubViews[3];
     self.secondRowRightTextLabel = inlineViewSubViews[4];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    NSString* localizedSecond = kLocalizedSeconds;
+    SayForBubbleBrick *brick = (SayForBubbleBrick*)self.scriptOrBrick;
+    
+    if (brick && [brick.intFormula isSingularNumber]) {
+        localizedSecond = kLocalizedSecond;
+    }
+    
+    return [[[[kLocalizedSay stringByAppendingString:@" %@\n"] stringByAppendingString:kLocalizedFor] stringByAppendingString:@" %@ "] stringByAppendingString:localizedSecond];
 }
 
 - (NSArray<NSString*>*)parameters

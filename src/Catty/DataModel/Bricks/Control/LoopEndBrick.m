@@ -47,11 +47,6 @@
     return YES;
 }
 
-- (NSString*)brickTitle
-{
-    return kLocalizedEndOfLoop;
-}
-
 - (void)performFromScript:(Script*)script
 {
     NSDebug(@"Performing: %@", self.description);
@@ -66,8 +61,14 @@
 #pragma mark - Compare
 - (BOOL)isEqualToBrick:(Brick*)brick
 {
-    if (! [Util isEqual:self.loopBeginBrick.brickTitle toObject:((LoopEndBrick*)brick).loopBeginBrick.brickTitle])
+    if ([brick class] != [self class]) {
         return NO;
+    }
+    
+    LoopEndBrick *loopBrick = (LoopEndBrick*)brick;
+    if ([loopBrick.loopBeginBrick class] != [self.loopBeginBrick class]) {
+        return NO;
+    }
     return YES;
 }
 

@@ -30,12 +30,6 @@
     return kPhiroBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return [[[[[[[kLocalizedPhiroRGBLight stringByAppendingString:@"\n%@\n"] stringByAppendingString:kLocalizedPhiroRGBLightRed] stringByAppendingString:@" %@ "] stringByAppendingString:kLocalizedPhiroRGBLightGreen] stringByAppendingString:@" %@ "] stringByAppendingString:kLocalizedPhiroRGBLightBlue] stringByAppendingString:@" %@"];
-}
-
-
 #pragma mark - Description
 - (NSString*)description
 {

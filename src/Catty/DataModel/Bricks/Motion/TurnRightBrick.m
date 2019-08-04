@@ -25,11 +25,6 @@
 
 @implementation TurnRightBrick
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedTurnRight stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedDegrees]];
-}
-
 - (kBrickCategoryType)category
 {
     return kMotionBrick;

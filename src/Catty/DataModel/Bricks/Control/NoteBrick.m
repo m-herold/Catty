@@ -24,11 +24,6 @@
 
 @implementation NoteBrick
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedNote stringByAppendingString:@" %@"];
-}
-
 - (kBrickCategoryType)category
 {
     return kControlBrick;

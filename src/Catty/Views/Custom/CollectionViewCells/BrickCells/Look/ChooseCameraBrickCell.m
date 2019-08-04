@@ -44,6 +44,11 @@
     self.messageComboBoxView = inlineViewSubViews[1];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedChooseCamera stringByAppendingString:@"\n%@"];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{STATICCHOICE}", nil];

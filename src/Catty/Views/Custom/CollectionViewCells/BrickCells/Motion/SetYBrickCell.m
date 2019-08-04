@@ -39,6 +39,11 @@
     self.yCoordTextField = inlineViewSubViews[1];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedSetY stringByAppendingString:@"%@"];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];

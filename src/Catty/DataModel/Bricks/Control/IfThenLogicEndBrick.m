@@ -47,11 +47,6 @@
     return YES;
 }
 
-- (NSString*)brickTitle
-{
-    return kLocalizedEndIf;
-}
-
 - (void)performFromScript:(Script*)script
 {
     
@@ -66,8 +61,14 @@
 #pragma mark - Compare
 - (BOOL)isEqualToBrick:(Brick*)brick
 {
-    if(![Util isEqual:self.ifBeginBrick.brickTitle toObject:((IfThenLogicEndBrick*)brick).ifBeginBrick.brickTitle])
+    if ([brick class] != [self class]) {
         return NO;
+    }
+    
+    IfThenLogicEndBrick *logicBrick = (IfThenLogicEndBrick*)brick;
+    if ([logicBrick.ifBeginBrick class] != [self.ifBeginBrick class]) {
+        return NO;
+    }
     return YES;
 }
 

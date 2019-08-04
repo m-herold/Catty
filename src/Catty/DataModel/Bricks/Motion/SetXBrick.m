@@ -51,11 +51,6 @@
     self.xPosition = [[Formula alloc] initWithInteger:100];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedSetX stringByAppendingString:@"%@"];
-}
-
 - (kBrickCategoryType)category
 {
     return kMotionBrick;

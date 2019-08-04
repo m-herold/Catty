@@ -56,11 +56,6 @@
     self.size = [[Formula alloc] initWithInteger:10];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedChangeSizeByN stringByAppendingString:@" %@\%"];
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

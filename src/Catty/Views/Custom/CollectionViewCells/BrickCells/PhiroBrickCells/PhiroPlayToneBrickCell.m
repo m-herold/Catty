@@ -49,6 +49,11 @@
     self.thirdRowTextLabel2 = inlineViewSubViews[4];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [[[[kLocalizedPhiroPlayTone stringByAppendingString:@" %@\n"] stringByAppendingString:kLocalizedPhiroPlayDuration] stringByAppendingString:@" %@ "] stringByAppendingString:kLocalizedPhiroSecondsToPlay];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{SOUND}",@"{FLOAT;range=(-inf,inf)}", nil];

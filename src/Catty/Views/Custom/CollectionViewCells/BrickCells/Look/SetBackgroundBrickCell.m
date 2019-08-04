@@ -49,4 +49,9 @@
     return [[NSArray alloc] initWithObjects:@"{SOUND}", nil];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedSetBackground stringByAppendingString:@"\n%@"];
+}
+
 @end

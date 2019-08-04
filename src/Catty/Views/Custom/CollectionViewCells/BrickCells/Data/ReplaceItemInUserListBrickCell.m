@@ -50,6 +50,16 @@
     self.valueTextField = inlineViewSubViews[5];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [[[[[kLocalizedUserListReplaceItemInList
+                stringByAppendingString:@"\n%@\n"]
+               stringByAppendingString:kLocalizedUserListAtPosition]
+              stringByAppendingString:@" %@ "]
+             stringByAppendingString:kLocalizedUserListWith]
+            stringByAppendingString:@" %@"];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{LIST}",@"{INT;range=(1,inf)}",@"{FLOAT;range=(-inf,inf)}", nil];

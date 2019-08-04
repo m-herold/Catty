@@ -89,7 +89,7 @@
 
 - (void)setupBrickCellinSelectionView:(BOOL)inSelectionView inBackground:(BOOL)inBackground
 {
-    self.brickTitle = [self brickTitleForBrick:inSelectionView inBackground:inBackground];
+    self.brickTitle = [(id<BrickCellProtocol>)self brickTitleForBackground:inBackground andInsertionScreen:inSelectionView];
     
     if ([self isKindOfClass:[LoopEndBrickCell class]]) {
         LoopEndBrickCell* cell = (LoopEndBrickCell*)self;
@@ -489,11 +489,6 @@
 - (NSArray*)dataSubviews
 {
     return [self.inlineView dataSubviews];
-}
-
-- (NSString*)brickTitleForBrick:(BOOL)inSelection inBackground:(BOOL)inBackground
-{
-    return self.scriptOrBrick.brickTitle;
 }
 
 - (NSArray<NSString*>*)parameters

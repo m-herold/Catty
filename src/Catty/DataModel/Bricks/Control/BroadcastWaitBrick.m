@@ -31,11 +31,6 @@
     return kControlBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedBroadcastAndWait stringByAppendingString:@"\n%@"];
-}
-
 - (id)initWithMessage:(NSString*)message
 {
     self = [super init];

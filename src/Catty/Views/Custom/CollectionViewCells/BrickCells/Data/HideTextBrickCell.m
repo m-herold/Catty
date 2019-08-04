@@ -44,6 +44,11 @@
     self.variableComboBoxView = inlineViewSubViews[1];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedHideVariable stringByAppendingString:@"\n%@"];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{VARIABLE}", nil];

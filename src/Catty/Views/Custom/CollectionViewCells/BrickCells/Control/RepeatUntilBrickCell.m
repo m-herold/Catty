@@ -41,9 +41,9 @@
     self.rightTextLabel = inlineViewSubViews[2];
 }
 
-- (kBrickCategoryType)category
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
 {
-    return kControlBrick;
+    return [kLocalizedRepeatUntil stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedUntilIsTrue]];
 }
 
 - (NSArray<NSString*>*)parameters

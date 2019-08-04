@@ -50,6 +50,16 @@
     self.positionTextField = inlineViewSubViews[5];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [[[[[kLocalizedUserListInsert
+                stringByAppendingString:@" %@ "]
+               stringByAppendingString:kLocalizedUserListInto]
+              stringByAppendingString:@"\n%@\n"]
+             stringByAppendingString:kLocalizedUserListAtPosition]
+            stringByAppendingString:@" %@"];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}",@"{LIST}",@"{INT;range=(1,inf)}", nil];

@@ -58,11 +58,6 @@
     self.repeatCondition = [[Formula alloc] initWithInteger:1];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedRepeatUntil stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedUntilIsTrue]];
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

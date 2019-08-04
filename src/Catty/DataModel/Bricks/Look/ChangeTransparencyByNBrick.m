@@ -58,11 +58,6 @@
     self.changeTransparency = [[Formula alloc] initWithInteger:25];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedChangeTransparency stringByAppendingString:[@"\n" stringByAppendingString:[kLocalizedBy stringByAppendingString:@" %@\%"]]];
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

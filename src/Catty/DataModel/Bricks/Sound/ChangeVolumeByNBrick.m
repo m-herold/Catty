@@ -57,11 +57,6 @@
     self.volume = [[Formula alloc] initWithInteger:-10];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedChangeVolumeBy stringByAppendingString:@" %@"];
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

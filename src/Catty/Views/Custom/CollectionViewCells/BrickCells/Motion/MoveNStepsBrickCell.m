@@ -21,6 +21,7 @@
  */
 
 #import "MoveNStepsBrickCell.h"
+#import "MoveNStepsBrick.h"
 
 @interface MoveNStepsBrickCell ()
 @property (nonatomic, strong) UILabel *leftTextLabel;
@@ -39,6 +40,18 @@
     self.leftTextLabel = inlineViewSubViews[0];
     self.stepsTextField = inlineViewSubViews[1];
     self.rightTextLabel = inlineViewSubViews[2];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    NSString* localizedStep = kLocalizedSteps;
+    MoveNStepsBrick *brick = (MoveNStepsBrick*)self.scriptOrBrick;
+    
+    if (brick && [brick.steps isSingularNumber]) {
+        localizedStep = kLocalizedStep;
+    }
+    
+    return [kLocalizedMove stringByAppendingString:[@" %@ " stringByAppendingString:localizedStep]];
 }
 
 - (NSArray<NSString*>*)parameters

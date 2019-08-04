@@ -58,11 +58,6 @@
     self.color = [[Formula alloc] initWithZero];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedSetColor stringByAppendingString:[kLocalizedTo stringByAppendingString:@" %@"]];
-}
-
 - (NSString*)pathForLook:(Look*)look
 {
     return [NSString stringWithFormat:@"%@images/%@", [self.script.object projectPath], look.fileName];

@@ -46,6 +46,11 @@
     self.brightnessTextField = inlineViewSubViews[2];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedChangeBrightness stringByAppendingString:[@"\n" stringByAppendingString:[kLocalizedBy stringByAppendingString:@" %@\%"]]];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];

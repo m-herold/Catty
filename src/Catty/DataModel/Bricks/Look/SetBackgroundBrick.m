@@ -31,11 +31,6 @@
     return kLookBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedSetBackground stringByAppendingString:@"\n%@"];
-}
-
 - (NSString*)pathForLook
 {
     return [NSString stringWithFormat:@"%@%@/%@", [self.script.object projectPath], kProjectImagesDirName, self.look.fileName];

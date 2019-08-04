@@ -49,13 +49,9 @@
     self.messageComboBoxView = inlineViewSubViews[1];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    return [kLocalizedWhenYouReceive stringByAppendingString:@"\n%@"];
 }
 
 - (NSArray<NSString*>*)parameters

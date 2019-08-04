@@ -34,12 +34,6 @@
     return self;
 }
 
-- (NSString*)brickTitle
-{
-    NSString* localizedSecond = [self.intFormula isSingularNumber] ? kLocalizedSecond : kLocalizedSeconds;
-    return [[[[kLocalizedSay stringByAppendingString:@" %@\n"] stringByAppendingString:kLocalizedFor] stringByAppendingString:@" %@ "] stringByAppendingString:localizedSecond];
-}
-
 - (kBrickCategoryType)category
 {
     return kLookBrick;

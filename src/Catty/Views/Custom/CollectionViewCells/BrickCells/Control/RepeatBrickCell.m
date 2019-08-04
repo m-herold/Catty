@@ -21,6 +21,7 @@
  */
 
 #import "RepeatBrickCell.h"
+#import "RepeatBrick.h"
 
 @interface RepeatBrickCell ()
 @property (nonatomic, strong) UILabel *leftTextLabel;
@@ -44,6 +45,18 @@
 - (kBrickCategoryType)category
 {
     return kControlBrick;
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    NSString* repeatForStr = kLocalizedTimes;
+    RepeatBrick *brick = (RepeatBrick*)self.scriptOrBrick;
+    
+    if (brick && [brick.timesToRepeat isSingularNumber]) {
+        repeatForStr = kLocalizedTime;
+    }
+    
+    return [kLocalizedRepeat stringByAppendingString:[@" %@ " stringByAppendingString:repeatForStr]];
 }
 
 - (NSArray<NSString*>*)parameters

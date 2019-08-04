@@ -25,11 +25,6 @@
 
 @implementation PhiroMotorStopBrick
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedStopPhiroMotor stringByAppendingString:@"\n%@"];
-}
-
 - (kBrickCategoryType)category
 {
     return kPhiroBrick;

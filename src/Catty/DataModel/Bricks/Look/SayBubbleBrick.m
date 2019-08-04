@@ -30,11 +30,6 @@
     return kLookBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedSay stringByAppendingString:@" %@"];
-}
-
 - (BOOL)allowsStringFormula
 {
     return YES;

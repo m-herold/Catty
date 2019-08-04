@@ -50,11 +50,6 @@
     self.degrees = [[Formula alloc] initWithInteger:90];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedPointInDirection stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedDegrees]];
-}
-
 - (kBrickCategoryType)category
 {
     return kMotionBrick;

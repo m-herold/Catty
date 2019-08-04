@@ -44,6 +44,11 @@
     self.soundComboBoxView = inlineViewSubViews[1];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedPlaySound stringByAppendingString:@"\n%@"];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{SOUND}", nil];

@@ -31,7 +31,6 @@
 @property (nonatomic, getter=isAnimatedInsertBrick) BOOL animateInsertBrick;
 @property (nonatomic, getter=isAnimatedMoveBrick) BOOL animateMoveBrick;
 
-- (NSString*)brickTitle;
 - (kBrickCategoryType)category;
 - (NSInteger)getRequiredResources;
 

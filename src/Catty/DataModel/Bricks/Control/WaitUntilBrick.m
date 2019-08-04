@@ -63,11 +63,6 @@
     self.waitCondition = [[Formula alloc] initWithInteger:1];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedWaitUntil stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedUntilIsTrue]];
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

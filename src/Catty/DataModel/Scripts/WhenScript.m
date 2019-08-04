@@ -37,9 +37,4 @@
     return kControlBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return kLocalizedWhenTapped;
-}
-
 @end

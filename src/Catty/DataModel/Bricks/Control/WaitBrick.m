@@ -56,12 +56,6 @@
     self.timeToWaitInSeconds = [[Formula alloc] initWithInteger:1];
 }
 
-- (NSString*)brickTitle
-{
-    NSString* timeToWaitStr = [self.timeToWaitInSeconds isSingularNumber] ? kLocalizedSecond : kLocalizedSeconds;
-    return [kLocalizedWait stringByAppendingString:[@" %@ " stringByAppendingString:timeToWaitStr]];
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

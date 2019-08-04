@@ -25,11 +25,6 @@
 
 @implementation ArduinoSendPWMValueBrick
 
-- (NSString*)brickTitle
-{
-    return [[[kLocalizedArduinoSendPWMValue stringByAppendingString:@" %@\n"] stringByAppendingString:kLocalizedArduinoSetPinValueTo] stringByAppendingString:@" %@"];
-}
-
 - (kBrickCategoryType)category
 {
     return kArduinoBrick;

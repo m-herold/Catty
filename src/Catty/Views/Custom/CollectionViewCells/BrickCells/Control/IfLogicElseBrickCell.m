@@ -38,9 +38,9 @@
     self.textLabel = inlineViewSubViews[0];
 }
 
-- (kBrickCategoryType)category
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
 {
-    return kControlBrick;
+    return kLocalizedElse;
 }
 
 @end

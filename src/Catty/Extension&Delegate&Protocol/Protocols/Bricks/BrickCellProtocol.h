@@ -30,7 +30,9 @@
 @property (nonatomic, strong) id<BrickProtocol> scriptOrBrick;
 @property (nonatomic) BOOL enabled;
 
-- (kBrickShapeType)brickShapeType;
 + (CGFloat)cellHeight;
+
+- (kBrickShapeType)brickShapeType;
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion;
 
 @end

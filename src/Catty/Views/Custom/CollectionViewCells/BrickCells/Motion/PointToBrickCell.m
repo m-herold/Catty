@@ -44,6 +44,11 @@
     self.objectComboBoxView = inlineViewSubViews[1];
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedPointTowards stringByAppendingString:@"\n%@"];
+}
+
 - (NSArray<NSString*>*)parameters
 {
     return [[NSArray alloc] initWithObjects:@"{OBJECT}", nil];

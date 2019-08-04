@@ -25,11 +25,6 @@
 
 @implementation ArduinoSendDigitalValueBrick
 
-- (NSString*)brickTitle
-{
-    return [[[kLocalizedArduinoSetDigitalValue stringByAppendingString:@" %@\n"] stringByAppendingString:kLocalizedArduinoSetPinValueTo] stringByAppendingString:@" %@"];
-}
-
 - (kBrickCategoryType)category
 {
     return kArduinoBrick;

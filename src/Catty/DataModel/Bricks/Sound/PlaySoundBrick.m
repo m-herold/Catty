@@ -31,11 +31,6 @@
     return kSoundBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedPlaySound stringByAppendingString:@"\n%@"];
-}
-
 #pragma mark - Copy
 - (id)mutableCopyWithContext:(CBMutableCopyContext*)context
 {

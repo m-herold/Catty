@@ -59,16 +59,6 @@
     self.yPosition = [[Formula alloc] initWithInteger:200];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedPlaceAt
-            stringByAppendingString:[@"\n"
-            stringByAppendingString:[kLocalizedXLabel
-            stringByAppendingString:[@" %@ "
-            stringByAppendingString:[kLocalizedYLabel
-            stringByAppendingString:@" %@"]]]]];
-}
-
 - (kBrickCategoryType)category
 {
     return kMotionBrick;

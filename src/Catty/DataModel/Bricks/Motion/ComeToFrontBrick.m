@@ -36,11 +36,6 @@
     return YES;
 }
 
-- (NSString*)brickTitle
-{
-    return kLocalizedComeToFront;
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

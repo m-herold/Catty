@@ -31,11 +31,6 @@
     return kControlBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedWhenYouReceive stringByAppendingString:@"\n%@"];
-}
-
 - (void)setDefaultValuesForObject:(SpriteObject*)spriteObject
 {
     if(spriteObject) {

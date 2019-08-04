@@ -31,12 +31,6 @@
     return kPhiroBrick;
 }
 
-- (NSString*)brickTitle
-{
-    return [[[kLocalizedPhiroMoveForward stringByAppendingString:@"\n%@\n"] stringByAppendingString:kLocalizedPhiroSpeed] stringByAppendingString:@" %@\%"];
-}
-
-
 #pragma mark - Description
 - (NSString*)description
 {

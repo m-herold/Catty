@@ -31,11 +31,6 @@
     return (! [self.script.object isBackground]);
 }
 
-- (NSString*)brickTitle
-{
-    return kLocalizedIfIsTrueThenOnEdgeBounce;
-}
-
 - (kBrickCategoryType)category
 {
     return kMotionBrick;

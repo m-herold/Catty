@@ -25,11 +25,6 @@
 
 @implementation SpeakAndWaitBrick
 
-- (NSString*)brickTitle
-{
-    return [[kLocalizedSpeak stringByAppendingString:@" %@ "] stringByAppendingString:kLocalizedAndWait];
-}
-
 - (kBrickCategoryType)category
 {
     return kSoundBrick;

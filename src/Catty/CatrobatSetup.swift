@@ -34,6 +34,7 @@
             NoteBrick(),
             ForeverBrick(),
             IfLogicBeginBrick(),
+            IfLogicElseBrick(),
             IfLogicEndBrick(),
             IfThenLogicBeginBrick(),
             IfThenLogicEndBrick(),

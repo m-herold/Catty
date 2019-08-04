@@ -21,6 +21,7 @@
  */
 
 #import "IfLogicBeginBrickCell.h"
+#import "BrickInsertManager.h"
 
 @interface IfLogicBeginBrickCell ()
 @property (nonatomic, strong) UILabel *leftTextLabel;
@@ -41,12 +42,12 @@
     self.rightTextLabel = inlineViewSubViews[2];
 }
 
-- (NSString*)brickTitleForBrick:(BOOL)inSelection inBackground:(BOOL)inBackground
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
 {
-    if (inSelection) {
+    if (isInsertion) {
         return [kLocalizedIfBegin stringByAppendingString:[[@" %@ " stringByAppendingString:kLocalizedIfBeginSecondPart] stringByAppendingString:[[@" ... " stringByAppendingString:kLocalizedElse] stringByAppendingString:@" ..."]]];
     } else {
-        return self.scriptOrBrick.brickTitle;
+        return [kLocalizedIfBegin stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedIfBeginSecondPart]];
     }
 }
 

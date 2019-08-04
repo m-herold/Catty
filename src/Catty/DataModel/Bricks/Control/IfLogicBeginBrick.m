@@ -68,11 +68,6 @@
     self.ifCondition = [[Formula alloc] initWithInteger:1];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedIfBegin stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedIfBeginSecondPart]];
-}
-
 #pragma mark - Description
 - (NSString*)description
 {
@@ -81,12 +76,20 @@
 
 - (BOOL)isEqualToBrick:(Brick*)brick
 {
-    if(![Util isEqual:self.ifElseBrick.brickTitle toObject:((IfLogicBeginBrick*)brick).ifElseBrick.brickTitle])
+    if ([brick class] != [self class]) {
         return NO;
-    if(![Util isEqual:self.ifEndBrick.brickTitle toObject:((IfLogicBeginBrick*)brick).ifEndBrick.brickTitle])
+    }
+    
+    IfLogicBeginBrick *logicBrick = (IfLogicBeginBrick*)brick;
+    if ([logicBrick.ifEndBrick class] != [self.ifEndBrick class]) {
         return NO;
-    if(![self.ifCondition isEqualToFormula:((IfLogicBeginBrick*)brick).ifCondition])
+    }
+    if ([logicBrick.ifElseBrick class] != [self.ifElseBrick class]) {
         return NO;
+    }
+    if(![self.ifCondition isEqualToFormula:logicBrick.ifCondition]) {
+        return NO;
+    }
     return YES;
 }
 

@@ -56,11 +56,6 @@
     self.yMovement = [[Formula alloc] initWithInteger:10];
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedChangeYBy stringByAppendingString:[@" " stringByAppendingString:[kLocalizedBy stringByAppendingString:@" %@"]]];
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

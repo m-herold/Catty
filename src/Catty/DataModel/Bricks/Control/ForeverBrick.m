@@ -29,11 +29,6 @@
     return YES;
 }
 
-- (NSString*)brickTitle
-{
-    return kLocalizedForever;
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

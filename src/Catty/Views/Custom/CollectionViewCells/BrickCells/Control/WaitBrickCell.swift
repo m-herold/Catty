@@ -50,6 +50,18 @@ import Foundation
         self.rightTextLabel = inlineViewSubViews[2] as? UILabel
     }
 
+    func brickTitle(forBackground isBackground: Bool, andInsertionScreen isInsertion: Bool) -> String! {
+        var formulaStr = kLocalizedSeconds
+
+        if let brick = self.scriptOrBrick as? WaitBrick {
+            if brick.timeToWaitInSeconds.isSingularNumber() {
+                formulaStr = kLocalizedSecond + " %@ " + formulaStr
+            }
+        }
+
+        return kLocalizedWait + " %@ " + formulaStr
+    }
+
     override func parameters() -> [String] {
         return ["{FLOAT;range=(0.0f,inf)}"]
     }

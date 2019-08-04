@@ -52,11 +52,6 @@
     }
 }
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedHideVariable stringByAppendingString:@"\n%@"];
-}
-
 #pragma mark - Description
 - (NSString*)description
 {

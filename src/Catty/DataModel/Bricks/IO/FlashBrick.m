@@ -24,11 +24,6 @@
 
 @implementation FlashBrick
 
-- (NSString*)brickTitle
-{
-    return [kLocalizedFlash stringByAppendingString:@"\n%@"];
-}
-
 - (kBrickCategoryType)category
 {
     return kLookBrick;
