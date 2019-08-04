@@ -32,5 +32,6 @@
 @required
 - (BOOL)isSelectableForObject;
 - (BOOL)isDisabledForBackground;
+- (BOOL)isAnimateable;
 
 @end

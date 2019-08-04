@@ -35,7 +35,6 @@
 #import "BDKNotifyHUD.h"
 #import <objc/runtime.h>
 #import "OrderedDictionary.h"
-#import "ScriptProtocol.h"
 #import "Pocket_Code-Swift.h"
 #import <sys/utsname.h>
 

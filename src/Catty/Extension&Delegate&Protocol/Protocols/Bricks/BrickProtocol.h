@@ -26,6 +26,10 @@
 
 @protocol BrickProtocol<CBMutableCopying>
 
+@property (nonatomic, getter=isAnimated) BOOL animate;
+@property (nonatomic, getter=isAnimatedInsertBrick) BOOL animateInsertBrick;
+@property (nonatomic, getter=isAnimatedMoveBrick) BOOL animateMoveBrick;
+
 - (NSString*)brickTitle;
 - (kBrickCategoryType)category;
 - (NSInteger)getRequiredResources;

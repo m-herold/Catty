@@ -50,9 +50,6 @@
 @property (nonatomic, strong) NSArray *brickCategoryColors;
 @property (nonatomic) BOOL enabled;
 @property (nonatomic) BOOL isInserting;
-@property (nonatomic, getter=isAnimated) BOOL animate;
-@property (nonatomic, getter=isAnimatedInsertBrick) BOOL animateInsertBrick;
-@property (nonatomic, getter=isAnimatedMoveBrick) BOOL animateMoveBrick;
 
 @property (nonatomic, strong) SelectButton *selectButton;
 

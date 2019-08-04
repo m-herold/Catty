@@ -62,8 +62,11 @@
      viewControllerBeforeViewController:(UIViewController*)viewController
 {
     BrickCategoryViewController *bcVC = (BrickCategoryViewController *)viewController;
-    NSUInteger pageIndex = [self.categories indexOfObject:bcVC.category];
+    if (bcVC.category == nil) {
+        return [[BrickCategoryViewController alloc] initWithBrickCategory:[self.categories firstObject] andObject:bcVC.spriteObject];
+    }
     
+    NSUInteger pageIndex = [self.categories indexOfObject:bcVC.category];
     if (pageIndex == 0) {
         return nil;
     }
@@ -76,8 +79,11 @@
      viewControllerAfterViewController:(UIViewController*)viewController
 {
     BrickCategoryViewController *bcVC = (BrickCategoryViewController *)viewController;
-    NSUInteger pageIndex = [self.categories indexOfObject:bcVC.category];
+    if (bcVC.category == nil) {
+        return [[BrickCategoryViewController alloc] initWithBrickCategory:[self.categories firstObject] andObject:bcVC.spriteObject];
+    }
     
+    NSUInteger pageIndex = [self.categories indexOfObject:bcVC.category];
     if (pageIndex == [self.categories count] - 1) {
         return nil;
     }

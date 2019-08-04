@@ -32,8 +32,9 @@
 @protocol BrickCategoryViewControllerDelegate<NSObject>
 @optional
 - (void)brickCategoryViewController:(BrickCategoryViewController*)brickCategoryViewController
-                 didSelectBrickCell:(BrickCell*)brickCell;
+                 didSelectScriptOrBrick:(id<BrickProtocol>)scriptOrBrick;
 @end
+
 
 @interface BrickCategoryViewController : UICollectionViewController
 @property(nonatomic, weak) BrickCategory *category;

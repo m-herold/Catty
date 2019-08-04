@@ -127,8 +127,8 @@ didSelectItemAtIndexPath:(NSIndexPath*)indexPath
     
     [Util incrementStatisticCountForBrick:cell.scriptOrBrick];
     
-    if ([self.delegate respondsToSelector:@selector(brickCategoryViewController:didSelectBrickCell:)]) {
-        [self.delegate brickCategoryViewController:self didSelectBrickCell:cell];
+    if ([self.delegate respondsToSelector:@selector(brickCategoryViewController:didSelectScriptOrBrick:)]) {
+        [self.delegate brickCategoryViewController:self didSelectScriptOrBrick:cell.scriptOrBrick];
     }
 }
 

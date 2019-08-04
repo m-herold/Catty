@@ -426,7 +426,7 @@
 #pragma mark - animations
 - (void)animate:(BOOL)animate
 {
-    self.animate = animate;
+    self.scriptOrBrick.animate = animate;
     if (! animate) {
         return;
     }
@@ -445,13 +445,13 @@
                      completion:^(BOOL finished) {
                          self.alpha = 1.0f;
                          NSTimeInterval duration = [[NSDate date] timeIntervalSinceDate:startTime];
-                         self.animate = (duration < 2.0f);
+                         self.scriptOrBrick.animate = (duration < 2.0f);
     }];
 }
 
 - (void)insertAnimate:(BOOL)animate
 {
-    self.animateInsertBrick = animate;
+    self.scriptOrBrick.animateInsertBrick = animate;
     if (! animate) {
         return;
     }
@@ -467,8 +467,8 @@
                              }
                              completion:^(BOOL finished) {
                                  self.alpha = 1.0f;
-                                 if (self.animateInsertBrick) {
-                                     [self insertAnimate:self.animateInsertBrick];
+                                 if (self.scriptOrBrick.animateInsertBrick) {
+                                     [self insertAnimate:self.scriptOrBrick.animateInsertBrick];
                                  }
                              }];
 

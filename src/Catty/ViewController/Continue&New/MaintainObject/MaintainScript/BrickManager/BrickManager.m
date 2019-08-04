@@ -213,6 +213,8 @@
             }
             ++count;
         }
+        begin.animate = YES;
+        begin.loopEndBrick.animate = YES;
         return @[[NSNumber numberWithInteger:count+1]];
     } else if ([brick isKindOfClass:[LoopEndBrick class]]) {
         LoopEndBrick *endBrick = (LoopEndBrick *)brick;
@@ -223,6 +225,8 @@
             }
             ++count;
         }
+        endBrick.animate = YES;
+        endBrick.loopBeginBrick.animate = YES;
         return @[[NSNumber numberWithInteger:count+1]];
     }
     return nil;
@@ -241,6 +245,8 @@
             }
             
         }
+        begin.animate = YES;
+        begin.ifEndBrick.animate = YES;
         return @[[NSNumber numberWithInteger:endcount+1]];
     }
     if ([brick isKindOfClass:[IfLogicBeginBrick class]]) {
@@ -263,6 +269,9 @@
             }
             
         }
+        begin.animate = YES;
+        begin.ifElseBrick.animate = YES;
+        begin.ifEndBrick.animate = YES;
         return @[[NSNumber numberWithInteger:elsecount+1],[NSNumber numberWithInteger:endcount+1]];
     } else if ([brick isKindOfClass:[IfLogicElseBrick class]]) {
         IfLogicElseBrick *elseBrick = (IfLogicElseBrick*)brick;
@@ -283,6 +292,9 @@
                 ++endcount;
             }
         }
+        elseBrick.animate = YES;
+        elseBrick.ifBeginBrick.animate = YES;
+        elseBrick.ifEndBrick.animate = YES;
         return @[[NSNumber numberWithInteger:begincount+1],[NSNumber numberWithInteger:endcount+1]];
     } else if ([brick isKindOfClass:[IfLogicEndBrick class]]) {
         IfLogicEndBrick *endBrick = (IfLogicEndBrick*)brick;
@@ -304,6 +316,9 @@
             }
             
         }
+        endBrick.animate = YES;
+        endBrick.ifElseBrick.animate = YES;
+        endBrick.ifBeginBrick.animate = YES;
         return @[[NSNumber numberWithInteger:elsecount+1],[NSNumber numberWithInteger:begincount+1]];
     } else if ([brick isKindOfClass:[IfThenLogicEndBrick class]]) {
         IfThenLogicEndBrick *endBrick = (IfThenLogicEndBrick*)brick;
@@ -318,6 +333,8 @@
                 }
             }
         }
+        endBrick.animate = YES;
+        endBrick.ifBeginBrick.animate = YES;
         return @[[NSNumber numberWithInteger:begincount+1]];
     }
     return nil;
