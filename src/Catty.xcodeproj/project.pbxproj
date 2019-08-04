@@ -83,7 +83,7 @@
 		4C0F9FA5204BD2C200E71B2D /* ThinkForBubbleBrickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F9FA1204BD2C100E71B2D /* ThinkForBubbleBrickCell.m */; };
 		4C0F9FA6204BD2C200E71B2D /* ThinkBubbleBrickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F9FA2204BD2C200E71B2D /* ThinkBubbleBrickCell.m */; };
 		4C0F9FA9204BD2D600E71B2D /* SpeakAndWaitBrickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F9FA7204BD2D600E71B2D /* SpeakAndWaitBrickCell.m */; };
-		4C0F9FD3204BD3B400E71B2D /* BubbleBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F9FD2204BD3B400E71B2D /* BubbleBrickTests.swift */; };
+		4C0F9FD3204BD3B400E71B2D /* SayForBubbleBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F9FD2204BD3B400E71B2D /* SayForBubbleBrickCellTests.swift */; };
 		4C0F9FD5204BD3C200E71B2D /* ChooseCameraBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F9FD4204BD3C200E71B2D /* ChooseCameraBrickTests.swift */; };
 		4C0F9FD7204BD3CC00E71B2D /* PreviousLookBrickTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F9FD6204BD3CC00E71B2D /* PreviousLookBrickTests.m */; };
 		4C0F9FD9204BD3D500E71B2D /* RepeatUntilBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F9FD8204BD3D500E71B2D /* RepeatUntilBrickTests.swift */; };
@@ -128,7 +128,6 @@
 		4C1C8B16213FE7F1003B3AA4 /* StoreProjectDownloaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C8B15213FE7F1003B3AA4 /* StoreProjectDownloaderMock.swift */; };
 		4C1D26611E84EFBD00BAA2D2 /* RepeatBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D26601E84EFBD00BAA2D2 /* RepeatBrickTests.swift */; };
 		4C1D26651E84F12700BAA2D2 /* VibrationBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D26641E84F12700BAA2D2 /* VibrationBrickTests.swift */; };
-		4C1D26671E84F1BF00BAA2D2 /* GlideToBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D26661E84F1BF00BAA2D2 /* GlideToBrickTests.swift */; };
 		4C1EDCAC218A080200B60464 /* ScriptCollectionVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1EDCA9218A080200B60464 /* ScriptCollectionVCTests.swift */; };
 		4C1F6FA5213CF6BE00C20BEB /* SingleParameterStringFunctionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1F6FA4213CF6BE00C20BEB /* SingleParameterStringFunctionMock.swift */; };
 		4C1F6FA7213CFB5800C20BEB /* FunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1F6FA6213CFB5800C20BEB /* FunctionTests.swift */; };
@@ -201,6 +200,18 @@
 		4C595F5921CAF6B30097D850 /* OrOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C595F5821CAF6B30097D850 /* OrOperator.swift */; };
 		4C595F5E21CAF8CC0097D850 /* OperatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C595F5D21CAF8CC0097D850 /* OperatorManager.swift */; };
 		4C595F6021CAF9050097D850 /* OperatorManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C595F5F21CAF9050097D850 /* OperatorManagerProtocol.swift */; };
+		4C5AEEE322F6EBBC00280F8B /* WaitBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEE222F6EBBC00280F8B /* WaitBrickCellTests.swift */; };
+		4C5AEEE522F6EC9900280F8B /* RepeatBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEE422F6EC9900280F8B /* RepeatBrickCellTests.swift */; };
+		4C5AEEE722F6EDEB00280F8B /* ThinkForBubbleBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEE622F6EDEB00280F8B /* ThinkForBubbleBrickCellTests.swift */; };
+		4C5AEEE922F6EEF200280F8B /* GlideToBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEE822F6EEF100280F8B /* GlideToBrickCellTests.swift */; };
+		4C5AEEEB22F6EFF900280F8B /* VibrationBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEEA22F6EFF800280F8B /* VibrationBrickCellTests.swift */; };
+		4C5AEEED22F6F04000280F8B /* GlideToBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEEC22F6F04000280F8B /* GlideToBrickTests.swift */; };
+		4C5AEEEF22F6F08800280F8B /* BubbleBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEEE22F6F08800280F8B /* BubbleBrickTests.swift */; };
+		4C5AEEF122F6F1A300280F8B /* GoNStepsBackBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEF022F6F1A300280F8B /* GoNStepsBackBrickCellTests.swift */; };
+		4C5AEEF322F6F22700280F8B /* MoveNStepsBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEF222F6F22700280F8B /* MoveNStepsBrickCellTests.swift */; };
+		4C5AEEF522F6F33A00280F8B /* IfLogicBeginBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEF422F6F33A00280F8B /* IfLogicBeginBrickCellTests.swift */; };
+		4C5AEEF722F6F3EA00280F8B /* NextLookBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEF622F6F3EA00280F8B /* NextLookBrickCellTests.swift */; };
+		4C5AEEF922F6F46600280F8B /* PreviousLookBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEF822F6F46600280F8B /* PreviousLookBrickCellTests.swift */; };
 		4C5EF63521A0677E0063D2F0 /* CameraBricks_0991.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4C5EF63421A0677E0063D2F0 /* CameraBricks_0991.xml */; };
 		4C60663A1A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6066391A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.m */; };
 		4C647C7E1D48E19C0060E70D /* Air_fight_0.5_098.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4C647C7D1D48E19C0060E70D /* Air_fight_0.5_098.xml */; };
@@ -1462,7 +1473,7 @@
 		4C0F9FA4204BD2C200E71B2D /* ThinkForBubbleBrickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThinkForBubbleBrickCell.h; sourceTree = "<group>"; };
 		4C0F9FA7204BD2D600E71B2D /* SpeakAndWaitBrickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakAndWaitBrickCell.m; sourceTree = "<group>"; };
 		4C0F9FA8204BD2D600E71B2D /* SpeakAndWaitBrickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakAndWaitBrickCell.h; sourceTree = "<group>"; };
-		4C0F9FD2204BD3B400E71B2D /* BubbleBrickTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleBrickTests.swift; sourceTree = "<group>"; };
+		4C0F9FD2204BD3B400E71B2D /* SayForBubbleBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SayForBubbleBrickCellTests.swift; sourceTree = "<group>"; };
 		4C0F9FD4204BD3C200E71B2D /* ChooseCameraBrickTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCameraBrickTests.swift; sourceTree = "<group>"; };
 		4C0F9FD6204BD3CC00E71B2D /* PreviousLookBrickTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviousLookBrickTests.m; sourceTree = "<group>"; };
 		4C0F9FD8204BD3D500E71B2D /* RepeatUntilBrickTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatUntilBrickTests.swift; sourceTree = "<group>"; };
@@ -1508,7 +1519,6 @@
 		4C1C8B15213FE7F1003B3AA4 /* StoreProjectDownloaderMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreProjectDownloaderMock.swift; sourceTree = "<group>"; };
 		4C1D26601E84EFBD00BAA2D2 /* RepeatBrickTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatBrickTests.swift; sourceTree = "<group>"; };
 		4C1D26641E84F12700BAA2D2 /* VibrationBrickTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrationBrickTests.swift; sourceTree = "<group>"; };
-		4C1D26661E84F1BF00BAA2D2 /* GlideToBrickTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlideToBrickTests.swift; sourceTree = "<group>"; };
 		4C1EB20F1AC19B3D0001F431 /* BrickTextProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickTextProtocol.h; sourceTree = "<group>"; };
 		4C1EDCA9218A080200B60464 /* ScriptCollectionVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptCollectionVCTests.swift; sourceTree = "<group>"; };
 		4C1F6FA4213CF6BE00C20BEB /* SingleParameterStringFunctionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleParameterStringFunctionMock.swift; sourceTree = "<group>"; };
@@ -1600,6 +1610,18 @@
 		4C595F5821CAF6B30097D850 /* OrOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrOperator.swift; sourceTree = "<group>"; };
 		4C595F5D21CAF8CC0097D850 /* OperatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorManager.swift; sourceTree = "<group>"; };
 		4C595F5F21CAF9050097D850 /* OperatorManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorManagerProtocol.swift; sourceTree = "<group>"; };
+		4C5AEEE222F6EBBC00280F8B /* WaitBrickCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitBrickCellTests.swift; sourceTree = "<group>"; };
+		4C5AEEE422F6EC9900280F8B /* RepeatBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatBrickCellTests.swift; sourceTree = "<group>"; };
+		4C5AEEE622F6EDEB00280F8B /* ThinkForBubbleBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThinkForBubbleBrickCellTests.swift; sourceTree = "<group>"; };
+		4C5AEEE822F6EEF100280F8B /* GlideToBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlideToBrickCellTests.swift; sourceTree = "<group>"; };
+		4C5AEEEA22F6EFF800280F8B /* VibrationBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrationBrickCellTests.swift; sourceTree = "<group>"; };
+		4C5AEEEC22F6F04000280F8B /* GlideToBrickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlideToBrickTests.swift; sourceTree = "<group>"; };
+		4C5AEEEE22F6F08800280F8B /* BubbleBrickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleBrickTests.swift; sourceTree = "<group>"; };
+		4C5AEEF022F6F1A300280F8B /* GoNStepsBackBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoNStepsBackBrickCellTests.swift; sourceTree = "<group>"; };
+		4C5AEEF222F6F22700280F8B /* MoveNStepsBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveNStepsBrickCellTests.swift; sourceTree = "<group>"; };
+		4C5AEEF422F6F33A00280F8B /* IfLogicBeginBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IfLogicBeginBrickCellTests.swift; sourceTree = "<group>"; };
+		4C5AEEF622F6F3EA00280F8B /* NextLookBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextLookBrickCellTests.swift; sourceTree = "<group>"; };
+		4C5AEEF822F6F46600280F8B /* PreviousLookBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousLookBrickCellTests.swift; sourceTree = "<group>"; };
 		4C5EF63421A0677E0063D2F0 /* CameraBricks_0991.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CameraBricks_0991.xml; sourceTree = "<group>"; };
 		4C6066381A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDataXMLNode+CustomExtensions.h"; sourceTree = "<group>"; };
 		4C6066391A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDataXMLNode+CustomExtensions.m"; sourceTree = "<group>"; };
@@ -3776,6 +3798,32 @@
 			path = Unary;
 			sourceTree = "<group>";
 		};
+		4C5AEEDE22F6EBA100280F8B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C5AEEDF22F6EBA100280F8B /* BrickCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4C5AEEDF22F6EBA100280F8B /* BrickCells */ = {
+			isa = PBXGroup;
+			children = (
+				4C5AEEE822F6EEF100280F8B /* GlideToBrickCellTests.swift */,
+				4C5AEEF022F6F1A300280F8B /* GoNStepsBackBrickCellTests.swift */,
+				4C5AEEF422F6F33A00280F8B /* IfLogicBeginBrickCellTests.swift */,
+				4C5AEEF222F6F22700280F8B /* MoveNStepsBrickCellTests.swift */,
+				4C5AEEF622F6F3EA00280F8B /* NextLookBrickCellTests.swift */,
+				4C5AEEF822F6F46600280F8B /* PreviousLookBrickCellTests.swift */,
+				4C5AEEE422F6EC9900280F8B /* RepeatBrickCellTests.swift */,
+				4C0F9FD2204BD3B400E71B2D /* SayForBubbleBrickCellTests.swift */,
+				4C5AEEE622F6EDEB00280F8B /* ThinkForBubbleBrickCellTests.swift */,
+				4C5AEEEA22F6EFF800280F8B /* VibrationBrickCellTests.swift */,
+				4C5AEEE222F6EBBC00280F8B /* WaitBrickCellTests.swift */,
+			);
+			path = BrickCells;
+			sourceTree = "<group>";
+		};
 		4C5EF63121A0674D0063D2F0 /* CameraBricks */ = {
 			isa = PBXGroup;
 			children = (
@@ -4871,7 +4919,7 @@
 				4CEB226B1B95E4BC00B3BE2F /* BrickInsertManager */,
 				4CEB22351B95E47500B3BE2F /* BrickMutableCopyTests.m */,
 				4C968C3F1F00288500355C0D /* BrickTests.swift */,
-				4C0F9FD2204BD3B400E71B2D /* BubbleBrickTests.swift */,
+				4C5AEEEE22F6F08800280F8B /* BubbleBrickTests.swift */,
 				4CEB22381B95E47500B3BE2F /* ChangeBrightnessByNBrickTests.m */,
 				99E770511D7091BC00BEF91F /* ChangeColorByNBrickTests.m */,
 				4CD487751ED2C2A3001BB80A /* ChangeVariableBrickTests.swift */,
@@ -4881,8 +4929,8 @@
 				4CEB223B1B95E47500B3BE2F /* ClearGrafficEffectBrickTests.m */,
 				4CEB223C1B95E47500B3BE2F /* ComeToFrontBrickTests.m */,
 				4CB23D6F21E6613D00A0FEA7 /* DeleteItemOfUserListBrickTests.swift */,
+				4C5AEEEC22F6F04000280F8B /* GlideToBrickTests.swift */,
 				4CEB223D1B95E47500B3BE2F /* GoNStepsBackBrickTests.m */,
-				4C1D26661E84F1BF00BAA2D2 /* GlideToBrickTests.swift */,
 				4CEB223E1B95E47500B3BE2F /* HideBrickTests.m */,
 				4CAB10081ECF1A9A0019A67B /* HideTextBrickTests.swift */,
 				4CEB223F1B95E47500B3BE2F /* IfOnEdgeBounceBrickTests.m */,
@@ -7258,6 +7306,7 @@
 				4C26506D1A6566C60050775B /* SpriteObject */,
 				B46B270417703F9400172837 /* Supporting Files */,
 				4CD0BA92214678D500BF17A4 /* Utils */,
+				4C5AEEDE22F6EBA100280F8B /* Views */,
 			);
 			path = CattyTests;
 			sourceTree = "<group>";
@@ -8613,6 +8662,7 @@
 				BA38080C21A1D8920075B831 /* ConvertExceptionToError.m in Sources */,
 				4C68FC8E1B25A00B00AB3EE8 /* FormulaParserOperatorsTest.m in Sources */,
 				4C6FE15C212D2D2E0067B7D5 /* FloorFunctionTest.swift in Sources */,
+				4C5AEEF322F6F22700280F8B /* MoveNStepsBrickCellTests.swift in Sources */,
 				4CBF5F9C21AF1D200079C834 /* TouchManagerTests.swift in Sources */,
 				BACD947D219E1F2F0061D81C /* XMLAbstractTest.swift in Sources */,
 				4CEB22561B95E47500B3BE2F /* ChangeSizeByNBrickTests.m in Sources */,
@@ -8627,12 +8677,13 @@
 				5973F245202EF3A000A4CED9 /* SoundsLibraryCollectionViewDataSourceDelegateMock.swift in Sources */,
 				BA38080921A1CBB70075B831 /* XMLParserBrickTests095.swift in Sources */,
 				4C3A5CA921D3B7EF008FD83F /* NotEqualOperatorTest.swift in Sources */,
-				4C0F9FD3204BD3B400E71B2D /* BubbleBrickTests.swift in Sources */,
+				4C0F9FD3204BD3B400E71B2D /* SayForBubbleBrickCellTests.swift in Sources */,
 				4C822672213FA7A400F3D750 /* InclinationYSensorTest.swift in Sources */,
 				4C822657213FA7A400F3D750 /* MotionManagerMock.swift in Sources */,
 				4C822658213FA7A400F3D750 /* FaceDetectionManagerMock.swift in Sources */,
 				4C1F6FA5213CF6BE00C20BEB /* SingleParameterStringFunctionMock.swift in Sources */,
 				4CEB22591B95E47500B3BE2F /* ComeToFrontBrickTests.m in Sources */,
+				4C5AEEE922F6EEF200280F8B /* GlideToBrickCellTests.swift in Sources */,
 				4CE5C5701E0AD71800FD021C /* RequiredResources.m in Sources */,
 				BA94561C21A6063E00C5DE36 /* XMLParserObjectTests095.swift in Sources */,
 				4C822675213FA7A400F3D750 /* LoudnessSensorTest.swift in Sources */,
@@ -8660,7 +8711,9 @@
 				BA38081521A211130075B831 /* XMLSerializerBlackBoxTests.swift in Sources */,
 				BA651EED21A319BF00A94D67 /* SpriteObjectMutableCopyTests.swift in Sources */,
 				BA38080721A1CA260075B831 /* XMLParserBlackBoxTests0991.swift in Sources */,
+				4C5AEEF922F6F46600280F8B /* PreviousLookBrickCellTests.swift in Sources */,
 				599E649E202D9F95009494B5 /* URLSessionMock.swift in Sources */,
+				4C5AEEED22F6F04000280F8B /* GlideToBrickTests.swift in Sources */,
 				BACD947C219E1F250061D81C /* WaitUntilBrickTests.swift in Sources */,
 				4CE1D433213E5C6E0014DAF9 /* SpriteObjectMock.swift in Sources */,
 				4C6FE15D212D2D2E0067B7D5 /* LogFunctionTest.swift in Sources */,
@@ -8670,7 +8723,9 @@
 				BA38080321A1C5C90075B831 /* XMLParserBlackBoxTests097.swift in Sources */,
 				4C37A0A7212E76C90074F417 /* ArduinoDigitalPinFunctionTest.swift in Sources */,
 				4C82265F213FA7A400F3D750 /* FingerTouchedSensorTest.swift in Sources */,
+				4C5AEEE322F6EBBC00280F8B /* WaitBrickCellTests.swift in Sources */,
 				4CAC7DA21DCF444A00EC7D6F /* CBSceneTouchTests.swift in Sources */,
+				4C5AEEE722F6EDEB00280F8B /* ThinkForBubbleBrickCellTests.swift in Sources */,
 				4C3A5CA521D3B5D1008FD83F /* DivideOperatorTest.swift in Sources */,
 				4CEB22621B95E47500B3BE2F /* SetBrightnessBrickTests.m in Sources */,
 				4C68FC961B25A00B00AB3EE8 /* InternFormulaUtilsTest.m in Sources */,
@@ -8704,7 +8759,9 @@
 				4CEB22611B95E47500B3BE2F /* PointToBrickTests.m in Sources */,
 				4CBDF1AA21CF830E00325338 /* BinaryOperatorMock.swift in Sources */,
 				4C822668213FA7A400F3D750 /* CompassDirectionSensorTest.swift in Sources */,
+				4C5AEEE522F6EC9900280F8B /* RepeatBrickCellTests.swift in Sources */,
 				4CE5C56F1E0AD71800FD021C /* ProjectTests.m in Sources */,
+				4C5AEEEF22F6F08800280F8B /* BubbleBrickTests.swift in Sources */,
 				4C1D26611E84EFBD00BAA2D2 /* RepeatBrickTests.swift in Sources */,
 				4C6FE166212D2D2E0067B7D5 /* MinFunctionTest.swift in Sources */,
 				4C6FE16F212D2D2E0067B7D5 /* SinFunctionTest.swift in Sources */,
@@ -8716,7 +8773,6 @@
 				4C82267B213FA7A400F3D750 /* BackgroundNumberSensorTest.swift in Sources */,
 				59A58D83202C714A008B1A8F /* MediaLibraryDownloaderTests.swift in Sources */,
 				BA3807FF21A1C1250075B831 /* XMLParserBlackBoxTests095.swift in Sources */,
-				4C1D26671E84F1BF00BAA2D2 /* GlideToBrickTests.swift in Sources */,
 				4C822659213FA7A400F3D750 /* AudioManagerMock.swift in Sources */,
 				4CD27AAA21B5765C00DDADB5 /* FeatureMock.swift in Sources */,
 				4CEB22501B95E47500B3BE2F /* BrickMoveManagerLogicTests.m in Sources */,
@@ -8749,11 +8805,13 @@
 				4CEB22741B95E4BC00B3BE2F /* BrickInsertManagerForeverTests.m in Sources */,
 				4C53E39021D5247C00F2EC76 /* NotOperatorTest.swift in Sources */,
 				4C822671213FA7A400F3D750 /* AccelerationXSensorTest.swift in Sources */,
+				4C5AEEF122F6F1A300280F8B /* GoNStepsBackBrickCellTests.swift in Sources */,
 				4CF4CB7721E65A9B009D6DD9 /* ReplaceItemInUserListBrickTests.swift in Sources */,
 				4C1D26651E84F12700BAA2D2 /* VibrationBrickTests.swift in Sources */,
 				4C6FE164212D2D2E0067B7D5 /* TrueFunctionTest.swift in Sources */,
 				BAA0EDE521A6F4FA002F5A80 /* XMLParserTests092.swift in Sources */,
 				4C822664213FA7A400F3D750 /* LatitudeSensorTest.swift in Sources */,
+				4C5AEEEB22F6EFF900280F8B /* VibrationBrickCellTests.swift in Sources */,
 				4CB2CFAD1D7AD8A5009F3034 /* SetColorBrickTests.m in Sources */,
 				4CDE807621A1B112009EFD31 /* ScenePresenterViewControllerTest.swift in Sources */,
 				4C822683213FA7A400F3D750 /* SensorManagerTests.swift in Sources */,
@@ -8789,6 +8847,7 @@
 				4CA658ED21EBA5BD000E5797 /* CBFileManagerTests.swift in Sources */,
 				4CC50A60213BE18F004BC914 /* SingleParameterDoubleFunctionMock.swift in Sources */,
 				4CEB22691B95E47500B3BE2F /* TurnLeftBrickTests.m in Sources */,
+				4C5AEEF522F6F33A00280F8B /* IfLogicBeginBrickCellTests.swift in Sources */,
 				9E1444F6228B531400104F77 /* ExtendedTimerTests.swift in Sources */,
 				4C822682213FA7A400F3D750 /* PhiroSensorTest.swift in Sources */,
 				4C822669213FA7A400F3D750 /* TimeMinuteSensorTest.swift in Sources */,
@@ -8833,6 +8892,7 @@
 				4C822666213FA7A400F3D750 /* LongitudeSensorTest.swift in Sources */,
 				4C822665213FA7A400F3D750 /* AltitudeSensorTest.swift in Sources */,
 				4CC50A5C213BBD7D004BC914 /* FormulaManagerInterpreterTests.swift in Sources */,
+				4C5AEEF722F6F3EA00280F8B /* NextLookBrickCellTests.swift in Sources */,
 				4C82265E213FA7A400F3D750 /* LastFingerIndexSensorTest.swift in Sources */,
 				4C6FE168212D2D2E0067B7D5 /* TanFunctionTest.swift in Sources */,
 				4CD0BA9921467C5A00BF17A4 /* HeaderTests.swift in Sources */,

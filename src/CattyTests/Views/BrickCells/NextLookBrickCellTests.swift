@@ -24,13 +24,30 @@ import XCTest
 
 @testable import Pocket_Code
 
-final class VibrationBrickTests: XCTestCase {
+final class NextLookBrickCellTests: XCTestCase {
 
-    func testFormulaForLineNumber() {
-        let brick = VibrationBrick()
+    var brick: NextLookBrick!
+    var brickCell: NextLookBrickCell!
 
-        brick.durationInSeconds = Formula(double: 1)
+    override func setUp() {
+        super.setUp()
 
-        XCTAssertEqual(brick.durationInSeconds, brick.formula(forLineNumber: 1, andParameterNumber: 1))
+        brick = NextLookBrick()
+        brickCell = NextLookBrickCell()
+        brickCell.scriptOrBrick = brick
+    }
+
+    func testTitle() {
+        let expectedTitle = kLocalizedNextLook
+
+        XCTAssertEqual(expectedTitle, brickCell.brickTitle(forBackground: false, andInsertionScreen: true))
+        XCTAssertEqual(expectedTitle, brickCell.brickTitle(forBackground: false, andInsertionScreen: false))
+    }
+
+    func testTitleForBackground() {
+        let expectedTitle = kLocalizedNextBackground
+
+        XCTAssertEqual(expectedTitle, brickCell.brickTitle(forBackground: true, andInsertionScreen: true))
+        XCTAssertEqual(expectedTitle, brickCell.brickTitle(forBackground: true, andInsertionScreen: false))
     }
 }

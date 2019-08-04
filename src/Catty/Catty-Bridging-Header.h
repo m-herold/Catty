@@ -115,6 +115,18 @@
 #import "ThinkBubbleBrick.h"
 #import "ThinkForBubbleBrick.h"
 
+// BrickCells
+#import "RepeatBrickCell.h"
+#import "SayForBubbleBrickCell.h"
+#import "ThinkForBubbleBrickCell.h"
+#import "GlideToBrickCell.h"
+#import "VibrationBrickCell.h"
+#import "MoveNStepsBrickCell.h"
+#import "GoNStepsBackBrickCell.h"
+#import "IfLogicBeginBrickCell.h"
+#import "NextLookBrickCell.h"
+#import "PreviousLookBrickCell.h"
+
 // Formulas
 #import "Formula.h"
 #import "FormulaElement.h"
