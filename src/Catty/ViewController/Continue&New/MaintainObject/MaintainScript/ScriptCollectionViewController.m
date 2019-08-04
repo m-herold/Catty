@@ -79,12 +79,12 @@
 
 
 @interface ScriptCollectionViewController() <UICollectionViewDelegate,
-UICollectionViewDataSource,
-UIViewControllerTransitioningDelegate,
-BrickCellDelegate,
-iOSComboboxDelegate,
-BrickCellDataDelegate,
-UIGestureRecognizerDelegate>
+                                             UICollectionViewDataSource,
+                                             UIViewControllerTransitioningDelegate,
+                                             BrickCellDelegate,
+                                             iOSComboboxDelegate,
+                                             BrickCellDataDelegate,
+                                             UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) BrickTransition *brickScaleTransition;
 //@property (nonatomic, strong) NSMutableArray *selectedIndexPositions;  // refactor
@@ -209,7 +209,7 @@ UIGestureRecognizerDelegate>
         Script *script = self.object.scriptList[indexPath.section];
         
         if (indexPath.item == 0) {
-            size =  [BrickManager.sharedBrickManager sizeForBrick:NSStringFromClass(script.class)];
+           size =  [BrickManager.sharedBrickManager sizeForBrick:NSStringFromClass(script.class)];
         } else {
             size = [BrickManager.sharedBrickManager sizeForBrick:NSStringFromClass([script.brickList[indexPath.item - 1] class])];
         }
@@ -281,13 +281,13 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
                                       : kLocalizedDeleteBrick);
         
         actionSheet = [[[[[AlertControllerBuilder actionSheetWithTitle:kLocalizedEditBrick]
-                          addCancelActionWithTitle:kLocalizedCancel handler:nil]
-                         addDestructiveActionWithTitle:destructiveTitle handler:^{
-                             [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
-                         }]
-                        addDefaultActionWithTitle:kLocalizedCopyBrick handler:^{
-                            [self copyBrick:brick atIndexPath:indexPath];
-                        }]
+                       addCancelActionWithTitle:kLocalizedCancel handler:nil]
+                       addDestructiveActionWithTitle:destructiveTitle handler:^{
+                           [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
+                       }]
+                       addDefaultActionWithTitle:kLocalizedCopyBrick handler:^{
+                           [self copyBrick:brick atIndexPath:indexPath];
+                       }]
                        addDefaultActionWithTitle:kLocalizedMoveBrick handler:^{
                            brick.animateInsertBrick = YES;
                            brick.animateMoveBrick = YES;
@@ -308,32 +308,32 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         }
     } else {
         actionSheet = [[[AlertControllerBuilder actionSheetWithTitle:kLocalizedEditScript]
-                        addCancelActionWithTitle:kLocalizedCancel handler:nil]
-                       addDestructiveActionWithTitle:kLocalizedDeleteScript handler:^{
-                           NSInteger numberOfBricksInSection = [self.collectionView numberOfItemsInSection:indexPath.section];
-                           if (numberOfBricksInSection > 1) {
-                               [[[[[AlertControllerBuilder alertWithTitle:kLocalizedDeleteThisScript
-                                                                  message:kLocalizedThisActionCannotBeUndone]
-                                   addCancelActionWithTitle:kLocalizedCancel handler:nil]
-                                  addDefaultActionWithTitle:kLocalizedYes handler:^{
-                                      [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
-                                  }] build]
-                                showWithController:self];
-                           } else {
-                               [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
-                           }
-                       }];
+         addCancelActionWithTitle:kLocalizedCancel handler:nil]
+         addDestructiveActionWithTitle:kLocalizedDeleteScript handler:^{
+             NSInteger numberOfBricksInSection = [self.collectionView numberOfItemsInSection:indexPath.section];
+             if (numberOfBricksInSection > 1) {
+                 [[[[[AlertControllerBuilder alertWithTitle:kLocalizedDeleteThisScript
+                                                    message:kLocalizedThisActionCannotBeUndone]
+                  addCancelActionWithTitle:kLocalizedCancel handler:nil]
+                  addDefaultActionWithTitle:kLocalizedYes handler:^{
+                      [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
+                  }] build]
+                  showWithController:self];
+             } else {
+                 [self removeBrickOrScript:scriptOrBrick atIndexPath:indexPath];
+             }
+         }];
     }
     
     [[[[actionSheet build]
-      viewDidAppear:^(UIView *view) {
-          const float kActionSheetBrickCellMarginBottom = 15.0f;
-          [self disableUserInteractionAndHighlight:brickCell withMarginBottom:view.frame.size.height + kActionSheetBrickCellMarginBottom];
-      }]
-      viewWillDisappear:^{
-          if (self.isEditingBrickMode) {
-              [self enableUserInteractionAndResetHighlight];
-          }
+     viewDidAppear:^(UIView *view) {
+         const float kActionSheetBrickCellMarginBottom = 15.0f;
+         [self disableUserInteractionAndHighlight:brickCell withMarginBottom:view.frame.size.height + kActionSheetBrickCellMarginBottom];
+     }]
+     viewWillDisappear:^{
+         if (self.isEditingBrickMode) {
+             [self enableUserInteractionAndResetHighlight];
+         }
      }]
      showWithController:self];
 }
@@ -354,12 +354,12 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             if ([[[BrickSelectionManager sharedInstance] selectedIndexPaths] count] < 4)
             {
                 title = ([brick isIfLogicBrick] ? kLocalizedDeleteThisCondition
-                         : ([brick isLoopBrick]) ? kLocalizedDeleteThisLoop : kLocalizedDeleteTheseBricks);
+                           : ([brick isLoopBrick]) ? kLocalizedDeleteThisLoop : kLocalizedDeleteTheseBricks);
             }
             else
             {
                 title = ([brick isIfLogicBrick] ? kLocalizedDeleteTheseConditions
-                         : ([brick isLoopBrick]) ? kLocalizedDeleteTheseLoops : kLocalizedDeleteTheseBricks);
+                               : ([brick isLoopBrick]) ? kLocalizedDeleteTheseLoops : kLocalizedDeleteTheseBricks);
             }
         }
         else
@@ -384,11 +384,11 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     {
         NSString *alertTitle = title;
         [[[[[AlertControllerBuilder alertWithTitle:alertTitle message:kLocalizedThisActionCannotBeUndone]
-            addCancelActionWithTitle:kLocalizedCancel handler:nil]
-           addDefaultActionWithTitle:kLocalizedYes handler:^{
-               [self deleteSelectedBricks];
-               self.allBricksSelected = NO;
-           }] build]
+         addCancelActionWithTitle:kLocalizedCancel handler:nil]
+         addDefaultActionWithTitle:kLocalizedYes handler:^{
+             [self deleteSelectedBricks];
+             self.allBricksSelected = NO;
+         }] build]
          showWithController:self];
     }
 }
@@ -410,18 +410,18 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             Brick *fromBrick = [script.brickList objectAtIndex:fromIndexPath.item - 1];
             [script.brickList removeObjectAtIndex:fromIndexPath.item - 1];
             if (toIndexPath.item > 0) {
-                [script.brickList insertObject:fromBrick atIndex:toIndexPath.item - 1];
+                 [script.brickList insertObject:fromBrick atIndex:toIndexPath.item - 1];
             } else {
                 [script.brickList insertObject:fromBrick atIndex:toIndexPath.item+1];
             }
-
+           
         }
         
     } else {
         Script *toScript = [self.object.scriptList objectAtIndex:toIndexPath.section];
         Script *fromScript = [self.object.scriptList objectAtIndex:fromIndexPath.section];
         Brick *fromBrick = [fromScript.brickList objectAtIndex:fromIndexPath.item - 1];
-        fromBrick.script = toScript;
+		fromBrick.script = toScript;
         if ([fromScript.brickList count] == 1) {
             [fromScript.brickList removeAllObjects];
         } else {
@@ -437,7 +437,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 
 - (void)collectionView:(UICollectionView*)collectionView
        itemAtIndexPath:(NSIndexPath*)fromIndexPath
-    didMoveToIndexPath:(NSIndexPath*)toIndexPath
+   didMoveToIndexPath:(NSIndexPath*)toIndexPath
 {
     [[BrickMoveManager sharedInstance] reset];
 }
@@ -523,7 +523,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     BrickCell *brickCell = nil;
     Script *script = [self.object.scriptList objectAtIndex:(NSUInteger)indexPath.section];
     Brick *brick = nil;
-    
+
     if (indexPath.item == 0) {
         cellIdentifier = NSStringFromClass([script class]);
         script.animate = NO;
@@ -565,7 +565,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
             }
         }
     }else{
-        brickCell.selectButton.selected = NO;
+      brickCell.selectButton.selected = NO;
     }
     brickCell.enabled = (! self.isEditing);
     if ([[BrickInsertManager sharedInstance] isBrickInsertionMode]) {
@@ -614,7 +614,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:(self.object.scriptList.count - 1)]
                                     atScrollPosition:UICollectionViewScrollPositionBottom
                                             animated:YES];
-
+       
         manager.isInsertingScript = YES;
         if (self.object.scriptList.count == 1) {
             [self.object.project saveToDiskWithNotification:YES];
@@ -663,7 +663,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
         if (hasForeverLoop) {
             [targetScript.brickList insertObject:brick atIndex:index];
         } else {
-            [targetScript.brickList addObject:brick];
+          [targetScript.brickList addObject:brick];
         }
     }else{
         [targetScript.brickList insertObject:brick atIndex:insertionIndex];
@@ -692,7 +692,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
         [self reloadData];
     }
     [self turnOnInsertingBrickMode];
-    //    [self.object.project saveToDisk];
+//    [self.object.project saveToDisk];
 }
 
 
@@ -740,7 +740,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     formulaEditorViewController.object = self.object;
     formulaEditorViewController.transitioningDelegate = self;
     formulaEditorViewController.modalPresentationStyle = UIModalPresentationCustom;
-    
+
     [self.brickScaleTransition updateAnimationViewWithView:formulaData.brickCell];
     [self presentViewController:formulaEditorViewController animated:YES completion:^{
         [formulaEditorViewController setBrickCellFormulaData:formulaData];
@@ -812,7 +812,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     layout.longPressGestureRecognizer.minimumPressDuration = 0.1;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.navigationItem.rightBarButtonItem.enabled = NO;
+       self.navigationItem.rightBarButtonItem.enabled = NO;
     });
     
 }
@@ -851,7 +851,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
     [super setEditing:editing animated:animated];
-    
+
     [self setupToolBar];
 }
 
@@ -918,17 +918,17 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
         [self.object.project saveToDiskWithNotification:YES];
         [self setEditing:NO animated:NO];
     }];
-    
+
 }
 
 #pragma mark - Add new Variable
 - (void)addVariableForBrick:(Brick*)brick atIndexPath:(NSIndexPath*)indexPath andIsProjectVariable:(BOOL)isProjectVar
 {
-    //    Brick<BrickVariableProtocol> *variableBrick;
-    //    if ([brick conformsToProtocol:@protocol(BrickVariableProtocol)]) {
-    //        variableBrick = (Brick<BrickVariableProtocol>*)brick;
-    //    }
-    
+//    Brick<BrickVariableProtocol> *variableBrick;
+//    if ([brick conformsToProtocol:@protocol(BrickVariableProtocol)]) {
+//        variableBrick = (Brick<BrickVariableProtocol>*)brick;
+//    }
+
     NSMutableArray *allVariableNames = [NSMutableArray new];
     if (isProjectVar) {
         for(UserVariable *var in [self.object.project.variables allVariables]) {
@@ -979,7 +979,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
 #pragma mark - Add new List
 - (void)addListForBrick:(Brick*)brick atIndexPath:(NSIndexPath*)indexPath andIsProjectList:(BOOL)isProjectList
 {
-    
+
     NSMutableArray *allListNames = [NSMutableArray new];
     if (isProjectList) {
         for(UserVariable *list in [self.object.project.variables allLists]) {
@@ -1096,142 +1096,142 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
             [lookBrick setLook:[Util lookWithName:(NSString*)value forObject:self.object] forLineNumber:line andParameterNumber:parameter];
         }
     } else
-        if ([brickCellData isKindOfClass:[BrickCellSoundData class]] && [brick conformsToProtocol:@protocol(BrickSoundProtocol)]) {
-            Brick<BrickSoundProtocol> *soundBrick = (Brick<BrickSoundProtocol>*)brick;
-            if([(NSString*)value isEqualToString:kLocalizedNewElement]) {
-                SoundsTableViewController *ltvc = [self.storyboard instantiateViewControllerWithIdentifier:kSoundsTableViewControllerIdentifier];
-                [ltvc setObject:self.object];
-                ltvc.showAddSoundActionSheetAtStart = YES;
-                ltvc.afterSafeBlock =  ^(Sound* sound) {
-                    [soundBrick setSound:sound forLineNumber:line andParameterNumber:parameter];
-                    [self.navigationController popViewControllerAnimated:YES];
-                    [self enableUserInteractionAndResetHighlight];
-                };
-                [self.navigationController pushViewController:ltvc animated:YES];
-                return;
-            } else {
-                [soundBrick setSound:[Util soundWithName:(NSString*)value forObject:self.object] forLineNumber:line andParameterNumber:parameter];
-            }
-        } else
-            if ([brickCellData isKindOfClass:[BrickCellObjectData class]] && [brick conformsToProtocol:@protocol(BrickObjectProtocol)]) {
-                Brick<BrickObjectProtocol> *objectBrick = (Brick<BrickObjectProtocol>*)brick;
-                if([(NSString*)value isEqualToString:kLocalizedNewElement]) {
-                    ProjectTableViewController *ptvc = [self.storyboard instantiateViewControllerWithIdentifier:kProjectTableViewControllerIdentifier];
-                    [ptvc setProject:self.object.project];
-                    ptvc.showAddObjectActionSheetAtStart = YES;
-                    ptvc.afterSafeBlock =  ^(SpriteObject* object) {
-                        [objectBrick setObject:object forLineNumber:line andParameterNumber:parameter];
-                        [self.navigationController popToViewController:self animated:YES];
-                        [self enableUserInteractionAndResetHighlight];
-                    };
-                    [self.navigationController pushViewController:ptvc animated:YES];
-                    return;
-                } else {
-                    [objectBrick setObject:[Util objectWithName:(NSString*)value forProject:self.object.project] forLineNumber:line andParameterNumber:parameter];
-                }
-            } else
-                if ([brickCellData isKindOfClass:[BrickCellFormulaData class]] && [brick conformsToProtocol:@protocol(BrickFormulaProtocol)]) {
-                    [(Brick<BrickFormulaProtocol>*)brick setFormula:(Formula*)value forLineNumber:line andParameterNumber:parameter];
-                    [self.object.project saveToDiskWithNotification:YES];
-                    return;
-                } else
-                    if ([brickCellData isKindOfClass:[BrickCellTextData class]] && [brick conformsToProtocol:@protocol(BrickTextProtocol)]) {
-                        [(Brick<BrickTextProtocol>*)brick setText:(NSString*)value forLineNumber:line andParameterNumber:parameter];
-                    } else
-                        if ([brickCellData isKindOfClass:[BrickCellStaticChoiceData class]] && [brick conformsToProtocol:@protocol(BrickStaticChoiceProtocol)]) {
-                            [(Brick<BrickStaticChoiceProtocol>*)brick setChoice:(NSString*)value forLineNumber:line andParameterNumber:parameter];
-                        }else
-                            if ([brickCellData isKindOfClass:[BrickCellMessageData class]] && [brick conformsToProtocol:@protocol(BrickMessageProtocol)]) {
-                                Brick<BrickMessageProtocol> *messageBrick = (Brick<BrickMessageProtocol>*)brick;
-                                if([(NSString*)value isEqualToString:kLocalizedNewElement]) {
-                                    [Util askUserForUniqueNameAndPerformAction:@selector(addMessageWithName:andCompletion:)
-                                                                        target:self
-                                                                  cancelAction:@selector(enableUserInteractionAndResetHighlight)
-                                                                    withObject:(id) ^(NSString* message){
-                                                                        [messageBrick setMessage:message forLineNumber:line andParameterNumber:parameter];
-                                                                    }
-                                                                   promptTitle:kLocalizedNewMessage
-                                                                 promptMessage:[NSString stringWithFormat:@"%@:", kLocalizedMessage]
-                                                                   promptValue:nil
-                                                             promptPlaceholder:kLocalizedEnterYourMessageHere
-                                                                minInputLength:kMinNumOfMessageNameCharacters
-                                                                maxInputLength:kMaxNumOfMessageNameCharacters
-                                                      invalidInputAlertMessage:kLocalizedMessageAlreadyExistsDescription
-                                                                 existingNames:[Util allMessagesForProject:self.object.project]];
-                                    [self enableUserInteractionAndResetHighlight];
-                                    return;
-                                } else {
-                                    [messageBrick setMessage:(NSString*)value forLineNumber:line andParameterNumber:parameter];
-                                }
-                            } else
-                                if ([brickCellData isKindOfClass:[BrickCellVariableData class]] && [brick conformsToProtocol:@protocol(BrickVariableProtocol)]) {
-                                    if([(NSString*)value isEqualToString:kLocalizedNewElement]) {
-                                        CBAssert([brickCellData.brickCell.scriptOrBrick isKindOfClass:[Brick class]]);
-                                        
-                                        NSIndexPath *path = [self.collectionView indexPathForCell:(UICollectionViewCell*)brickCellData.brickCell];
-                                        Brick *brick = (Brick*)brickCellData.brickCell.scriptOrBrick;
-                                        [[[[[[AlertControllerBuilder actionSheetWithTitle:kUIFEActionVar]
-                                             addCancelActionWithTitle:kLocalizedCancel handler:nil]
-                                            addDefaultActionWithTitle:kUIFEActionVarPro handler:^{
-                                                [self addVariableForBrick:brick atIndexPath:path andIsProjectVariable:YES];
-                                            }]
-                                           addDefaultActionWithTitle:kUIFEActionVarObj handler:^{
-                                               [self addVariableForBrick:brick atIndexPath:path andIsProjectVariable:NO];
-                                           }]
-                                          build]
-                                         showWithController:[Util topmostViewController]];
-                                        
-                                        [self enableUserInteractionAndResetHighlight];
-                                        return;
-                                    } else {
-                                        Brick<BrickVariableProtocol> *variableBrick = (Brick<BrickVariableProtocol>*)brick;
-                                        UserVariable *variable = [self.object.project.variables getUserVariableNamed:(NSString*)value forSpriteObject:self.object];
-                                        if(variable)
-                                            [variableBrick setVariable:variable forLineNumber:line andParameterNumber:parameter];
-                                    }
-                                } else
-                                    if ([brickCellData isKindOfClass:[BrickCellListData class]] && [brick conformsToProtocol:@protocol(BrickListProtocol)]) {
-                                        if([(NSString*)value isEqualToString:kLocalizedNewElement]) {
-                                            CBAssert([brickCellData.brickCell.scriptOrBrick isKindOfClass:[Brick class]]);
-                                            
-                                            NSIndexPath *path = [self.collectionView indexPathForCell:(UICollectionViewCell*)brickCellData.brickCell];
-                                            Brick *brick = (Brick*)brickCellData.brickCell.scriptOrBrick;
-                                            [[[[[[AlertControllerBuilder actionSheetWithTitle:kUIFEActionList]
-                                                 addCancelActionWithTitle:kLocalizedCancel handler:nil]
-                                                addDefaultActionWithTitle:kUIFEActionVarPro handler:^{
-                                                    [self addListForBrick:brick atIndexPath:path andIsProjectList:YES];
-                                                }]
-                                               addDefaultActionWithTitle:kUIFEActionVarObj handler:^{
-                                                   [self addListForBrick:brick atIndexPath:path andIsProjectList:NO];
-                                               }]
-                                              build]
-                                             showWithController:[Util topmostViewController]];
-                                            
-                                            [self enableUserInteractionAndResetHighlight];
-                                            return;
-                                        } else {
-                                            Brick<BrickListProtocol> *listBrick = (Brick<BrickListProtocol>*)brick;
-                                            UserVariable *list = [self.object.project.variables getUserListNamed:(NSString*)value forSpriteObject:self.object];
-                                            if(list)
-                                                [listBrick setList:list forLineNumber:line andParameterNumber:parameter];
-                                        }
-                                    } else
-                                        if ([brickCellData isKindOfClass:[BrickCellPhiroMotorData class]] && [brick conformsToProtocol:@protocol(BrickPhiroMotorProtocol)]) {
-                                            Brick<BrickPhiroMotorProtocol> *motorBrick = (Brick<BrickPhiroMotorProtocol>*)brick;
-                                            [motorBrick setMotor:(NSString*)value forLineNumber:line andParameterNumber:parameter];
-                                        } else
-                                            if ([brickCellData isKindOfClass:[BrickCellPhiroToneData class]] && [brick conformsToProtocol:@protocol(BrickPhiroToneProtocol)]) {
-                                                Brick<BrickPhiroToneProtocol> *toneBrick = (Brick<BrickPhiroToneProtocol>*)brick;
-                                                [toneBrick setTone:(NSString*)value forLineNumber:line andParameterNumber:parameter];
-                                            } else
-                                                if ([brickCellData isKindOfClass:[BrickCellPhiroLightData class]] && [brick conformsToProtocol:@protocol(BrickPhiroLightProtocol)]) {
-                                                    Brick<BrickPhiroLightProtocol> *lightBrick = (Brick<BrickPhiroLightProtocol>*)brick;
-                                                    [lightBrick setLight:(NSString*)value forLineNumber:line andParameterNumber:parameter];
-                                                } else
-                                                    if ([brickCellData isKindOfClass:[BrickCellPhiroIfSensorData class]] && [brick conformsToProtocol:@protocol(BrickPhiroIfSensorProtocol)]) {
-                                                        Brick<BrickPhiroIfSensorProtocol> *phiroIfBrick = (Brick<BrickPhiroIfSensorProtocol>*)brick;
-                                                        [phiroIfBrick setSensor:(NSString*)value forLineNumber:line andParameterNumber:parameter];
-                                                    }
+    if ([brickCellData isKindOfClass:[BrickCellSoundData class]] && [brick conformsToProtocol:@protocol(BrickSoundProtocol)]) {
+        Brick<BrickSoundProtocol> *soundBrick = (Brick<BrickSoundProtocol>*)brick;
+        if([(NSString*)value isEqualToString:kLocalizedNewElement]) {
+            SoundsTableViewController *ltvc = [self.storyboard instantiateViewControllerWithIdentifier:kSoundsTableViewControllerIdentifier];
+            [ltvc setObject:self.object];
+            ltvc.showAddSoundActionSheetAtStart = YES;
+            ltvc.afterSafeBlock =  ^(Sound* sound) {
+                [soundBrick setSound:sound forLineNumber:line andParameterNumber:parameter];
+                [self.navigationController popViewControllerAnimated:YES];
+                [self enableUserInteractionAndResetHighlight];
+            };
+            [self.navigationController pushViewController:ltvc animated:YES];
+            return;
+        } else {
+            [soundBrick setSound:[Util soundWithName:(NSString*)value forObject:self.object] forLineNumber:line andParameterNumber:parameter];
+        }
+    } else
+    if ([brickCellData isKindOfClass:[BrickCellObjectData class]] && [brick conformsToProtocol:@protocol(BrickObjectProtocol)]) {
+        Brick<BrickObjectProtocol> *objectBrick = (Brick<BrickObjectProtocol>*)brick;
+        if([(NSString*)value isEqualToString:kLocalizedNewElement]) {
+            ProjectTableViewController *ptvc = [self.storyboard instantiateViewControllerWithIdentifier:kProjectTableViewControllerIdentifier];
+            [ptvc setProject:self.object.project];
+            ptvc.showAddObjectActionSheetAtStart = YES;
+            ptvc.afterSafeBlock =  ^(SpriteObject* object) {
+                [objectBrick setObject:object forLineNumber:line andParameterNumber:parameter];
+                [self.navigationController popToViewController:self animated:YES];
+                [self enableUserInteractionAndResetHighlight];
+            };
+            [self.navigationController pushViewController:ptvc animated:YES];
+            return;
+        } else {
+            [objectBrick setObject:[Util objectWithName:(NSString*)value forProject:self.object.project] forLineNumber:line andParameterNumber:parameter];
+        }
+    } else
+    if ([brickCellData isKindOfClass:[BrickCellFormulaData class]] && [brick conformsToProtocol:@protocol(BrickFormulaProtocol)]) {
+        [(Brick<BrickFormulaProtocol>*)brick setFormula:(Formula*)value forLineNumber:line andParameterNumber:parameter];
+        [self.object.project saveToDiskWithNotification:YES];
+        return;
+    } else
+    if ([brickCellData isKindOfClass:[BrickCellTextData class]] && [brick conformsToProtocol:@protocol(BrickTextProtocol)]) {
+        [(Brick<BrickTextProtocol>*)brick setText:(NSString*)value forLineNumber:line andParameterNumber:parameter];
+    } else
+    if ([brickCellData isKindOfClass:[BrickCellStaticChoiceData class]] && [brick conformsToProtocol:@protocol(BrickStaticChoiceProtocol)]) {
+            [(Brick<BrickStaticChoiceProtocol>*)brick setChoice:(NSString*)value forLineNumber:line andParameterNumber:parameter];
+    }else
+    if ([brickCellData isKindOfClass:[BrickCellMessageData class]] && [brick conformsToProtocol:@protocol(BrickMessageProtocol)]) {
+        Brick<BrickMessageProtocol> *messageBrick = (Brick<BrickMessageProtocol>*)brick;
+        if([(NSString*)value isEqualToString:kLocalizedNewElement]) {
+            [Util askUserForUniqueNameAndPerformAction:@selector(addMessageWithName:andCompletion:)
+                                                target:self
+                                          cancelAction:@selector(enableUserInteractionAndResetHighlight)
+                                            withObject:(id) ^(NSString* message){
+                                                [messageBrick setMessage:message forLineNumber:line andParameterNumber:parameter];
+                                            }
+                                           promptTitle:kLocalizedNewMessage
+                                         promptMessage:[NSString stringWithFormat:@"%@:", kLocalizedMessage]
+                                           promptValue:nil
+                                     promptPlaceholder:kLocalizedEnterYourMessageHere
+                                        minInputLength:kMinNumOfMessageNameCharacters
+                                        maxInputLength:kMaxNumOfMessageNameCharacters
+                              invalidInputAlertMessage:kLocalizedMessageAlreadyExistsDescription
+                                         existingNames:[Util allMessagesForProject:self.object.project]];
+            [self enableUserInteractionAndResetHighlight];
+            return;
+        } else {
+            [messageBrick setMessage:(NSString*)value forLineNumber:line andParameterNumber:parameter];
+        }
+    } else
+    if ([brickCellData isKindOfClass:[BrickCellVariableData class]] && [brick conformsToProtocol:@protocol(BrickVariableProtocol)]) {
+        if([(NSString*)value isEqualToString:kLocalizedNewElement]) {
+            CBAssert([brickCellData.brickCell.scriptOrBrick isKindOfClass:[Brick class]]);
+            
+            NSIndexPath *path = [self.collectionView indexPathForCell:(UICollectionViewCell*)brickCellData.brickCell];
+            Brick *brick = (Brick*)brickCellData.brickCell.scriptOrBrick;
+            [[[[[[AlertControllerBuilder actionSheetWithTitle:kUIFEActionVar]
+             addCancelActionWithTitle:kLocalizedCancel handler:nil]
+             addDefaultActionWithTitle:kUIFEActionVarPro handler:^{
+                 [self addVariableForBrick:brick atIndexPath:path andIsProjectVariable:YES];
+             }]
+             addDefaultActionWithTitle:kUIFEActionVarObj handler:^{
+                 [self addVariableForBrick:brick atIndexPath:path andIsProjectVariable:NO];
+             }]
+             build]
+             showWithController:[Util topmostViewController]];
+            
+            [self enableUserInteractionAndResetHighlight];
+            return;
+        } else {
+            Brick<BrickVariableProtocol> *variableBrick = (Brick<BrickVariableProtocol>*)brick;
+            UserVariable *variable = [self.object.project.variables getUserVariableNamed:(NSString*)value forSpriteObject:self.object];
+            if(variable)
+                [variableBrick setVariable:variable forLineNumber:line andParameterNumber:parameter];
+        }
+    } else
+    if ([brickCellData isKindOfClass:[BrickCellListData class]] && [brick conformsToProtocol:@protocol(BrickListProtocol)]) {
+        if([(NSString*)value isEqualToString:kLocalizedNewElement]) {
+            CBAssert([brickCellData.brickCell.scriptOrBrick isKindOfClass:[Brick class]]);
+                
+            NSIndexPath *path = [self.collectionView indexPathForCell:(UICollectionViewCell*)brickCellData.brickCell];
+            Brick *brick = (Brick*)brickCellData.brickCell.scriptOrBrick;
+            [[[[[[AlertControllerBuilder actionSheetWithTitle:kUIFEActionList]
+             addCancelActionWithTitle:kLocalizedCancel handler:nil]
+             addDefaultActionWithTitle:kUIFEActionVarPro handler:^{
+                 [self addListForBrick:brick atIndexPath:path andIsProjectList:YES];
+             }]
+             addDefaultActionWithTitle:kUIFEActionVarObj handler:^{
+                 [self addListForBrick:brick atIndexPath:path andIsProjectList:NO];
+             }]
+             build]
+             showWithController:[Util topmostViewController]];
+                
+            [self enableUserInteractionAndResetHighlight];
+            return;
+        } else {
+            Brick<BrickListProtocol> *listBrick = (Brick<BrickListProtocol>*)brick;
+            UserVariable *list = [self.object.project.variables getUserListNamed:(NSString*)value forSpriteObject:self.object];
+            if(list)
+                [listBrick setList:list forLineNumber:line andParameterNumber:parameter];
+        }
+    } else
+    if ([brickCellData isKindOfClass:[BrickCellPhiroMotorData class]] && [brick conformsToProtocol:@protocol(BrickPhiroMotorProtocol)]) {
+        Brick<BrickPhiroMotorProtocol> *motorBrick = (Brick<BrickPhiroMotorProtocol>*)brick;
+        [motorBrick setMotor:(NSString*)value forLineNumber:line andParameterNumber:parameter];
+    } else
+    if ([brickCellData isKindOfClass:[BrickCellPhiroToneData class]] && [brick conformsToProtocol:@protocol(BrickPhiroToneProtocol)]) {
+        Brick<BrickPhiroToneProtocol> *toneBrick = (Brick<BrickPhiroToneProtocol>*)brick;
+        [toneBrick setTone:(NSString*)value forLineNumber:line andParameterNumber:parameter];
+    } else
+    if ([brickCellData isKindOfClass:[BrickCellPhiroLightData class]] && [brick conformsToProtocol:@protocol(BrickPhiroLightProtocol)]) {
+        Brick<BrickPhiroLightProtocol> *lightBrick = (Brick<BrickPhiroLightProtocol>*)brick;
+        [lightBrick setLight:(NSString*)value forLineNumber:line andParameterNumber:parameter];
+    } else
+    if ([brickCellData isKindOfClass:[BrickCellPhiroIfSensorData class]] && [brick conformsToProtocol:@protocol(BrickPhiroIfSensorProtocol)]) {
+        Brick<BrickPhiroIfSensorProtocol> *phiroIfBrick = (Brick<BrickPhiroIfSensorProtocol>*)brick;
+        [phiroIfBrick setSensor:(NSString*)value forLineNumber:line andParameterNumber:parameter];
+    }
     
     [self.object.project saveToDiskWithNotification:NO];
     [self enableUserInteractionAndResetHighlight];
@@ -1273,7 +1273,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     self.isEditingBrickMode = YES;
     self.navigationController.toolbar.userInteractionEnabled = NO;
     self.navigationController.navigationBar.userInteractionEnabled = NO;
-    // disable swipe back gesture
+        // disable swipe back gesture
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
@@ -1290,7 +1290,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     UICollectionViewLayoutAttributes *brickCellAttributes = [self.collectionView layoutAttributesForItemAtIndexPath:indexPath];
     CGFloat collectionViewHeight = self.collectionView.frame.size.height;
     CGFloat brickCellOriginVert = [self.collectionView convertRect:brickCellAttributes.frame toView:[self.collectionView superview]].origin.y + [brickCell inlineViewHeight] + [brickCell inlineViewOffsetY];
-    
+
     if ((collectionViewHeight - brickCellOriginVert) < marginBottom) {
         CGFloat additionalOffset = marginBottom - (collectionViewHeight - brickCellOriginVert);
         [self.collectionView setContentOffset:CGPointMake(0, self.collectionView.contentOffset.y + additionalOffset) animated:YES];
@@ -1301,20 +1301,20 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
 {
     if (self.batchUpdateMutex)
         return;
-    
+
     dispatch_async(dispatch_get_main_queue(),^{
         [self.collectionView reloadData];
         [self changeDeleteBarButtonState];
         [self.collectionView setNeedsDisplay];
     });
-    
+
 }
 
 -(void)reloadDataSynchronous
 {
     if (self.batchUpdateMutex)
         return;
-    
+
     [self.collectionView reloadData];
     dispatch_async(dispatch_get_main_queue(),^{
         [self changeDeleteBarButtonState];
@@ -1338,12 +1338,12 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
                                                      atScrollPosition:UICollectionViewScrollPositionCenteredVertically
                                                              animated:NO];
                          return;
-                     }
+                    }
                  }
              }
          }
-     }];
-}
+        }];
+    }
 
 
 - (void)selectAllRows:(id)sender
@@ -1360,7 +1360,7 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
             [[BrickSelectionManager sharedInstance] deselectAllBricks];
         }
     }
-    
+
     [self reloadData];
 }
 
