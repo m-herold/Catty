@@ -41,7 +41,7 @@ static NSMutableArray *messages = nil;
         NSMutableArray *options = [[NSMutableArray alloc] init];
         int currentOptionIndex = 0;
         int optionIndex = 0;
-        if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickStaticChoiceProtocol)]) {
+        if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickStaticChoiceProtocol)]) {
             Brick<BrickStaticChoiceProtocol> *choiceBrick = (Brick<BrickStaticChoiceProtocol>*)brickCell.scriptOrBrick;
             NSString  *currentChoice = [choiceBrick choiceForLineNumber:line andParameterNumber:parameter];
             for(NSString *choice in [choiceBrick possibleChoicesForLineNumber:line andParameterNumber:parameter]) {

@@ -39,7 +39,7 @@
         
         [self setValues:[[PhiroHelper class] sensorTags]];
         
-        if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroIfSensorProtocol)]) {
+        if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroIfSensorProtocol)]) {
             Brick<BrickPhiroIfSensorProtocol> *ifSensorBrick = (Brick<BrickPhiroIfSensorProtocol>*)brickCell.scriptOrBrick;
             NSString* currentSensorTag = [ifSensorBrick sensorForLineNumber:line andParameterNumber:parameter];
             [self setCurrentValue:currentSensorTag];

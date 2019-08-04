@@ -38,7 +38,7 @@
         _parameterNumber = parameter;
         NSMutableArray *options = [[NSMutableArray alloc] init];
         int currentOptionIndex = 0;
-        if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroMotorProtocol)]) {
+        if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroMotorProtocol)]) {
             Brick<BrickPhiroMotorProtocol> *motorBrick = (Brick<BrickPhiroMotorProtocol>*)brickCell.scriptOrBrick;
             NSString* currentMotor = [motorBrick motorForLineNumber:line andParameterNumber:parameter];
             switch([PhiroHelper stringToMotor:currentMotor]) {
@@ -79,7 +79,7 @@
 # pragma mark - User interaction
 - (BOOL)isUserInteractionEnabled
 {
-    return self.brickCell.isInserting == NO;
+    return self.brickCell.scriptOrBrick.isAnimatedInsertBrick == NO;
 }
 
 @end
