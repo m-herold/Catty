@@ -46,7 +46,7 @@ static NSMutableArray *messages = nil;
                 Brick<BrickMessageProtocol> *messageBrick = (Brick<BrickMessageProtocol>*)brickCell.scriptOrBrick;
                 NSString *currentMessage = [messageBrick messageForLineNumber:line andParameterNumber:parameter];
                 NSArray *messages;
-                if ([(id)brickCell.scriptOrBrick isKindOfClass:[Script class]]) {
+                if ([brickCell.scriptOrBrick isKindOfClass:[Script class]]) {
                     messages = [Util allMessagesForProject:((Script*)brickCell.scriptOrBrick).object.project];
                 } else {
                     messages = [Util allMessagesForProject:messageBrick.script.object.project];

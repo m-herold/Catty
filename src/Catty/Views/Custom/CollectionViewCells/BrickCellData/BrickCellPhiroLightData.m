@@ -39,7 +39,7 @@
         _parameterNumber = parameter;
         NSMutableArray *options = [[NSMutableArray alloc] init];
         int currentOptionIndex = 0;
-        if([(id)brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroLightProtocol)]) {
+        if([brickCell.scriptOrBrick conformsToProtocol:@protocol(BrickPhiroLightProtocol)]) {
             Brick<BrickPhiroLightProtocol> *rgbBrick = (Brick<BrickPhiroLightProtocol>*)brickCell.scriptOrBrick;
             NSString* currentLight = [rgbBrick lightForLineNumber:line andParameterNumber:parameter];
             switch([PhiroHelper stringToLight:currentLight]) {
