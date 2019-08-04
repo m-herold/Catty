@@ -213,6 +213,10 @@
 		4C5AEEF722F6F3EA00280F8B /* NextLookBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEF622F6F3EA00280F8B /* NextLookBrickCellTests.swift */; };
 		4C5AEEF922F6F46600280F8B /* PreviousLookBrickCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEF822F6F46600280F8B /* PreviousLookBrickCellTests.swift */; };
 		4C5AEEFB22F6F92B00280F8B /* ArduinoBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEEFA22F6F92B00280F8B /* ArduinoBrickTests.swift */; };
+		4C5AEF0522F7037200280F8B /* CatrobatSetup+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEF0122F7037100280F8B /* CatrobatSetup+Operators.swift */; };
+		4C5AEF0622F7037200280F8B /* CatrobatSetup+Sensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEF0222F7037100280F8B /* CatrobatSetup+Sensors.swift */; };
+		4C5AEF0722F7037200280F8B /* CatrobatSetup+Bricks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEF0322F7037100280F8B /* CatrobatSetup+Bricks.swift */; };
+		4C5AEF0822F7037200280F8B /* CatrobatSetup+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AEF0422F7037100280F8B /* CatrobatSetup+Functions.swift */; };
 		4C5EF63521A0677E0063D2F0 /* CameraBricks_0991.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4C5EF63421A0677E0063D2F0 /* CameraBricks_0991.xml */; };
 		4C60663A1A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6066391A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.m */; };
 		4C647C7E1D48E19C0060E70D /* Air_fight_0.5_098.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4C647C7D1D48E19C0060E70D /* Air_fight_0.5_098.xml */; };
@@ -584,7 +588,6 @@
 		4CF072A820D6710F00F93AB5 /* FingerXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF072A420D6710F00F93AB5 /* FingerXSensor.swift */; };
 		4CF072A920D6710F00F93AB5 /* FingerTouchedSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF072A520D6710F00F93AB5 /* FingerTouchedSensor.swift */; };
 		4CF072AE20D6753D00F93AB5 /* DateYearSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF072AD20D6753D00F93AB5 /* DateYearSensor.swift */; };
-		4CF2F99022F487D9005D1CEF /* CatrobatSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2F98F22F487D9005D1CEF /* CatrobatSetup.swift */; };
 		4CF3BD6C21B1B72D006DB806 /* InvalidBricksAndScripts.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4CF3BD6A21B1B72D006DB806 /* InvalidBricksAndScripts.xml */; };
 		4CF3BD6D21B1B72D006DB806 /* ValidFormulaList.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4CF3BD6B21B1B72D006DB806 /* ValidFormulaList.xml */; };
 		4CF429EA213A64B600B78897 /* InternFormulaKeyboardAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF429E9213A64B600B78897 /* InternFormulaKeyboardAdapterTests.swift */; };
@@ -1624,6 +1627,10 @@
 		4C5AEEF622F6F3EA00280F8B /* NextLookBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextLookBrickCellTests.swift; sourceTree = "<group>"; };
 		4C5AEEF822F6F46600280F8B /* PreviousLookBrickCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousLookBrickCellTests.swift; sourceTree = "<group>"; };
 		4C5AEEFA22F6F92B00280F8B /* ArduinoBrickTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoBrickTests.swift; sourceTree = "<group>"; };
+		4C5AEF0122F7037100280F8B /* CatrobatSetup+Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CatrobatSetup+Operators.swift"; sourceTree = "<group>"; };
+		4C5AEF0222F7037100280F8B /* CatrobatSetup+Sensors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CatrobatSetup+Sensors.swift"; sourceTree = "<group>"; };
+		4C5AEF0322F7037100280F8B /* CatrobatSetup+Bricks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CatrobatSetup+Bricks.swift"; sourceTree = "<group>"; };
+		4C5AEF0422F7037100280F8B /* CatrobatSetup+Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CatrobatSetup+Functions.swift"; sourceTree = "<group>"; };
 		4C5EF63421A0677E0063D2F0 /* CameraBricks_0991.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CameraBricks_0991.xml; sourceTree = "<group>"; };
 		4C6066381A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDataXMLNode+CustomExtensions.h"; sourceTree = "<group>"; };
 		4C6066391A5ACC5A00F486CE /* GDataXMLNode+CustomExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDataXMLNode+CustomExtensions.m"; sourceTree = "<group>"; };
@@ -2028,7 +2035,6 @@
 		4CF072A420D6710F00F93AB5 /* FingerXSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerXSensor.swift; sourceTree = "<group>"; };
 		4CF072A520D6710F00F93AB5 /* FingerTouchedSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerTouchedSensor.swift; sourceTree = "<group>"; };
 		4CF072AD20D6753D00F93AB5 /* DateYearSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateYearSensor.swift; sourceTree = "<group>"; };
-		4CF2F98F22F487D9005D1CEF /* CatrobatSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatrobatSetup.swift; sourceTree = "<group>"; };
 		4CF3BD6A21B1B72D006DB806 /* InvalidBricksAndScripts.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InvalidBricksAndScripts.xml; sourceTree = "<group>"; };
 		4CF3BD6B21B1B72D006DB806 /* ValidFormulaList.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ValidFormulaList.xml; sourceTree = "<group>"; };
 		4CF429E9213A64B600B78897 /* InternFormulaKeyboardAdapterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternFormulaKeyboardAdapterTests.swift; path = Formula/InternFormulaKeyboardAdapterTests.swift; sourceTree = "<group>"; };
@@ -3824,6 +3830,17 @@
 				4C5AEEE222F6EBBC00280F8B /* WaitBrickCellTests.swift */,
 			);
 			path = BrickCells;
+			sourceTree = "<group>";
+		};
+		4C5AEEFE22F702F600280F8B /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				4C5AEF0322F7037100280F8B /* CatrobatSetup+Bricks.swift */,
+				4C5AEF0422F7037100280F8B /* CatrobatSetup+Functions.swift */,
+				4C5AEF0122F7037100280F8B /* CatrobatSetup+Operators.swift */,
+				4C5AEF0222F7037100280F8B /* CatrobatSetup+Sensors.swift */,
+			);
+			path = Setup;
 			sourceTree = "<group>";
 		};
 		4C5EF63121A0674D0063D2F0 /* CameraBricks */ = {
@@ -7885,6 +7902,7 @@
 		CD0CCE54170CB39600B70036 /* Catty */ = {
 			isa = PBXGroup;
 			children = (
+				4C5AEEFE22F702F600280F8B /* Setup */,
 				4C74BD081DA6476A0079336C /* Pocket Code.entitlements */,
 				92D56C261BF202E700A54750 /* BluetoothDevice */,
 				92DFB01F1A38960C00FA9B0F /* PocketPaint */,
@@ -7898,7 +7916,6 @@
 				4C724D851B4D3E8C00E27479 /* Parser&Serialializer */,
 				92FF310A1A24DEB300093DA7 /* ViewController */,
 				92FF31621A24E2F400093DA7 /* Views */,
-				4CF2F98F22F487D9005D1CEF /* CatrobatSetup.swift */,
 			);
 			path = Catty;
 			sourceTree = "<group>";
@@ -9095,6 +9112,7 @@
 				BA987D0D2194E647002DAA05 /* WaitUntilBrick+Condition.swift in Sources */,
 				92D56C321BF202E700A54750 /* ArduinoHelper.swift in Sources */,
 				AAAF22881BC0CFC00076F11E /* TurnLeftBrick+Instruction.swift in Sources */,
+				4C5AEF0622F7037200280F8B /* CatrobatSetup+Sensors.swift in Sources */,
 				4C0F9F80204BD1F800E71B2D /* ThinkBubbleBrick+Instruction.swift in Sources */,
 				4C0F9F9D204BD2B100E71B2D /* SetBackgroundBrickCell.m in Sources */,
 				928D4D791A7BD19A00E6DFA8 /* CatrobatUISlider.m in Sources */,
@@ -9395,7 +9413,9 @@
 				AA74F0951BC05FCE00D1E954 /* BrickCellMessageData.m in Sources */,
 				597AB578202089E0007CD10D /* NetworkDefinesSwift.swift in Sources */,
 				F4E6E59C210E051200D86FE6 /* MinFunction.swift in Sources */,
+				4C5AEF0522F7037200280F8B /* CatrobatSetup+Operators.swift in Sources */,
 				4C6F413F22F4DAAC00900B3F /* BrickCategory.swift in Sources */,
+				4C5AEF0822F7037200280F8B /* CatrobatSetup+Functions.swift in Sources */,
 				AA74EF591BC0586F00D1E954 /* TurnLeftBrick+CBXMLHandler.m in Sources */,
 				4C0F9F6F204BD1A300E71B2D /* ThinkForBubbleBrick+CBXMLHandler.m in Sources */,
 				5EFBD5FC2145AADC003B3CDC /* UIView+Extensions.swift in Sources */,
@@ -9443,7 +9463,6 @@
 				AA74F0C51BC05FCE00D1E954 /* PlaySoundBrickCell.m in Sources */,
 				598319991FBB90CB00639BBF /* IntroductionViewController.swift in Sources */,
 				4CE6788F210C506B00D90B5D /* FunctionManagerProtocol.swift in Sources */,
-				4CF2F99022F487D9005D1CEF /* CatrobatSetup.swift in Sources */,
 				92DFB0151A38949E00FA9B0F /* InternFormulaParserEmptyStackException.m in Sources */,
 				926198021BF48384006D1A61 /* BluetoothMocks.swift in Sources */,
 				AA74EFF31BC05B5F00D1E954 /* ClearGraphicEffectBrick.m in Sources */,
@@ -9584,6 +9603,7 @@
 				AA74F0B91BC05FCE00D1E954 /* GlideToBrickCell.m in Sources */,
 				9218B2071CC4AB75007B4C60 /* SPUserResizableView.m in Sources */,
 				F4E6E579210DDD5C00D86FE6 /* CosFunction.swift in Sources */,
+				4C5AEF0722F7037200280F8B /* CatrobatSetup+Bricks.swift in Sources */,
 				92FF2E3B1A24C5A700093DA7 /* Project+CustomExtensions.m in Sources */,
 				AA74EFE11BC05B5F00D1E954 /* BroadcastBrick.m in Sources */,
 				4CB0F9F620A1741400D1BE2F /* LayerSensor.swift in Sources */,

@@ -36,6 +36,10 @@
 #import "BrickCellProtocol.h"
 #import "Pocket_Code-Swift.h"
 
+@interface BrickManager()
+@property(nonatomic, strong) NSArray<id<BrickProtocol>> *bricks;
+@end
+
 @implementation BrickManager
 
 #pragma mark - construction methods
@@ -43,18 +47,20 @@
 {
     static BrickManager *_sharedCattyBrickManager = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{ _sharedCattyBrickManager = [BrickManager new]; });
+    dispatch_once(&onceToken, ^{
+        _sharedCattyBrickManager = [BrickManager new];
+        _sharedCattyBrickManager.bricks = [[CatrobatSetup class] registeredBricks];
+        
+    });
     return _sharedCattyBrickManager;
 }
 
 #pragma mark - helpers
 - (NSArray*)selectableBricks
 {
-    // save array statically for performance reasons
-    NSArray *allBricks = [[CatrobatSetup class] registeredBricks];
-    NSMutableArray *selectableBricksMutableArray = [NSMutableArray arrayWithCapacity:[allBricks count]];
+    NSMutableArray *selectableBricksMutableArray = [NSMutableArray arrayWithCapacity:[self.bricks count]];
         
-    for (id brick in allBricks) {
+    for (id brick in self.bricks) {
         if ([brick isKindOfClass:[Brick class]] && ((Brick*)brick).isSelectableForObject) {
             [selectableBricksMutableArray addObject:brick];
         }

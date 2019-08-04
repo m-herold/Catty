@@ -118,136 +118,17 @@
             BrickCategory(type: kBrickCategoryType.variableBrick, name: kLocalizedVariables, color: UIColor.varibaleBrickRed(), strokeColor: UIColor.variableBrickStroke())
         ]
 
-        let favouritesAvailable = Util.getBrickInsertionDictionaryFromUserDefaults()?.count ?? 0 >= kMinFavouriteBrickSize
-
-        if favouritesAvailable {
+        if isFavouritesCategoryAvailable() {
             categories.prepend(BrickCategory(type: kBrickCategoryType.favouriteBricks, name: kLocalizedFrequentlyUsed, color: UIColor.controlBrickOrange(), strokeColor: UIColor.controlBrickStroke()))
         }
-
         if isArduinoEnabled() {
             categories.append(BrickCategory(type: kBrickCategoryType.arduinoBrick, name: kLocalizedArduino, color: UIColor.arduinoBrick(), strokeColor: UIColor.arduinoBrickStroke()))
         }
-
         if isPhiroEnabled() {
             categories.append(BrickCategory(type: kBrickCategoryType.phiroBrick, name: kLocalizedPhiro, color: UIColor.phiroBrick(), strokeColor: UIColor.phiroBrickStroke()))
         }
 
         return categories
-    }
-
-    public static func registeredSensors(sceneSize: CGSize,
-                                         motionManager: MotionManager,
-                                         locationManager: LocationManager,
-                                         faceDetectionManager: FaceDetectionManager,
-                                         audioManager: AudioManagerProtocol,
-                                         touchManager: TouchManagerProtocol,
-                                         bluetoothService: BluetoothService) -> [Sensor] {
-        return [
-            LoudnessSensor(audioManagerGetter: { audioManager }),
-            InclinationXSensor(motionManagerGetter: { motionManager }),
-            InclinationYSensor(motionManagerGetter: { motionManager }),
-            AccelerationXSensor(motionManagerGetter: { motionManager }),
-            AccelerationYSensor(motionManagerGetter: { motionManager }),
-            AccelerationZSensor(motionManagerGetter: { motionManager }),
-            CompassDirectionSensor(locationManagerGetter: { locationManager }),
-            LatitudeSensor(locationManagerGetter: { locationManager }),
-            LongitudeSensor(locationManagerGetter: { locationManager }),
-            LocationAccuracySensor(locationManagerGetter: { locationManager }),
-            AltitudeSensor(locationManagerGetter: { locationManager }),
-            FingerTouchedSensor(touchManagerGetter: { touchManager }),
-            FingerXSensor(touchManagerGetter: { touchManager }),
-            FingerYSensor(touchManagerGetter: { touchManager }),
-            LastFingerIndexSensor(touchManagerGetter: { touchManager }),
-
-            DateYearSensor(),
-            DateMonthSensor(),
-            DateDaySensor(),
-            DateWeekdaySensor(),
-            TimeHourSensor(),
-            TimeMinuteSensor(),
-            TimeSecondSensor(),
-
-            FaceDetectedSensor(faceDetectionManagerGetter: { faceDetectionManager }),
-            FaceSizeSensor(sceneSize: sceneSize, faceDetectionManagerGetter: { faceDetectionManager }),
-            FacePositionXSensor(sceneSize: sceneSize, faceDetectionManagerGetter: { faceDetectionManager }),
-            FacePositionYSensor(sceneSize: sceneSize, faceDetectionManagerGetter: { faceDetectionManager }),
-
-            PhiroFrontLeftSensor(bluetoothServiceGetter: { bluetoothService }),
-            PhiroFrontRightSensor(bluetoothServiceGetter: { bluetoothService }),
-            PhiroBottomLeftSensor(bluetoothServiceGetter: { bluetoothService }),
-            PhiroBottomRightSensor(bluetoothServiceGetter: { bluetoothService }),
-            PhiroSideLeftSensor(bluetoothServiceGetter: { bluetoothService }),
-            PhiroSideRightSensor(bluetoothServiceGetter: { bluetoothService }),
-
-            PositionXSensor(),
-            PositionYSensor(),
-            TransparencySensor(),
-            BrightnessSensor(),
-            ColorSensor(),
-            SizeSensor(),
-            RotationSensor(),
-            LayerSensor(),
-            BackgroundNumberSensor(),
-            BackgroundNameSensor(),
-            LookNumberSensor(),
-            LookNameSensor()
-        ]
-    }
-
-    public static func registeredFunctions(touchManager: TouchManagerProtocol, bluetoothService: BluetoothService) -> [Function] {
-        return [
-            SinFunction(),
-            CosFunction(),
-            TanFunction(),
-            LnFunction(),
-            LogFunction(),
-            PiFunction(),
-            SqrtFunction(),
-            RandFunction(),
-            AbsFunction(),
-            RoundFunction(),
-            ModFunction(),
-            AsinFunction(),
-            AcosFunction(),
-            AtanFunction(),
-            ExpFunction(),
-            PowFunction(),
-            FloorFunction(),
-            CeilFunction(),
-            MaxFunction(),
-            MinFunction(),
-            TrueFunction(),
-            FalseFunction(),
-            JoinFunction(),
-            LetterFunction(),
-            LengthFunction(),
-            ElementFunction(),
-            NumberOfItemsFunction(),
-            ContainsFunction(),
-            MultiFingerXFunction(touchManagerGetter: { touchManager }),
-            MultiFingerYFunction(touchManagerGetter: { touchManager }),
-            MultiFingerTouchedFunction(touchManagerGetter: { touchManager }),
-            ArduinoAnalogPinFunction(bluetoothServiceGetter: { bluetoothService }),
-            ArduinoDigitalPinFunction(bluetoothServiceGetter: { bluetoothService })
-        ]
-    }
-
-    public static func registeredOperators() -> [Operator] {
-        return [
-            AndOperator(),
-            DivideOperator(),
-            EqualOperator(),
-            GreaterOrEqualOperator(),
-            GreaterThanOperator(),
-            MinusOperator(),
-            MultOperator(),
-            NotEqualOperator(),
-            OrOperator(),
-            PlusOperator(),
-            SmallerOrEqualOperator(),
-            SmallerThanOperator(),
-            NotOperator()
-        ]
     }
 
     private static func isArduinoEnabled() -> Bool {
@@ -256,5 +137,9 @@
 
     private static func isPhiroEnabled() -> Bool {
         return UserDefaults.standard.bool(forKey: kUsePhiroBricks)
+    }
+
+    private static func isFavouritesCategoryAvailable() -> Bool {
+        return Util.getBrickInsertionDictionaryFromUserDefaults()?.count ?? 0 >= kMinFavouriteBrickSize
     }
 }
