@@ -38,7 +38,7 @@ final class GoNStepsBackBrickCellTests: XCTestCase {
     }
 
     func testTitleSingular() {
-        let expectedTitle = " %@ " + kLocalizedLayer
+        let expectedTitle = kLocalizedGoBack + " %@ " + kLocalizedLayer
 
         brick.steps = Formula(double: 1)
 
@@ -47,7 +47,7 @@ final class GoNStepsBackBrickCellTests: XCTestCase {
     }
 
     func testTitlePlural() {
-        let expectedTitle = " %@ " + kLocalizedLayers
+        let expectedTitle = kLocalizedGoBack + " %@ " + kLocalizedLayers
 
         brick.steps = Formula(double: 2)
 

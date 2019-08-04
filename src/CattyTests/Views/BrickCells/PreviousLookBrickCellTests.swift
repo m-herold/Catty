@@ -37,10 +37,10 @@ final class PreviousLookBrickCellTests: XCTestCase {
         brickCell.scriptOrBrick = brick
     }
 
-    func testTitle() {
+    func testTitleForLook() {
         let expectedTitle = kLocalizedPreviousLook
 
-        XCTAssertEqual(expectedTitle, brickCell.brickTitle(forBackground: true, andInsertionScreen: false))
+        XCTAssertEqual(expectedTitle, brickCell.brickTitle(forBackground: false, andInsertionScreen: true))
         XCTAssertEqual(expectedTitle, brickCell.brickTitle(forBackground: false, andInsertionScreen: false))
     }
 
@@ -48,6 +48,6 @@ final class PreviousLookBrickCellTests: XCTestCase {
         let expectedTitle = kLocalizedPreviousBackground
 
         XCTAssertEqual(expectedTitle, brickCell.brickTitle(forBackground: true, andInsertionScreen: true))
-        XCTAssertEqual(expectedTitle, brickCell.brickTitle(forBackground: false, andInsertionScreen: true))
+        XCTAssertEqual(expectedTitle, brickCell.brickTitle(forBackground: true, andInsertionScreen: false))
     }
 }
