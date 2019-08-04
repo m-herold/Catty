@@ -51,5 +51,6 @@
 - (void)removeReferences;
 
 - (NSInteger)getRequiredResources;
+- (Class<BrickCellProtocol>)brickCell;
 
 @end

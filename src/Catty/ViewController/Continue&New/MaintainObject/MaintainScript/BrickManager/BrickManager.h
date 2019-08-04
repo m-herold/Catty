@@ -36,7 +36,7 @@
 - (NSArray*)selectableBricksForCategoryType:(kBrickCategoryType)categoryType;
 - (NSArray*)selectableBricksForCategoryType:(kBrickCategoryType)categoryType inBackground:(BOOL)inBackground;
 - (BrickCategory*)categoryForType:(kBrickCategoryType)categoryType;
-- (CGSize)sizeForBrick:(NSString *)brickName;
+- (CGSize)sizeForBrick:(id<BrickProtocol>)brick;
 - (NSInteger)checkEndLoopBrickTypeForDrawing:(BrickCell*)cell;
 - (NSArray*)animateWithIndexPath:(NSIndexPath*)path Script:(Script*)script andBrick:(Brick*)brick;
 - (NSArray*)scriptCollectionCopyBrickWithIndexPath:(NSIndexPath*)indexPath andBrick:(Brick*)brick;

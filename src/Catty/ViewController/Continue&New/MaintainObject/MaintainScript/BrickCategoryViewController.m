@@ -63,8 +63,7 @@
     NSArray *allBricks = [[CatrobatSetup class] registeredBricks];
     for (id brick in allBricks) {
         NSString *className = NSStringFromClass([brick class]);
-        [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
-                forCellWithReuseIdentifier:className];
+        [self.collectionView registerClass:[brick brickCell] forCellWithReuseIdentifier:className];
     }
     
     self.collectionView.backgroundColor = [UIColor clearColor];
@@ -137,8 +136,8 @@ didSelectItemAtIndexPath:(NSIndexPath*)indexPath
                   layout:(UICollectionViewLayout*)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    Brick *brick = (Brick*)self.bricks[indexPath.item];
-    return [BrickManager.sharedBrickManager sizeForBrick:NSStringFromClass(brick.class)];
+    id<BrickProtocol> brick = self.bricks[indexPath.item];
+    return [BrickManager.sharedBrickManager sizeForBrick:brick];
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView*)collectionView

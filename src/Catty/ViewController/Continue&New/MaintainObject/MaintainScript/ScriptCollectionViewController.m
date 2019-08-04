@@ -204,17 +204,17 @@
                   layout:(UICollectionViewLayout*)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    CGSize size = CGSizeZero;
     if (indexPath.section < self.object.scriptList.count) {
         Script *script = self.object.scriptList[indexPath.section];
         
         if (indexPath.item == 0) {
-           size =  [BrickManager.sharedBrickManager sizeForBrick:NSStringFromClass(script.class)];
+            return [BrickManager.sharedBrickManager sizeForBrick:(id<BrickProtocol>)script];
         } else {
-            size = [BrickManager.sharedBrickManager sizeForBrick:NSStringFromClass([script.brickList[indexPath.item - 1] class])];
+            Brick *brick = script.brickList[indexPath.item - 1];
+            return [BrickManager.sharedBrickManager sizeForBrick:(id<BrickProtocol>)brick];
         }
     }
-    return size;
+    return CGSizeZero;
 }
 
 #pragma mark- UICollectionViewDelegate
@@ -1044,9 +1044,8 @@ willBeginDraggingItemAtIndexPath:(NSIndexPath*)indexPath
     
     NSArray *allBricks = [[CatrobatSetup class] registeredBricks];
     for (id brick in allBricks) {
-        NSString *className = NSStringFromClass([brick class]);
-        [self.collectionView registerClass:NSClassFromString([className stringByAppendingString:@"Cell"])
-                forCellWithReuseIdentifier:className];
+        Class<BrickCellProtocol> brickCell = [brick brickCell];
+        [self.collectionView registerClass:brickCell forCellWithReuseIdentifier:NSStringFromClass([brick class])];
     }
 }
 

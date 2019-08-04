@@ -193,5 +193,10 @@
     return resources;
 }
 
+- (Class<BrickCellProtocol>)brickCell
+{
+    NSString *brickName = NSStringFromClass([self class]);
+    return NSClassFromString([brickName stringByAppendingString:@"Cell"]);
+}
 
 @end

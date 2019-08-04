@@ -25,14 +25,6 @@
 
 @implementation ThinkBubbleBrick
 
-- (id)init
-{
-    self = [super init];
-    if(self) {
-    }
-    return self;
-}
-
 - (NSString*)brickTitle
 {
     return [kLocalizedThink stringByAppendingString:@" %@"];

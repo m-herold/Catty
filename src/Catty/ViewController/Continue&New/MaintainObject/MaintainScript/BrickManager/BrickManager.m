@@ -33,11 +33,10 @@
 #import "IfLogicEndBrick.h"
 #import "CBMutableCopyContext.h"
 #import "ForeverBrick.h"
+#import "BrickCellProtocol.h"
 #import "Pocket_Code-Swift.h"
 
-@implementation BrickManager {
-    NSDictionary *_brickHeightDictionary;
-}
+@implementation BrickManager
 
 #pragma mark - construction methods
 + (instancetype)sharedBrickManager
@@ -46,15 +45,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{ _sharedCattyBrickManager = [BrickManager new]; });
     return _sharedCattyBrickManager;
-}
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        _brickHeightDictionary = kBrickHeightMap;
-    }
-    return self;
 }
 
 #pragma mark - helpers
@@ -123,12 +113,14 @@
     return nil;
 }
 
-- (CGSize)sizeForBrick:(NSString*)brickName
+- (CGSize)sizeForBrick:(id<BrickProtocol>)brick
 {
-    CGSize size = CGSizeZero;
-    NSNumber *height = [_brickHeightDictionary objectForKey:brickName];
-    size = CGSizeMake(UIScreen.mainScreen.bounds.size.width, [height floatValue]);
-    return size;
+    Class<BrickCellProtocol> brickCell = [brick brickCell];
+    if (brickCell) {
+        return CGSizeMake(UIScreen.mainScreen.bounds.size.width, [brickCell cellHeight]);
+    }
+    
+    return CGSizeZero;
 }
 
 - (NSInteger)checkEndLoopBrickTypeForDrawing:(BrickCell*)cell

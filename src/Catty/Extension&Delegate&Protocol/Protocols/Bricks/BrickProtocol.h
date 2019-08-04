@@ -23,6 +23,7 @@
 #import "ScriptProtocol.h"
 
 @class Script;
+@protocol BrickCellProtocol;
 
 @protocol BrickProtocol<CBMutableCopying>
 
@@ -36,5 +37,7 @@
 
 - (BOOL)isDisabledForBackground;
 - (void)setDefaultValuesForObject:(SpriteObject*)spriteObject;
+
+- (Class<BrickCellProtocol>)brickCell;
 
 @end

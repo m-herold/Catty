@@ -69,4 +69,6 @@
 
 - (void)setDefaultValuesForObject:(SpriteObject *)spriteObject;
 
+- (Class<BrickCellProtocol>)brickCell;
+
 @end
