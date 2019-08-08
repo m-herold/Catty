@@ -162,6 +162,7 @@
 		4C33F212214BC0390014044C /* My first project.catrobat in Resources */ = {isa = PBXBuildFile; fileRef = 4C33F211214BC0390014044C /* My first project.catrobat */; };
 		4C33F214214BC0680014044C /* Document-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C33F213214BC0680014044C /* Document-Icon.png */; };
 		4C3746EC22FC7B2D007B2BE1 /* BrickManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3746EB22FC7B2D007B2BE1 /* BrickManagerTests.swift */; };
+		4C3746EF22FC7CE6007B2BE1 /* CatrobatSetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3746EE22FC7CE6007B2BE1 /* CatrobatSetupTests.swift */; };
 		4C37A0A0212DBDB40074F417 /* ArduinoAnalogPinFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37A09F212DBDB40074F417 /* ArduinoAnalogPinFunction.swift */; };
 		4C37A0A3212DBF510074F417 /* ArduinoAnalogPinFunctionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37A0A2212DBF510074F417 /* ArduinoAnalogPinFunctionTest.swift */; };
 		4C37A0A5212E767C0074F417 /* ArduinoDigitalPinFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37A0A4212E767C0074F417 /* ArduinoDigitalPinFunction.swift */; };
@@ -1564,6 +1565,7 @@
 		4C33F211214BC0390014044C /* My first project.catrobat */ = {isa = PBXFileReference; lastKnownFileType = file; name = "My first project.catrobat"; path = "Resources/My first project.catrobat"; sourceTree = "<group>"; };
 		4C33F213214BC0680014044C /* Document-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Document-Icon.png"; path = "Resources/Document-Icon.png"; sourceTree = "<group>"; };
 		4C3746EB22FC7B2D007B2BE1 /* BrickManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrickManagerTests.swift; sourceTree = "<group>"; };
+		4C3746EE22FC7CE6007B2BE1 /* CatrobatSetupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatrobatSetupTests.swift; sourceTree = "<group>"; };
 		4C37A09F212DBDB40074F417 /* ArduinoAnalogPinFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoAnalogPinFunction.swift; sourceTree = "<group>"; };
 		4C37A0A2212DBF510074F417 /* ArduinoAnalogPinFunctionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoAnalogPinFunctionTest.swift; sourceTree = "<group>"; };
 		4C37A0A4212E767C0074F417 /* ArduinoDigitalPinFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoDigitalPinFunction.swift; sourceTree = "<group>"; };
@@ -3626,6 +3628,14 @@
 				4C3746EB22FC7B2D007B2BE1 /* BrickManagerTests.swift */,
 			);
 			path = BrickManager;
+			sourceTree = "<group>";
+		};
+		4C3746ED22FC7CBE007B2BE1 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				4C3746EE22FC7CE6007B2BE1 /* CatrobatSetupTests.swift */,
+			);
+			path = Setup;
 			sourceTree = "<group>";
 		};
 		4C37A09C212DBD990074F417 /* Arduino */ = {
@@ -7334,6 +7344,7 @@
 				4CE5C56C1E0AD71800FD021C /* Project */,
 				4C1608A31A095480002C7032 /* Resources */,
 				B496F5131775996D004BF78A /* Scene */,
+				4C3746ED22FC7CBE007B2BE1 /* Setup */,
 				4C26506D1A6566C60050775B /* SpriteObject */,
 				B46B270417703F9400172837 /* Supporting Files */,
 				4CD0BA92214678D500BF17A4 /* Utils */,
@@ -8902,6 +8913,7 @@
 				4C82267F213FA7A400F3D750 /* PositionXSensorTest.swift in Sources */,
 				4C0C164921439B2F005ADE86 /* ChartProjectsStoreDataSourceTests.swift in Sources */,
 				4CC50A62213BE4D3004BC914 /* DoubleParameterDoubleFunctionMock.swift in Sources */,
+				4C3746EF22FC7CE6007B2BE1 /* CatrobatSetupTests.swift in Sources */,
 				4CB23D7221E6613D00A0FEA7 /* DeleteItemOfUserListBrickTests.swift in Sources */,
 				BA1FA9941F02A1150084184D /* UserListFunctionsTest.m in Sources */,
 				4CD27AA821B55DBC00DDADB5 /* FaceDetectionManagerTest.swift in Sources */,
