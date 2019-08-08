@@ -156,6 +156,7 @@
 #import "CBFileManager.h"
 #import "AudioManager.h"
 #import "FlashHelper.h"
+#import "BrickManager.h"
 #import "LanguageTranslationDefines.h"
 #import "RuntimeImageCache.h"
 #import "CBMutableCopyContext.h"
