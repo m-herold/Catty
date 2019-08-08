@@ -30,14 +30,6 @@
 
 @implementation Script
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
-
 #pragma mark - Getters and Setters
 - (BOOL)isSelectableForObject
 {
@@ -57,14 +49,6 @@
 }
 
 #pragma mark - Custom getter and setter
-- (NSString*)brickTitle
-{
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"You must override %@ in the subclass %@",
-                                           NSStringFromSelector(_cmd), NSStringFromClass([self class])]
-                                 userInfo:nil];
-}
-
 - (NSMutableArray*)brickList
 {
     if (! _brickList) {
@@ -126,17 +110,6 @@
 {
     if ([self class] != [script class]) {
         return NO;
-    }
-    if (! [Util isEqual:self.brickTitle toObject:script.brickTitle]) {
-        return NO;
-    }
-    if ([self isKindOfClass:[WhenScript class]]) {
-        if (! [script isKindOfClass:[WhenScript class]]) {
-            return NO;
-        }
-        if (! [Util isEqual:((WhenScript*)self).action toObject:((WhenScript*)script).action]) {
-            return NO;
-        }
     }
     if (! [Util isEqual:self.object.name toObject:script.object.name]) {
         return NO;
