@@ -28,11 +28,6 @@
 
 @implementation BroadcastScriptCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory  drawLargeRoundedControlBrickShapeWithFillColor:UIColor.controlBrickOrangeColor strokeColor:UIColor.controlBrickStrokeColor height:roundedLargeBrick width:[Util screenWidth]];
-}
-
 - (kBrickShapeType)brickShapeType
 {
     return kBrickShapeRoundedBig;
@@ -49,13 +44,14 @@
     self.messageComboBoxView = inlineViewSubViews[1];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    return [kLocalizedWhenYouReceive stringByAppendingString:@"\n%@"];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{MESSAGE}", nil];
 }
 
 @end

@@ -26,6 +26,8 @@
 #import "BrickFormulaProtocol.h"
 #import "PlaceAtBrickCell.h"
 #import "GlideToBrickCell.h"
+#import "BrickManager.h"
+#import "Pocket_Code-Swift.h"
 
 @interface BrickCellFormulaData()
 @property (nonatomic, strong) CAShapeLayer *border;
@@ -43,7 +45,7 @@
         _lineNumber = line;
         _parameterNumber = parameter;
         
-        self.titleLabel.textColor = [UIColor whiteColor];
+        self.titleLabel.textColor = UIColor.whiteColor;
         self.titleLabel.font = [UIFont systemFontOfSize:kBrickTextFieldFontSize];
         self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         [self setTitle:[formula getDisplayString] forState:UIControlStateNormal];
@@ -127,14 +129,13 @@
     [self.border setOpacity:BORDER_TRANSPARENCY];
     
     if (isActive) {
-        self.border.strokeColor = [UIColor backgroundColor].CGColor;
-        self.border.shadowColor = [UIColor clearColor].CGColor;
+        self.border.strokeColor = UIColor.background.CGColor;
+        self.border.shadowColor = UIColor.clearColor.CGColor;
         self.border.shadowRadius = 1;
         self.border.shadowOpacity = 1.0;
         self.border.shadowOffset = CGSizeMake(0, 0);
     } else {
-        UIColor *borderColor = kBrickCategoryStrokeColors[self.brickCell.scriptOrBrick.brickCategoryType-1];
-        //        UIColor *borderColor = self.brickCell.brickCategoryColors[self.brickCell.scriptOrBrick.brickCategoryType-1];
+        UIColor *borderColor = [[[[BrickManager class] sharedBrickManager] categoryForType:self.brickCell.scriptOrBrick.category] strokeColor];
         self.border.strokeColor = borderColor.CGColor;
     }
     

@@ -28,11 +28,6 @@
 
 @implementation SpeakAndWaitBrickCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.soundBrickVioletColor strokeColor:UIColor.soundBrickStrokeColor height:mediumBrick width:[Util screenWidth]];
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeight2h;
@@ -42,6 +37,16 @@
 {
     self.textLabel = inlineViewSubViews[0];
     self.speakTextField = inlineViewSubViews[1];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [[kLocalizedSpeak stringByAppendingString:@" %@ "] stringByAppendingString:kLocalizedAndWait];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{INT}", nil];
 }
 
 @end

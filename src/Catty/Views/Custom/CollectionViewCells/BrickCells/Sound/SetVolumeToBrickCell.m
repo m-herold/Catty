@@ -29,9 +29,9 @@
 
 @implementation SetVolumeToBrickCell
 
-- (void)drawRect:(CGRect)rect
++ (CGFloat)cellHeight
 {
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.soundBrickVioletColor strokeColor:UIColor.soundBrickStrokeColor height:smallBrick width:[Util screenWidth]];
+    return kBrickHeight1h;
 }
 
 - (void)hookUpSubViews:(NSArray *)inlineViewSubViews
@@ -39,6 +39,16 @@
     self.leftTextLabel = inlineViewSubViews[0];
     self.volumeTextField = inlineViewSubViews[1];
     self.rightTextLabel = inlineViewSubViews[2];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedSetVolumeTo stringByAppendingString:@" %@\%"];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];
 }
 
 @end

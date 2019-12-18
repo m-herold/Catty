@@ -52,7 +52,7 @@
     SpriteObject *spriteObject = [[SpriteObject alloc] init];
     
     self.spriteNode = [[CBSpriteNode alloc] initWithSpriteObject:spriteObject];
-    self.spriteNode.color = [UIColor blackColor];
+    self.spriteNode.color = UIColor.blackColor;
     self.spriteNode.size = CGSizeMake(OBJECT_WIDTH, OBJECT_HEIGHT);
     [self.scene addChild:self.spriteNode];
     
@@ -180,20 +180,6 @@
 {
     XCTAssertEqualWithAccuracy(position.x, self.spriteNode.catrobatPosition.x, EPSILON, @"Wrong x after MoveNStepsBrick");
     XCTAssertEqualWithAccuracy(position.y, self.spriteNode.catrobatPosition.y, EPSILON, @"Wrong y after MoveNStepsBrick");
-}
-
-- (void)testTitleSingular
-{
-    MoveNStepsBrick* brick = [[MoveNStepsBrick alloc] init];
-    brick.steps = [[Formula alloc] initWithDouble:1];
-    XCTAssertTrue([[kLocalizedMove stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedStep]] isEqualToString:[brick brickTitle]], @"Wrong brick title");
-}
-
-- (void)testTitlePlural
-{
-    MoveNStepsBrick* brick = [[MoveNStepsBrick alloc] init];
-    brick.steps = [[Formula alloc] initWithDouble:2];
-    XCTAssertTrue([[kLocalizedMove stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedSteps]] isEqualToString:[brick brickTitle]], @"Wrong brick title");
 }
 
 @end

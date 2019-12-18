@@ -29,11 +29,6 @@
 
 @implementation SetBrightnessBrickCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.lookBrickGreenColor strokeColor:UIColor.lookBrickStrokeColor height:mediumBrick width:[Util screenWidth]];
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeight2h;
@@ -44,6 +39,16 @@
     self.leftTextLabel = inlineViewSubViews[0];
     self.brightnessTextField = inlineViewSubViews[1];
     self.rightTextLabel = inlineViewSubViews[2];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedSetBrightness stringByAppendingString:[@"\n" stringByAppendingString:[kLocalizedTo stringByAppendingString:@" %@\%"]]];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];
 }
 
 @end

@@ -28,11 +28,6 @@
 
 @implementation SetBackgroundBrickCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.lookBrickGreenColor strokeColor:UIColor.lookBrickStrokeColor height:mediumBrick width:[Util screenWidth]];
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeight2h;
@@ -42,6 +37,16 @@
 {
     self.textLabel = inlineViewSubViews[0];
     self.lookComboBoxView = inlineViewSubViews[1];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{SOUND}", nil];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedSetBackground stringByAppendingString:@"\n%@"];
 }
 
 @end

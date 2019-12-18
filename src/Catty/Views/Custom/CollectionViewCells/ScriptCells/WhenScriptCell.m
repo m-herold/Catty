@@ -28,11 +28,6 @@
 
 @implementation WhenScriptCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawLargeRoundedControlBrickShapeWithFillColor:UIColor.controlBrickOrangeColor strokeColor:UIColor.controlBrickStrokeColor height:roundedSmallBrick width:[Util screenWidth]];
-}
-
 - (kBrickShapeType)brickShapeType
 {
     return kBrickShapeRoundedSmall;
@@ -43,18 +38,14 @@
     return kBrickHeightControl1h;
 }
 
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return kLocalizedWhenTapped;
+}
+
 - (void)hookUpSubViews:(NSArray *)inlineViewSubViews
 {
     self.textLabel = inlineViewSubViews[0];
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
 }
 
 @end

@@ -16,6 +16,12 @@
                 <key>Type</key>
                 <string>PSGroupSpecifier</string>
                 <key>FooterText</key>
+                <string>Catty/Resources/Licenses/AudioKit</string>
+            </dict>
+            <dict>
+                <key>Type</key>
+                <string>PSGroupSpecifier</string>
+                <key>FooterText</key>
                 <string>Catty/Resources/Licenses/BDKNotifyHUD</string>
             </dict>
             <dict>
@@ -29,6 +35,12 @@
                 <string>PSGroupSpecifier</string>
                 <key>FooterText</key>
                 <string>Catty/Resources/Licenses/EVCircularProgressView</string>
+            </dict>
+            <dict>
+                <key>Type</key>
+                <string>PSGroupSpecifier</string>
+                <key>FooterText</key>
+                <string>Catty/Resources/Licenses/FingerprinterChromaprint</string>
             </dict>
             <dict>
                 <key>Type</key>
@@ -142,7 +154,7 @@
                 <key>Type</key>
                 <string>PSGroupSpecifier</string>
                 <key>FooterText</key>
-                <string>Catty/Resources/Licenses/minizip</string>
+                <string>Catty/Resources/Licenses/chromaprint</string>
             </dict>
         </array>
 </dict>

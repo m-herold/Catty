@@ -28,11 +28,6 @@
 
 @implementation ThinkBubbleBrickCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.lookBrickGreenColor strokeColor:UIColor.lookBrickStrokeColor height:mediumBrick width:[Util screenWidth]];
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeight2h;
@@ -42,6 +37,16 @@
 {
     self.textLabel = inlineViewSubViews[0];
     self.sayTextField = inlineViewSubViews[1];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedThink stringByAppendingString:@" %@"];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{INT}", nil];
 }
 
 @end

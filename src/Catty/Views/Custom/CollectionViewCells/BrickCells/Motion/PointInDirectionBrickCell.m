@@ -29,9 +29,9 @@
 
 @implementation PointInDirectionBrickCell
 
-- (void)drawRect:(CGRect)rect
++ (CGFloat)cellHeight
 {
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.motionBrickBlueColor strokeColor:UIColor.motionBrickStrokeColor height:smallBrick width:[Util screenWidth]];
+    return kBrickHeight1h;
 }
 
 - (void)hookUpSubViews:(NSArray *)inlineViewSubViews
@@ -40,4 +40,15 @@
     self.degreesTextField = inlineViewSubViews[1];
     self.rightTextLabel = inlineViewSubViews[2];
 }
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedPointInDirection stringByAppendingString:[@" %@ " stringByAppendingString:kLocalizedDegrees]];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];
+}
+
 @end

@@ -30,11 +30,6 @@
 
 @implementation PlaceAtBrickCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.motionBrickBlueColor strokeColor:UIColor.motionBrickStrokeColor height:mediumBrick width:[Util screenWidth]];
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeight2h;
@@ -47,6 +42,21 @@
     self.xCoordTextField = inlineViewSubViews[2];
     self.secondRowRightTextLabel = inlineViewSubViews[3];
     self.yCoordTextField = inlineViewSubViews[4];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedPlaceAt
+            stringByAppendingString:[@"\n"
+            stringByAppendingString:[kLocalizedXLabel
+            stringByAppendingString:[@" %@ "
+            stringByAppendingString:[kLocalizedYLabel
+            stringByAppendingString:@" %@"]]]]];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", @"{FLOAT;range=(-inf,inf)}", nil];
 }
 
 @end

@@ -28,11 +28,6 @@
 
 @implementation PlaySoundBrickCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.soundBrickVioletColor strokeColor:UIColor.soundBrickStrokeColor height:mediumBrick width:[Util screenWidth]];
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeight2h;
@@ -42,6 +37,16 @@
 {
     self.textLabel = inlineViewSubViews[0];
     self.soundComboBoxView = inlineViewSubViews[1];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedPlaySound stringByAppendingString:@"\n%@"];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{SOUND}", nil];
 }
 
 @end

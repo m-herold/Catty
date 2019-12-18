@@ -22,19 +22,13 @@
 
 import XCTest
 
-class VariablesTests: XCTestCase, UITestProtocol {
+class VariablesTests: XCTestCase {
 
     var app: XCUIApplication!
 
     override func setUp() {
         super.setUp()
-
-        continueAfterFailure = false
-        XCUIApplication().launch()
-
-        dismissWelcomeScreenIfShown()
-        restoreDefaultProject()
-        app = XCUIApplication()
+        app = launchAppWithDefaultProject()
     }
 
     private func createNewProjectAndAddSetVariableBrick(name: String) {
@@ -43,7 +37,7 @@ class VariablesTests: XCTestCase, UITestProtocol {
         app.tables.staticTexts[kLocalizedBackground].tap()
         app.tables.staticTexts[kLocalizedScripts].tap()
 
-        addBrick(label: kLocalizedSetVariable, section: kUIVariableTitle, in: app)
+        addBrick(label: kLocalizedSetVariable, section: kLocalizedCategoryVariable, in: app)
     }
 
     func testDontShowVariablePickerWhenNoVariablesDefinedForObject() {
@@ -60,7 +54,7 @@ class VariablesTests: XCTestCase, UITestProtocol {
         XCUIApplication().tables.staticTexts[kLocalizedBackground].tap()
         app.tables.staticTexts[kLocalizedScripts].tap()
 
-        addBrick(label: kLocalizedUserListAdd, section: kUIVariableTitle, in: app)
+        addBrick(label: kLocalizedUserListAdd, section: kLocalizedCategoryVariable, in: app)
 
         app.collectionViews.cells.otherElements.identifierTextBeginsWith(kLocalizedUserListAdd).children(matching: .other).element.tap()
         XCTAssert(app.sheets[kUIFEActionList].exists)
@@ -87,7 +81,7 @@ class VariablesTests: XCTestCase, UITestProtocol {
         app.buttons[kUIFEActionVarPro].tap()
         app.alerts[kUIFENewVar].textFields[kLocalizedEnterYourVariableNameHere].typeText(String(repeating: "i", count: 250 + 1))
         app.alerts[kUIFENewVar].buttons[kLocalizedOK].tap()
-        XCTAssert(app.alerts[kLocalizedPocketCode].exists)
+        XCTAssert(waitForElementToAppear(app.alerts[kLocalizedPocketCode]).exists)
     }
 
     func testCreateAndSelectVariable() {
@@ -135,7 +129,7 @@ class VariablesTests: XCTestCase, UITestProtocol {
         XCTAssertTrue(waitForElementToAppear(app.buttons[" \"" + testVariable + "\" "]).exists)
     }
 
-    func testCreateVariableAndTapSelecetedRowInPickerView() {
+    func testCreateVariableAndTapSelectedRowInPickerView() {
         let testVariable = ["testVariable1", "testVariable2", "testVariable3"]
 
         createNewProjectAndAddSetVariableBrick(name: "Test Project")
@@ -160,6 +154,7 @@ class VariablesTests: XCTestCase, UITestProtocol {
 
         XCTAssertTrue(waitForElementToAppear(app.buttons[" \"" + testVariable[2] + "\" "]).exists)
     }
+
     func testEditMarkedTextVariableInFormularEditor() {
         let projectName = "Test Project"
         let testVariable = "TestVariable"
@@ -177,6 +172,7 @@ class VariablesTests: XCTestCase, UITestProtocol {
         app.buttons[kUIFEAddNewText].tap()
         XCTAssertEqual(alert.textFields.firstMatch.value as! String, testVariable)
     }
+
     func testCreateVariableWithMarkedText() {
         let projectName = "Test Project"
         let testVariable = "TestVariable"

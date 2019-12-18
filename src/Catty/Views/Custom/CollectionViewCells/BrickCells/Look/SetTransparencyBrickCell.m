@@ -30,11 +30,6 @@
 
 @implementation SetTransparencyBrickCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.lookBrickGreenColor strokeColor:UIColor.lookBrickStrokeColor height:mediumBrick width:[Util screenWidth]];
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeight2h;
@@ -46,6 +41,16 @@
     self.secondRowLeftTextLabel = inlineViewSubViews[1];
     self.transparencyTextField = inlineViewSubViews[2];
     self.secondRowRightTextLabel = inlineViewSubViews[3];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedSetTransparency stringByAppendingString:[@"\n" stringByAppendingString:[kLocalizedTo stringByAppendingString:@" %@\%"]]];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];
 }
 
 @end

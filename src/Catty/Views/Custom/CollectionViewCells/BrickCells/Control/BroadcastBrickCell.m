@@ -21,17 +21,13 @@
  */
 
 #import "BroadcastBrickCell.h"
+#import "Pocket_Code-Swift.h"
 
 @interface BroadcastBrickCell ()
 @property (nonatomic, strong) UILabel *textLabel;
 @end
 
 @implementation BroadcastBrickCell
-
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.controlBrickOrangeColor strokeColor:UIColor.controlBrickStrokeColor height:mediumBrick width:[Util screenWidth ]];
-}
 
 + (CGFloat)cellHeight
 {
@@ -42,6 +38,16 @@
 {
     self.textLabel = inlineViewSubViews[0];
     self.messageComboBoxView = inlineViewSubViews[1];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedBroadcast stringByAppendingString:@"\n%@"];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{MESSAGE}", nil];
 }
 
 @end

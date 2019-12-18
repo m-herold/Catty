@@ -28,11 +28,6 @@
 
 @implementation HideTextBrickCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.varibaleBrickRedColor strokeColor:UIColor.variableBrickStrokeColor height:mediumBrick width:[Util screenWidth]];
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeight2h;
@@ -42,6 +37,16 @@
 {
     self.firstRowTextLabel = inlineViewSubViews[0];
     self.variableComboBoxView = inlineViewSubViews[1];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedHideVariable stringByAppendingString:@"\n%@"];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{VARIABLE}", nil];
 }
 
 @end

@@ -29,11 +29,6 @@
 
 @implementation DeleteItemOfUserListBrickCell
 
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.varibaleBrickRedColor strokeColor:UIColor.variableBrickStrokeColor height:largeBrick width:[Util screenWidth]];
-}
-
 + (CGFloat)cellHeight
 {
     return kBrickHeight3h;
@@ -45,6 +40,19 @@
     self.variableComboBoxView = inlineViewSubViews[1];
     self.thirdRowTextLabel = inlineViewSubViews[2];
     self.valueTextField = inlineViewSubViews[3];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [[[kLocalizedUserListDeleteItemFrom
+              stringByAppendingString:@"\n%@\n"]
+             stringByAppendingString:kLocalizedUserListAtPosition]
+            stringByAppendingString:@" %@"];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"LIST",@"{INT;range=(1,inf)}", nil];
 }
 
 @end

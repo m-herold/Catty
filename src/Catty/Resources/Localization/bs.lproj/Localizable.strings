@@ -311,7 +311,7 @@
 "December" = "Decembar";
 
 /* No comment provided by engineer. */
-"degrees" = "degrees";
+"degrees" = "stepeni";
 
 /* No comment provided by engineer. */
 "Delete" = "obriši";
@@ -815,7 +815,7 @@
 "Login/Register" = "Login/Register";
 
 /* No comment provided by engineer. */
-"Logout" = "Logout";
+"Logout" = "Odjava";
 
 /* No comment provided by engineer. */
 "longitude" = "longitude";
@@ -1751,4 +1751,4 @@
 "Your email seems to be invalid" = "E-mail adresa nije ispravna";
 
 /* paint */
-"Zoom" = "Zumirati";
+"Zoom" = "Zoom";

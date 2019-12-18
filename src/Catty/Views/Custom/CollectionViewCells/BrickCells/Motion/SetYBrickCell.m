@@ -28,15 +28,25 @@
 
 @implementation SetYBrickCell
 
-- (void)drawRect:(CGRect)rect
++ (CGFloat)cellHeight
 {
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.motionBrickBlueColor strokeColor:UIColor.motionBrickStrokeColor height:smallBrick width:[Util screenWidth]];
+    return kBrickHeight1h;
 }
 
 - (void)hookUpSubViews:(NSArray *)inlineViewSubViews
 {
     self.textLabel = inlineViewSubViews[0];
     self.yCoordTextField = inlineViewSubViews[1];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedSetY stringByAppendingString:@"%@"];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{FLOAT;range=(-inf,inf)}", nil];
 }
 
 @end

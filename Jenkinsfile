@@ -11,18 +11,31 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
   }
 
+  triggers {
+    issueCommentTrigger('.*test this please.*')
+  }
+
   stages {
-    stage('Carthage') {
+    stage('Unlock keychain') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'eb111b76-63f8-4546-bc26-5fcb94721e1a', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+          script {
+            unlockMACKeychain "${PASSWORD}"
+          }
+        }
+      }
+    }
+    stage('Prepare') {
       steps {
         sh 'make init'
       }
     }
-    stage('Browserstack') {
+    stage('Build') {
       steps {
-        sh 'cd src && fastlane po_review'
+        sh 'cd src && fastlane build_catty'
       }
     }
-    stage('Run Tests') {
+    stage('Test') {
       steps {
         sh 'cd src && fastlane tests'
       }
@@ -31,6 +44,10 @@ pipeline {
 
   post {
     always {
+      archiveArtifacts(artifacts: 'src/fastlane/builds/', allowEmptyArchive: true)
+      archiveArtifacts(artifacts: 'src/fastlane/Install.html', allowEmptyArchive: true)
+      archiveArtifacts(artifacts: 'src/fastlane/Adhoc.plist', allowEmptyArchive: true)
+      sh 'cd src && fastlane test_reports'
       junit testResults: 'src/fastlane/test_output/TestSummaries.xml', allowEmptyResults: true
     }
   }

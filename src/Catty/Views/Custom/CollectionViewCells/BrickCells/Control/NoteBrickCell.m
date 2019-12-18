@@ -21,17 +21,13 @@
  */
 
 #import "NoteBrickCell.h"
+#import "Pocket_Code-Swift.h"
 
 @interface NoteBrickCell ()
 @property (nonatomic, strong) UILabel *textLabel;
 @end
 
 @implementation NoteBrickCell
-
-- (void)drawRect:(CGRect)rect
-{
-    [BrickShapeFactory drawSquareBrickShapeWithFillColor:UIColor.controlBrickOrangeColor strokeColor:UIColor.controlBrickStrokeColor height:mediumBrick width:[Util screenWidth]];
-}
 
 + (CGFloat)cellHeight
 {
@@ -42,6 +38,16 @@
 {
     self.textLabel = inlineViewSubViews[0];
     self.noteTextField = inlineViewSubViews[1];
+}
+
+- (NSString*)brickTitleForBackground:(BOOL)isBackground andInsertionScreen:(BOOL)isInsertion
+{
+    return [kLocalizedNote stringByAppendingString:@" %@"];
+}
+
+- (NSArray<NSString*>*)parameters
+{
+    return [[NSArray alloc] initWithObjects:@"{TEXT}", nil];
 }
 
 @end
