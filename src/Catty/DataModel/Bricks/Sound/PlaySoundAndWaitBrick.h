@@ -20,27 +20,12 @@
  *  along with this program.  If not, see http://www.gnu.org/licenses/.
  */
 
-import Foundation
 
-public class Expectation: NSObject {
-    public private(set) var isFulfilled = false
-    private let state = NSCondition()
+#import "Brick.h"
+#import "BrickSoundProtocol.h"
 
-    public func fulfill() {
-        state.lock()
-        isFulfilled = true
-        state.broadcast()
-        state.unlock()
-    }
+@class Sound;
 
-    public func wait(until limit: Date = Date.distantFuture) {
-        state.lock()
-        while !isFulfilled {
-            if Date() > limit {
-                break
-            }
-            state.wait(until: limit)
-        }
-        state.unlock()
-    }
-}
+@interface PlaySoundAndWaitBrick : Brick<BrickSoundProtocol>
+@property (nonatomic, strong) Sound *sound;
+@end
