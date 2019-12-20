@@ -18,4 +18,4 @@ jobs:
       run: curl \
         -F \"files[catty/Localizable.strings]=@src/Catty/Resources/Localization/en.lproj/Localizable.strings\" \
         -F \"export_patterns[catty/Localizable.strings]=/catty/%osx_code%/%original_file_name%\" \
-        https://api.crowdin.com/api/project/catrobat/update-file?key=$CROWDIN_KEY
+        https://api.crowdin.com/api/project/githubactionstest/update-file?key=$CROWDIN_KEY
