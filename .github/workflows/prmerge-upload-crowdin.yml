@@ -7,7 +7,7 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
@@ -15,4 +15,7 @@ jobs:
       if: github.event.pull_request.merged == true
       env:
         CROWDIN_KEY: ${{ secrets.CROWDIN_API }}
-      run: cd src && fastlane crowdin_upload
+      run: curl \
+        -F \"files[catty/Localizable.strings]=@src/Catty/Resources/Localization/en.lproj/Localizable.strings\" \
+        -F \"export_patterns[catty/Localizable.strings]=/catty/%osx_code%/%original_file_name%\" \
+        https://api.crowdin.com/api/project/catrobat/update-file?key=$CROWDIN_KEY
