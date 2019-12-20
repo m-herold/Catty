@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Upload Localization to Crowdin by fastlane
+    - name: Upload Localization to Crowdin
       if: github.event.pull_request.merged == true
       env:
         CROWDIN_KEY: ${{ secrets.CROWDIN_API }}
