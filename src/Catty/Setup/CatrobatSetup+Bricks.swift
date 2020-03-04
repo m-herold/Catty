@@ -175,5 +175,4 @@
 
     private static func isFavouritesCategoryAvailable() -> Bool {
         return Util.getBrickInsertionDictionaryFromUserDefaults()?.count ?? 0 >= kMinFavouriteBrickSize
-    }
-}
+    }}
