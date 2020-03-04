@@ -58,5 +58,4 @@ extension CatrobatSetup {
             ArduinoAnalogPinFunction(bluetoothServiceGetter: { bluetoothService }),
             ArduinoDigitalPinFunction(bluetoothServiceGetter: { bluetoothService })
         ]
-    }
-}
+    }}
