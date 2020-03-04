@@ -22,7 +22,7 @@
 
 extension CatrobatSetup {
 
-    static func registeredFunctions(touchManager: TouchManagerProtocol, bluetoothService: BluetoothService) -> [Function] {
+    static func registeredFunctions(touchManager: TouchManagerProtocol, bluetoothService: BluetoothService) -> [Function]{
         return [
             SinFunction(),
             CosFunction(),
