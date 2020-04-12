@@ -40,7 +40,7 @@ class RegularExpressionFunction: DoubleParameterStringFunction {
     }
 
     func formulaEditorSections() -> [FormulaEditorSection] {
-        return  [.math(position: type(of: self).position)]
+        return [.math(position: type(of: self).position)]
     }
 
     func regularExpression(pattern: String, longText: String) -> String {
