@@ -33,7 +33,7 @@ class RegularExpressionFunction: DoubleParameterStringFunction {
     func firstParameter() -> FunctionParameter { .string(defaultValue: " an? ([^ .]+)") }
 
     func secondParameter() -> FunctionParameter { .string(defaultValue: "I am a panda") }
-    
+
     func formulaEditorSections() -> [FormulaEditorSection] { [.math(position: type(of: self).position)] }
 
     func value(firstParameter: AnyObject?, secondParameter: AnyObject?) -> String {
