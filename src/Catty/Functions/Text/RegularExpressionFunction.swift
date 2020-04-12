@@ -33,7 +33,7 @@ class RegularExpressionFunction: DoubleParameterStringFunction {
     }
 
     func firstParameter() -> FunctionParameter {
-        return  .string(defaultValue: " an? ([^ .]+)")
+        return .string(defaultValue: " an? ([^ .]+)")
     }
 
     func secondParameter() -> FunctionParameter {
