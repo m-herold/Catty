@@ -33,11 +33,11 @@ class LetterFunction: DoubleParameterStringFunction {
     }
 
     func firstParameter() -> FunctionParameter {
-        .number(defaultValue: 1)
+        return .number(defaultValue: 1)
     }
 
     func secondParameter() -> FunctionParameter {
-        .string(defaultValue: "hello world")
+        return .string(defaultValue: "hello world")
     }
 
     func value(firstParameter: AnyObject?, secondParameter: AnyObject?) -> String {
