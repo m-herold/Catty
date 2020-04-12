@@ -33,11 +33,11 @@ class RegularExpressionFunction: DoubleParameterStringFunction {
     }
 
     func firstParameter() -> FunctionParameter {
-        return .string(defaultValue: " an? ([^ .]+)")
+        return  .string(defaultValue: " an? ([^ .]+)")
     }
 
     func secondParameter() -> FunctionParameter {
-        return .string(defaultValue: "I am a panda")
+        return  .string(defaultValue: "I am a panda")
     }
 
     func value(firstParameter: AnyObject?, secondParameter: AnyObject?) -> String {
@@ -48,7 +48,7 @@ class RegularExpressionFunction: DoubleParameterStringFunction {
     }
 
     func formulaEditorSections() -> [FormulaEditorSection] {
-        return [.math(position: type(of: self).position)]
+        return  [.math(position: type(of: self).position)]
     }
 
     func regularExpression(pattern: String, longText: String) -> String {
