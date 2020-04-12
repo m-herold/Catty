@@ -3,8 +3,7 @@ name: swiftlint
 on:
   pull_request:
     paths:
-      - '.github/workflows/swiftlint.yml'
-      - 'src/RunScripts/.swiftlint.yml'
+      - '--config RunScripts/.swiftlint.yml'
       - '**/*.swift'
 
 jobs:
