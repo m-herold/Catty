@@ -12,7 +12,7 @@ whitelist_rules:
  - closure_parameter_position
  - closure_spacing
  - colon
- #- comma
+ - comma
  - compiler_protocol_init
  #- conditional_returns_on_newline
  - contains_over_first_not_nil
