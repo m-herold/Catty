@@ -275,6 +275,7 @@ let kLocalizedArduinoBricksDescription = NSLocalizedString("Allow the app to con
 //**********************************       LONG DESCRIPTIONS      ********************************************
 //************************************************************************************************************
 
+
 let kLocalizedAboutPocketCodeDescription = NSLocalizedString("Pocket Code is a programming environment for iOS for the visual programming language Catrobat. The code of Pocket Code is mostly under GNU AGPL v3 licence. For further information to the licence please visit following links:", comment: "")
 let kLocalizedTermsOfUseDescription = NSLocalizedString("In order to be allowed to use Pocket Code and other executables offered by the Catrobat project, you must agree to our Terms of Use and strictly follow them when you use Pocket Code and our other executables. Please see the link below for their precise formulation.", comment: "")
 let kLocalizedNotEnoughFreeMemoryDescription = NSLocalizedString("Not enough free memory to download this project. Please delete some of your projects", comment: "")
