@@ -42,8 +42,6 @@ class RegularExpressionFunction: DoubleParameterStringFunction {
 
         return self.regularExpression(pattern: pattern, longText: longText)
     }
-    
-    
 
     func regularExpression(pattern: String, longText: String) -> String {
         var finalResult = RegularExpressionFunction.defaultValue
