@@ -271,6 +271,8 @@ let kLocalizedDisconnectBluetoothDevices = NSLocalizedString("All Bluetooth devi
 let kLocalizedRemovedKnownBluetoothDevices = NSLocalizedString("All known Bluetooth devices successfully removed", comment: "")
 let kLocalizedArduinoBricksDescription = NSLocalizedString("Allow the app to control Arduino boards", comment: "")
 
+
+
 //************************************************************************************************************
 //**********************************       LONG DESCRIPTIONS      ********************************************
 //************************************************************************************************************
