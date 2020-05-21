@@ -8,5 +8,5 @@ verifyTitles:
   titleRegexp: ^CATTY-[0-9]{3,4} .+$
   alwaysUsePrTitle: false
   validateEitherPrOrSingleCommitTitle: false
-  statusTitle: "${type} validator"
-  failureMessage: "Invalid ${type}. Expected: ${regex}. Actual: ${title}. Please correct message."
+  statusTitle: "Commit validator"
+  failureMessage: "Expected: ${regex}. Actual: ${title}"
