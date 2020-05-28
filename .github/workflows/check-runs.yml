@@ -10,8 +10,5 @@ jobs:
       if: always()
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        name: Name
-        conclusion: action_required
-        output:
-          summary: Summary
-          text_description: Description
+        name: Test XYZ
+        conclusion: "action_required"
