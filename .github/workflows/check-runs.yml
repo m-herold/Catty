@@ -1,4 +1,4 @@
-name: "build-test"
+name: "Check Runs"
 on: [pull_request]
 
 jobs:
@@ -10,8 +10,8 @@ jobs:
       if: always()
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        name: Test XYZ
-        conclusion: ${{ job }}
+        name: 'Name '
+        conclusion: 'action_required'
         output:
           summary: 'Summary'
           text_description: 'Description'
