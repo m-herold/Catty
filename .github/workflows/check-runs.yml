@@ -12,3 +12,4 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Test XYZ
         conclusion: "action_required"
+        action_url: "https://jira.catrob.at" 
