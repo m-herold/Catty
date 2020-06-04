@@ -1,6 +1,9 @@
 jira:
-    url: 'https://jira.catrob.at'
-    status: 'Merged'
+  url: 'https://jira.catrob.at'
+  status: 'Merged'
     
-pull_requests:
-    regular_expression: '(CATTY-[0-9]{2,3}) .*'
+pull_request_title_check:
+  regular_expression: '(CATTY-[0-9]{2,3}) .*'
+  
+status_check:
+  label: 'PO Review required'
