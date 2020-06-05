@@ -1,5 +1,5 @@
 jira:
-  url: 'https://jira.catrob.at'
+  url: 'https://jira-test.catrob.at'
   status: 'Merged'
     
 pull_request_title_check:
