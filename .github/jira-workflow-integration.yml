@@ -8,7 +8,3 @@ pull_request_title_check:
 status_check:
   label: 'PO Review required'
   target_url: 'https://jira-test.catrob.at/browse/{issue}'
-
-  pending:
-    title: 'Jira ticket is still in invalid workflow status'
-    description: 'Expected workflow status: `{status}`'
