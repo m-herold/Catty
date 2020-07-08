@@ -1,7 +1,6 @@
 jira:
   url: 'https://jira-test.catrob.at'
-  status: 
-    - 'Merged'
+  status: 'Merged'
     
 pull_request_title_check:
   regular_expression: '((CATTY|JENKINS)-[0-9]{1,3}) .*'
