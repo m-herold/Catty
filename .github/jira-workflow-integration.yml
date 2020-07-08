@@ -10,5 +10,5 @@ status_check:
   target_url: 'https://jira-test.catrob.at/browse/{issue}'
 
   pending:
-    title: '<a href="#">Jira ticket</a> is still in invalid workflow status'
+    title: 'Jira ticket is still in invalid workflow status'
     description: 'Expected workflow status: `{status}`'
