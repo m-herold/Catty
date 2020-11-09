@@ -29,6 +29,7 @@
     var value: Any?
     var textLabel: SKLabelNode?
     var isList: Bool
+    var test: Bool
 
     init(name: String) {
         self.name = name
