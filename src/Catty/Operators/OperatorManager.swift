@@ -24,12 +24,9 @@
 
     public static var defaultValueForUndefinedOperator: Double = 0
     private static var operatorMap = [String: Operator]()
-
     public required init(operators: [Operator]) {
         super.init()
-        registerOperators(operatorList: operators)
-    }
-
+        registerOperators(operatorList: operators)}
     private func registerOperators(operatorList: [Operator]) {
         type(of: self).operatorMap.removeAll()
         operatorList.forEach { type(of: self).operatorMap[type(of: $0).tag] = $0 }
