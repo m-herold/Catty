@@ -13,4 +13,6 @@ jobs:
       - name: GitHub Action for SwiftLint
         uses: m-herold/action-swiftlint@3.1.1
         with:
-          args: --config src/.swiftlint.yml --strict
+          args: --config .swiftlint.yml --strict
+        env:
+          WORKING_DIRECTORY: src
