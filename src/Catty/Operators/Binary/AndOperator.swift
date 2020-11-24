@@ -24,7 +24,7 @@
 
     @objc static var tag = "LOGICAL_AND"
     static var name = kUIFEOperatorAnd
-    static var priority = 2
+    static var priority =2
     static var position = 7
 
     func value(left: AnyObject, right: AnyObject) -> Bool {
