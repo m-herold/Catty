@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: GitHub Action for SwiftLint
-        uses: norio-nomura/action-swiftlint@3.1.0
+        uses: m-herold/action-swiftlint@3.1.1
         with:
-          args: --path src --config src/RunScripts/.swiftlint.yml --strict
+          args: --config .swiftlint.yml --strict
