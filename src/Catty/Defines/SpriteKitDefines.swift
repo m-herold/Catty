@@ -32,6 +32,7 @@ class SpriteKitDefines: NSObject {
     static let defaultPenColor = UIColor(red: 0, green: 0, blue: 255)
     static let penShapeNodeName = "penShapeNode"
     static let stampedSpriteNodeName = "stampedSpriteNode"
+    static let physicsNodeName = "physicsNodeName"
 
     static let defaultValueShowVariable = "0"
 
