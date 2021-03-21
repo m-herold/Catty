@@ -27,7 +27,7 @@ class CBSpriteNode: SKSpriteNode {
     @objc var spriteObject: SpriteObject
     @objc var currentLook: Look? {
         didSet {
-            setPhyicsBody()
+            initPhyicsBody()
 
             guard let stage = self.scene as? StageProtocol else { return }
             if !self.spriteObject.isBackground() { return }
@@ -44,8 +44,6 @@ class CBSpriteNode: SKSpriteNode {
     @objc var filterDict = ["brightness": false, "color": false]
     @objc var ciBrightness = CGFloat(BrightnessSensor.defaultRawValue) // CoreImage specific brightness
     @objc var ciHueAdjust = CGFloat(ColorSensor.defaultRawValue) // CoreImage specific hue adjust
-
-    @objc static let physicsSubnodesPerDimension = 2
 
     // MARK: Custom getters and setters
     @objc func setPositionForCropping(_ position: CGPoint) {
@@ -261,31 +259,27 @@ class CBSpriteNode: SKSpriteNode {
         return false
     }
 
-    private func setPhyicsBody() {
-        guard let objectName = self.spriteObject.name, isPhysicsObject() else { return }
-
-        self.enumerateChildNodes(withName: SpriteKitDefines.physicsNodeName) { node, _ in
-            node.removeFromParent()
-        }
+    private func initPhyicsBody() {
+        guard let sceneView = self.scene?.view, isPhysicsObject() else { return }
 
         let start = NSDate()
 
+        var physicsBodies: [SKPhysicsBody] = []
         let originalTexture = self.texture!
 
         let size = originalTexture.size()
+        let physicsSubnodesPerDimension = Int((size.height > size.width ? size.height : size.width / CGFloat(SpriteKitDefines.physicsSubnodeSize)).rounded(.up))
+
         let leftCornerX = (-size.width / 2)
         let bottomCornerY = (-size.height / 2)
-        let childNodeWidth = (size.width / CGFloat(CBSpriteNode.physicsSubnodesPerDimension))
-        let childNodeHeight = (size.height / CGFloat(CBSpriteNode.physicsSubnodesPerDimension))
+        let childNodeWidth = (size.width / CGFloat(physicsSubnodesPerDimension))
+        let childNodeHeight = (size.height / CGFloat(physicsSubnodesPerDimension))
         let childNodeSize = CGSize(width: childNodeWidth, height: childNodeHeight)
-        let childNodeHeightRelative = 1.0 / CGFloat(CBSpriteNode.physicsSubnodesPerDimension)
-        let childNodeWidthRelative = 1.0 / CGFloat(CBSpriteNode.physicsSubnodesPerDimension)
+        let childNodeHeightRelative = 1.0 / CGFloat(physicsSubnodesPerDimension)
+        let childNodeWidthRelative = 1.0 / CGFloat(physicsSubnodesPerDimension)
 
-        let superNode = SKSpriteNode(color: .clear, size: size)
-        superNode.name = SpriteKitDefines.physicsNodeName
-
-        for y in 0..<CBSpriteNode.physicsSubnodesPerDimension {
-            for x in 0..<CBSpriteNode.physicsSubnodesPerDimension {
+        for y in 0..<physicsSubnodesPerDimension {
+            for x in 0..<physicsSubnodesPerDimension {
                 let dX = childNodeWidth * CGFloat(x)
                 let dY = childNodeHeight * CGFloat(y)
 
@@ -293,28 +287,36 @@ class CBSpriteNode: SKSpriteNode {
                 let dYRelative = childNodeHeightRelative * CGFloat(y)
 
                 let rect = CGRect(x: dXRelative, y: dYRelative, width: childNodeWidthRelative, height: childNodeHeightRelative)
-
                 let texture = SKTexture(rect: rect, in: originalTexture)
 
-                let physicsBodyJoint: SKPhysicsBody? = SKPhysicsBody(texture: texture, size: childNodeSize)
-                guard physicsBodyJoint != nil else { continue }
-
-                let node = SKSpriteNode(color: .clear, size: childNodeSize)
-                node.name = objectName
+                let node = SKSpriteNode(texture: texture, color: .clear, size: childNodeSize)
                 node.position.x = leftCornerX + childNodeWidth / 2 + dX
                 node.position.y = bottomCornerY + childNodeHeight / 2 + dY
 
-                node.physicsBody = physicsBodyJoint
-                node.physicsBody?.collisionBitMask = 0
-                node.physicsBody?.categoryBitMask = 1
-                node.physicsBody?.contactTestBitMask = 1
-                node.physicsBody?.isDynamic = true
-                node.physicsBody?.affectedByGravity = false
-                superNode.addChild(node)
+                let fullSizeNode = SKSpriteNode(color: .clear, size: size)
+                fullSizeNode.setScale(0.2)
+                fullSizeNode.addChild(node)
+
+                if let fullSizeTexture = sceneView.texture(from: fullSizeNode) {
+                    let physicsBody: SKPhysicsBody? = SKPhysicsBody(texture: fullSizeTexture, size: size)
+                    if let physicsBody = physicsBody {
+                        physicsBodies.append(physicsBody)
+                    }
+                }
             }
         }
 
-        self.addChild(superNode)
+        let physicsBody: SKPhysicsBody? = SKPhysicsBody(texture: originalTexture, size: size)
+        if let physicsBody = physicsBody {
+            physicsBodies.append(physicsBody)
+        }
+
+        self.physicsBody = SKPhysicsBody(bodies: physicsBodies)
+        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.categoryBitMask = 1
+        self.physicsBody?.contactTestBitMask = 1
+        self.physicsBody?.isDynamic = true
+        self.physicsBody?.affectedByGravity = false
 
         let end = NSDate()
         print("Executed in " + String(end.timeIntervalSince(start as Date)))

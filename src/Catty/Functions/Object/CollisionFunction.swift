@@ -52,14 +52,10 @@ import UIKit
             return 0.0
         }
 
-        guard let physicsNode = spriteObject.spriteNode.childNode(withName: SpriteKitDefines.physicsNodeName) else { return 0.0 }
-
-        for child in physicsNode.children {
-            if let unwrapped_allContactedBodies = child.physicsBody?.allContactedBodies() {
-                if child.physicsBody?.allContactedBodies().count ?? 0 > 0 {
-                    if checkForContact(contactedBodies: unwrapped_allContactedBodies, parameter: value) {
-                        return 1.0
-                    }
+        if let allContactedBodies = spriteObject.spriteNode.physicsBody?.allContactedBodies() {
+            if allContactedBodies.isNotEmpty {
+                if checkForContact(contactedBodies: allContactedBodies, parameter: value) {
+                    return 1.0
                 }
             }
         }
